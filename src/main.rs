@@ -31,7 +31,7 @@ fn set_credits_header(song_title: &str) -> String {
 }
 
 fn create_output_file(song_title: &str) -> Result<File, io::Error> {
-    let credits_file = format!("{}_credits.md", song_title.replace(' ', "_"));
+    let credits_file = format!("{}-credits.md", song_title.replace(' ', "-"));
     let file = match File::create(&credits_file) {
         Ok(file) => file,
         Err(error) => panic!("Problem creating the file: {credits_file}. Error: {error}"),
