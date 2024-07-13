@@ -72,7 +72,7 @@ usage:
 <samples path> a valid path to the samples directory.
 <song title> e.g: \"Amazing song\"
 <song date> e.g: \"2017-10-28\"
-<artist> . e.g: \"Amazing Artist\"
+<artist> e.g: \"Amazing Artist\"
 "
     );
 }
