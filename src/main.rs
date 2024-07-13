@@ -8,12 +8,10 @@ fn set_frontmatter(song_title: &str, song_date: &str, song_artist: &str) -> Stri
     format!(
         "+++
 title=\"{song_title} Freesound Credits\"
-date={song_date}
-
+date={song_date}\n
 [taxonomies]
 tags=[\"Freesound\", \"{song_artist}\", \"Credits\"]
-+++
-
++++\n
 "
     )
 }
