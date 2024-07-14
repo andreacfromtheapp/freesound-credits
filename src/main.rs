@@ -47,7 +47,7 @@ fn get_list_of_samples(samples_path: &String) -> Vec<String> {
 
     for entry in path.read_dir().expect("read_dir call failed").flatten() {
         if entry.path().is_file() || entry.path().is_dir() {
-            let mut sample = format!("{:?}", entry.path().file_name().unwrap());
+            let mut sample = format!("{:?}", entry.path().file_stem().unwrap());
             sample = sample.replace(&['(', ')', '"'][..], "");
 
             // this is specific to Ableton projects
