@@ -52,13 +52,16 @@ fn get_list_of_samples(samples_path: &String) -> Vec<String> {
 
             // this is specific to Ableton projects
             if let Some(extension) = entry.path().extension() {
-                if extension != "asd" && sample.chars().next().unwrap().is_numeric() {
+                if extension != "asd"
+                    && sample.chars().next().unwrap().is_numeric()
+                    && sample.contains('_')
+                {
                     samples_raw_vector.push(sample);
                 }
             // this is specific to Renoise projects
             } else if sample.contains("Instrument") {
                 sample = sample.split(' ').last().unwrap().to_string();
-                if sample.chars().next().unwrap().is_numeric() {
+                if sample.chars().next().unwrap().is_numeric() && sample.contains('_') {
                     samples_raw_vector.push(sample);
                 }
             }
