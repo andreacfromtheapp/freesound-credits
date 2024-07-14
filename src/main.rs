@@ -8,22 +8,26 @@ fn set_frontmatter(song_title: &str, song_date: &str, song_artist: &str) -> Stri
     format!(
         "+++
 title=\"{song_title} Freesound Credits\"
-date={song_date}\n
+date={song_date}
+
 [taxonomies]
 tags=[\"Freesound\", \"{song_artist}\", \"Credits\"]
-+++\n
++++
+
 "
     )
 }
 
 fn set_credits_header(song_title: &str) -> String {
     format!(
-        "## Credits\n
+        "## Credits
+
 *{song_title}* includes the following samples from 
 [Freesound](https://freesound.org). Used under a
 [Creative Commons](https://creativecommons.org)
 [CC-BY](https://creativecommons.org/licenses/by/4.0/) or
-[CC-0](https://creativecommons.org/publicdomain/zero/1.0/) license:\n
+[CC-0](https://creativecommons.org/publicdomain/zero/1.0/) license:
+
 ",
     )
 }
