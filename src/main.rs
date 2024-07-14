@@ -1,6 +1,7 @@
 use std::env;
 use std::fs::File;
 use std::io::{self, Write};
+use std::iter::FromIterator;
 use std::path::Path;
 use std::process;
 
@@ -70,6 +71,26 @@ fn get_list_of_samples(samples_path: &String) -> Vec<String> {
     samples_raw_vector
 }
 
+fn set_credit_line(line: &str) -> String {
+    let mut credit_line_vector: Vec<&str> = vec![];
+
+    if line.contains("__") {
+        credit_line_vector = line.split("__").collect();
+    } else if line.contains('_') {
+        credit_line_vector = line.split('_').collect();
+    }
+
+    let credit_id = credit_line_vector.first().unwrap().to_string();
+    let credit_artist = credit_line_vector.get(1).unwrap().to_string();
+    let credit_sound_parts_to_end = Vec::from_iter(credit_line_vector[2..].iter().cloned());
+    let credit_sound = credit_sound_parts_to_end.join("_");
+
+    let credit_line = format!(
+        "- [{credit_sound}](https://freesound.org/people/{credit_artist}/sounds/{credit_id}/)\n",
+    );
+    credit_line
+}
+
 fn usage() {
     println!(
         "
@@ -90,8 +111,6 @@ fn main() {
     let song_title;
     let song_date;
     let song_artist;
-
-    let mut credit_line: Vec<&str> = vec![];
 
     match args.len() - 1 {
         4 => {
@@ -114,21 +133,11 @@ fn main() {
         write!(output, "{}", frontmatter).expect("NO FRONTMATTER");
         write!(output, "{}", header).expect("NO HEADER");
 
-        // iterate the samples_raw_vector for each sample entry
         for line in get_list_of_samples(samples_path).iter() {
-            if line.contains("__") {
-                credit_line = line.split("__").collect();
-            } else if line.contains('_') {
-                credit_line = line.split('_').collect();
-            }
-
-            // use the ID and Artist and Sample names to compose the credit URL
-            let credit_line = format!(
-                "- <https://freesound.org/people/{}/sounds/{}/>\n",
-                credit_line[1], credit_line[0]
-            );
+            let credit_line = set_credit_line(line);
             write!(output, "{}", credit_line).expect("NO CREDITS")
         }
+
         writeln!(output).expect("NO NEW LINE")
     }
 }
