@@ -5,6 +5,9 @@ use std::iter::FromIterator;
 use std::path::Path;
 use std::process;
 
+const PKG_NAME: &str = env!("CARGO_PKG_NAME");
+const PKG_VER: &str = env!("CARGO_PKG_VERSION");
+
 fn set_frontmatter(song_title: &str, song_date: &str, song_artist: &str) -> String {
     format!(
         "+++
@@ -94,8 +97,10 @@ fn set_credit_line(line: &str) -> String {
 fn usage() {
     println!(
         "
+{PKG_NAME} {PKG_VER}
+
 usage: 
-        freesound_samples_credit <samples path> <song title> <song date> <artist>
+        {PKG_NAME} <samples path> <song title> <song date> <artist>
 
 <samples path> a valid path to the samples directory.
 <song title> e.g: \"Amazing song\"
