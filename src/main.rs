@@ -49,9 +49,19 @@ fn get_list_of_samples(samples_path: &String) -> Vec<String> {
     let path = Path::new(&samples_path);
     let mut samples_raw_vector: Vec<String> = vec![];
 
-    for entry in path.read_dir().expect("read_dir call failed").flatten() {
+    for entry in path
+        .read_dir()
+        .expect("Error: can't list samples from the provided path")
+        .flatten()
+    {
         if entry.path().is_file() || entry.path().is_dir() {
-            let mut sample = format!("{:?}", entry.path().file_stem().unwrap());
+            let mut sample = format!(
+                "{:?}",
+                entry
+                    .path()
+                    .file_stem()
+                    .expect("Error: cannot read the sample file name")
+            );
             sample = sample.replace(&['(', ')', '"'][..], "");
 
             // this is specific to Ableton projects
@@ -64,7 +74,11 @@ fn get_list_of_samples(samples_path: &String) -> Vec<String> {
                 }
             // this is specific to Renoise projects
             } else if sample.contains("Instrument") {
-                sample = sample.split_whitespace().last().unwrap().to_string();
+                sample = sample
+                    .split_whitespace()
+                    .last()
+                    .expect("Error: can't split file name into sample string")
+                    .to_string();
                 if sample.chars().next().unwrap().is_numeric() && sample.contains('_') {
                     samples_raw_vector.push(sample);
                 }
@@ -83,8 +97,14 @@ fn set_credit_line(line: &str) -> String {
         credit_line_vector = line.split('_').collect();
     }
 
-    let credit_id = credit_line_vector.first().unwrap().to_string();
-    let credit_artist = credit_line_vector.get(1).unwrap().to_string();
+    let credit_id = credit_line_vector
+        .first()
+        .expect("Error: can't read credit ID")
+        .to_string();
+    let credit_artist = credit_line_vector
+        .get(1)
+        .expect("Error: can't read credit artist")
+        .to_string();
     let credit_sound_parts_to_end = Vec::from_iter(credit_line_vector[2..].iter().cloned());
     let credit_sound = credit_sound_parts_to_end.join("_");
 
@@ -135,14 +155,14 @@ fn main() {
         let frontmatter: String = set_frontmatter(song_title, song_date, song_artist);
         let header: String = set_credits_header(song_title);
 
-        write!(output, "{}", frontmatter).expect("NO FRONTMATTER");
-        write!(output, "{}", header).expect("NO HEADER");
+        write!(output, "{}", frontmatter).expect("Error: I could not write the frontmatter");
+        write!(output, "{}", header).expect("Error: I could not write the header");
 
         for line in get_list_of_samples(samples_path).iter() {
             let credit_line = set_credit_line(line);
-            write!(output, "{}", credit_line).expect("NO CREDITS")
+            write!(output, "{}", credit_line).expect("Error: I could not write the credit");
         }
 
-        writeln!(output).expect("NO NEW LINE")
+        writeln!(output).expect("Error: I could not write the trailing white line");
     }
 }
