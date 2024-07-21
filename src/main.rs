@@ -33,7 +33,10 @@ fn set_credits_header(song_title: &str) -> String {
 }
 
 fn create_output_file(song_title: &str) -> Result<File, io::Error> {
-    let credits_file = format!("{}-credits.md", song_title.replace(' ', "-").to_lowercase());
+    let credits_file = format!(
+        "{}-credits.md",
+        song_title.replace(&[' ', '\''][..], "-").to_lowercase()
+    );
     let file = match File::create(&credits_file) {
         Ok(file) => file,
         Err(error) => panic!("Problem creating the file: {credits_file}. Error: {error}"),
@@ -58,7 +61,7 @@ fn get_list_of_samples(samples_path: &str) -> Vec<String> {
                     .file_stem()
                     .expect("Error: cannot read the sample file name")
             );
-            sample = sample.replace(&['(', ')', '"'][..], "");
+            sample = sample.replace(&['(', ')', '\'', '"'][..], "");
 
             // this is specific to Ableton projects
             if let Some(extension) = entry.path().extension() {
