@@ -1,12 +1,8 @@
-use std::env;
+use clap::Parser;
 use std::fs::File;
 use std::io::{self, Write};
 use std::iter::FromIterator;
 use std::path::Path;
-use std::process;
-
-const PKG_NAME: &str = env!("CARGO_PKG_NAME");
-const PKG_VER: &str = env!("CARGO_PKG_VERSION");
 
 fn set_frontmatter(song_title: &str, song_date: &str, song_artist: &str) -> String {
     format!(
@@ -45,7 +41,7 @@ fn create_output_file(song_title: &str) -> Result<File, io::Error> {
     Ok(file)
 }
 
-fn get_list_of_samples(samples_path: &String) -> Vec<String> {
+fn get_list_of_samples(samples_path: &str) -> Vec<String> {
     let path = Path::new(&samples_path);
     let mut samples_raw_vector: Vec<String> = vec![];
 
@@ -114,51 +110,38 @@ fn set_credit_line(line: &str) -> String {
     credit_line
 }
 
-fn usage() {
-    println!(
-        "
-{PKG_NAME} {PKG_VER}
+/// Simple program to generate Freesound credits in a usable markdown file
+#[derive(Parser, Debug)]
+#[command(version, about, long_about = None)]
+struct Args {
+    /// Path to the samples directory
+    #[arg(short, long)]
+    path: String,
 
-usage: 
-        {PKG_NAME} <samples path> <song title> <song date> <artist>
+    /// Song title (quote multiple words)
+    #[arg(short, long)]
+    title: String,
 
-<samples path> a valid path to the samples directory.
-<song title> e.g: \"Amazing song\"
-<song date> e.g: \"2017-10-28\"
-<artist> e.g: \"Amazing Artist\"
-"
-    );
+    /// Song release date (quote multiple words)
+    #[arg(short, long)]
+    date: String,
+
+    /// Song artist (quote multiple words)
+    #[arg(short, long)]
+    artist: String,
 }
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
-    let samples_path;
-    let song_title;
-    let song_date;
-    let song_artist;
+    let args = Args::parse();
 
-    match args.len() - 1 {
-        4 => {
-            samples_path = &args[1];
-            song_title = &args[2];
-            song_date = &args[3];
-            song_artist = &args[4];
-        }
-        _ => {
-            usage();
-            // exit 0
-            process::exit(0x0100);
-        }
-    };
-
-    if let Ok(mut output) = create_output_file(song_title) {
-        let frontmatter: String = set_frontmatter(song_title, song_date, song_artist);
-        let header: String = set_credits_header(song_title);
+    if let Ok(mut output) = create_output_file(&args.title) {
+        let frontmatter: String = set_frontmatter(&args.title, &args.date, &args.artist);
+        let header: String = set_credits_header(&args.title);
 
         write!(output, "{}", frontmatter).expect("Error: I could not write the frontmatter");
         write!(output, "{}", header).expect("Error: I could not write the header");
 
-        for line in get_list_of_samples(samples_path).iter() {
+        for line in get_list_of_samples(&args.path).iter() {
             let credit_line = set_credit_line(line);
             write!(output, "{}", credit_line).expect("Error: I could not write the credit");
         }
