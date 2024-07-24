@@ -5,9 +5,8 @@ music projects.
 
 ## Notes
 
-- It works with Ableton and Renoise only.
-- It assumes samples licensed under a CC-BY and/or CC-0 only.
-- It assumes samples names adhere to Freesound standard naming.
+- It only works with Ableton and Renoise projects.
+- It only works with samples adhering to Freesound naming standard.
 
 ## Usage
 

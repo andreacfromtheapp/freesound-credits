@@ -23,10 +23,8 @@ fn set_credits_header(song_title: &str) -> String {
         "## Credits
 
 *{song_title}* includes the following samples from
-[Freesound](https://freesound.org). Used under a
-[Creative Commons](https://creativecommons.org)
-[CC-BY](https://creativecommons.org/licenses/by/4.0/) or
-[CC-0](https://creativecommons.org/publicdomain/zero/1.0/) license:
+[Freesound](https://freesound.org). Used under a [Creative
+Commons](https://creativecommons.org) license:
 
 ",
     )
