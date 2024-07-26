@@ -1,12 +1,13 @@
 # Freesound credits
 
 A command lines utility to credit [Freesound](https://freesound.org) samples in
-music projects.
+my music projects.
 
-## Notes
+## Notes (do not expect much)
 
 - It only works with Ableton and Renoise projects.
 - It only works with samples adhering to Freesound naming standard.
+- It is my first Rust attempt just to satisfy a very personal need.
 
 ## Usage
 
