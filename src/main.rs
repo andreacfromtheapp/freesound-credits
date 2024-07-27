@@ -130,16 +130,22 @@ struct Args {
     /// Song artist (quote multiple words)
     #[arg(short, long)]
     artist: String,
+
+    /// Include Zola frontmatter atop the markdown file
+    #[arg(short, long)]
+    zola: bool,
 }
 
 fn main() {
     let args = Args::parse();
 
     if let Ok(mut output) = create_output_file(&args.title) {
-        let frontmatter: String = set_frontmatter(&args.title, &args.date, &args.artist);
-        let header: String = set_credits_header(&args.title);
+        if args.zola {
+            let frontmatter: String = set_frontmatter(&args.title, &args.date, &args.artist);
+            write!(output, "{}", frontmatter).expect("Error: I could not write the frontmatter");
+        }
 
-        write!(output, "{}", frontmatter).expect("Error: I could not write the frontmatter");
+        let header: String = set_credits_header(&args.title);
         write!(output, "{}", header).expect("Error: I could not write the header");
 
         for line in get_list_of_samples(&args.path).iter() {

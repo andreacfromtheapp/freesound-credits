@@ -16,13 +16,14 @@ The command line comes with a straight-forward usage function:
 ```bash
 Simple program to generate Freesound credits in a usable markdown file
 
-Usage: freesound_credits --path <PATH> --title <TITLE> --date <DATE> --artist <ARTIST>
+Usage: freesound_credits [OPTIONS] --path <PATH> --title <TITLE> --date <DATE> --artist <ARTIST>
 
 Options:
   -p, --path <PATH>      Path to the samples directory
   -t, --title <TITLE>    Song title (quote multiple words)
   -d, --date <DATE>      Song release date (quote multiple words)
   -a, --artist <ARTIST>  Song artist (quote multiple words)
+  -z, --zola             Include Zola frontmatter atop the markdown file
   -h, --help             Print help
   -V, --version          Print version
 ```
