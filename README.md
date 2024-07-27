@@ -13,7 +13,7 @@ my music projects.
 
 The command line comes with a straight-forward usage function:
 
-```bash
+```text
 Simple program to generate Freesound credits in a usable markdown file
 
 Usage: freesound_credits [OPTIONS] --path <PATH> --title <TITLE> --date <DATE> --artist <ARTIST>
