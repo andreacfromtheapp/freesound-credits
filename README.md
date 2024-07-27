@@ -3,11 +3,11 @@
 A command lines utility to credit [Freesound](https://freesound.org) samples in
 my music projects.
 
-## Notes (do not expect much)
+## Notes (don't expect much)
 
 - It only works with Ableton and Renoise projects.
 - It only works with samples adhering to Freesound naming standard.
-- It is my first Rust attempt just to satisfy a very personal need.
+- It's my first Rust attempt just to satisfy a very personal need.
 
 ## Usage
 
