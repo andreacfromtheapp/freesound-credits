@@ -1,6 +1,6 @@
 use clap::Parser;
 use std::fs::File;
-use std::io::{self};
+use std::io::Error;
 use std::iter::FromIterator;
 use std::path::Path;
 
@@ -55,7 +55,7 @@ Commons](https://creativecommons.org) license:
     )
 }
 
-pub fn create_output_file(song_title: &str) -> Result<File, io::Error> {
+pub fn create_output_file(song_title: &str) -> Result<File, Error> {
     let credits_file = format!(
         "{}-credits.md",
         song_title.replace(&[' ', '\''][..], "-").to_lowercase()
