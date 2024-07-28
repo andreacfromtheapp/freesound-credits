@@ -10,12 +10,13 @@ fn main() {
 
     if let Ok(mut output) = create_output_file(&args.title) {
         if args.zola {
-            let frontmatter: String = set_frontmatter(&args.title, &args.date, &args.artist);
-            write!(output, "{}", frontmatter).expect("Error: I could not write the frontmatter");
+            let zola_frontmatter: String = set_frontmatter(&args.title, &args.date, &args.artist);
+            write!(output, "{}", zola_frontmatter)
+                .expect("Error: I could not write the Zola frontmatter");
         }
 
-        let header: String = set_credits_header(&args.title);
-        write!(output, "{}", header).expect("Error: I could not write the credits header");
+        let credits_header: String = set_credits_header(&args.title);
+        write!(output, "{}", credits_header).expect("Error: I could not write the credits header");
 
         for line in get_list_of_samples(&args.path).iter() {
             let credit_line = set_credit_line(line);
