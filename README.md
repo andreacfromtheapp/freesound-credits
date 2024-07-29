@@ -8,6 +8,7 @@ my music projects.
 - It only works with Ableton and Renoise projects.
 - It only works with samples adhering to Freesound naming standard.
 - It's my first Rust attempt just to satisfy a very personal need.
+- The code most certainly stinks and could be improved in the future.
 
 ## Usage
 
