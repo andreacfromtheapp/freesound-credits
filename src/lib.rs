@@ -56,11 +56,12 @@ pub struct Args {
     pub zola: bool,
 }
 
-/// Dervies a [Zola](https://www.getzola.org) page
+/// Derives a [Zola](https://www.getzola.org) page
+/// Derives a [Zola](https://www.getzola.org) page
 /// [frontmatter](https://www.getzola.org/documentation/content/page/#front-matter)
 /// header from given song details.
 ///
-/// The frontmatter is an header and it is placed atop the generated markdown file.
+/// The frontmatter is a header, and it is placed atop the generated markdown file.
 ///
 /// # Example
 ///
@@ -142,7 +143,7 @@ pub fn create_output_file(song_title: &str) -> Result<File, Error> {
     );
     let file = match File::create(&credits_file) {
         Ok(file) => file,
-        Err(error) => panic!("Problem creating the file: {credits_file}. Error: {error}"),
+        Err(_error) => panic!("Problem creating the file: {credits_file}. Error: {_error}"),
     };
     Ok(file)
 }
