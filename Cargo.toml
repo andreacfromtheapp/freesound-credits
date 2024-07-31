@@ -8,7 +8,7 @@ license = "MIT OR Apache-2.0"
 [dependencies]
 clap = { version = "4.5.9", features = ["derive"] }
 
-# this is unnecessary but I am sticking this here to remember about it
+# Sticking this here to remember about it.
 [profile.dev]
 opt-level = 0
 

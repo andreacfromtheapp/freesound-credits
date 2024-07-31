@@ -238,8 +238,8 @@ pub fn set_credit_line(line: &str) -> String {
         .get(1)
         .expect("Error: can't read credit artist")
         .to_string();
-    let credit_sound_parts_to_end = Vec::from_iter(credit_line_vector[2..].iter().cloned());
-    let credit_sound = credit_sound_parts_to_end.join("_");
+    let credit_parts_to_end = Vec::from_iter(credit_line_vector[2..].iter().cloned());
+    let credit_sound = credit_parts_to_end.join("_");
 
     let credit_line = format!(
         "- [{credit_sound}](https://freesound.org/people/{credit_artist}/sounds/{credit_id}/)\n",
