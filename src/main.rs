@@ -18,10 +18,10 @@ fn main() {
         let credits_header: String = set_credits_header(&args.title);
         write!(output, "{}", credits_header).expect("Error: I could not write the credits header");
 
-        for line in get_list_of_samples(&args.path).iter() {
-            let credit_line = set_credit_line(line);
-            write!(output, "{}", credit_line).expect("Error: I could not write the sample credit");
-        }
+        get_list_of_samples(&args.path).iter().for_each(|line| {
+            write!(output, "{}", set_credit_line(line))
+                .expect("Error: I could not write the sample credit");
+        });
 
         writeln!(output).expect("Error: I could not write the trailing white line");
     }
