@@ -4,6 +4,7 @@ use freesound_credits::{
 };
 use std::fs::File;
 use std::io::Write;
+use std::process;
 
 fn main() {
     let args = Args::parse();
@@ -28,6 +29,7 @@ fn main() {
 
         writeln!(output).expect("Error: I could not write the trailing white line");
     } else {
-        eprintln!("Problem creating the credits output file")
+        eprintln!("Problem creating the credits output file");
+        process::exit(1);
     }
 }
