@@ -26,8 +26,6 @@
 //!  ```
 
 use clap::Parser;
-use std::fs::File;
-use std::io::Error;
 use std::iter::FromIterator;
 use std::path::Path;
 
@@ -54,6 +52,20 @@ pub struct Args {
     /// Optionally include Zola frontmatter atop the markdown file
     #[arg(short, long)]
     pub zola: bool,
+}
+
+/// Derives the output filename from the song title and creates the file itself.
+///
+/// # Example
+///
+/// For a song titled "Field Notes" the resulting markdown file is `field-notes-credits.md`
+///
+pub fn set_filename(song_title: &str) -> String {
+    let credits_file = format!(
+        "{}-credits.md",
+        song_title.replace(&[' ', '\''][..], "-").to_lowercase()
+    );
+    credits_file
 }
 
 /// Derives a [Zola](https://www.getzola.org) page
@@ -109,7 +121,7 @@ tags=[\"Freesound\", \"{song_artist}\", \"Credits\"]
 ///
 /// ````
 ///
-pub fn set_credits_header(song_title: &str) -> String {
+pub fn set_header(song_title: &str) -> String {
     format!(
         "## Credits
 
@@ -119,33 +131,6 @@ Commons](https://creativecommons.org) license:
 
 ",
     )
-}
-
-/// Derives the output filename from the song title and creates the file itself.
-///
-/// # Notes
-///
-/// The markdown file is created in the actual directory you run this program from.
-///
-/// # Panics
-///
-/// An invalid destination path for the creation of the markdown file or insufficient
-/// permissions will cause the program to panic.
-///
-/// # Example
-///
-/// For a song titled "Field Notes" the resulting markdown file is `field-notes-credits.md`
-///
-pub fn create_output_file(song_title: &str) -> Result<File, Error> {
-    let credits_file = format!(
-        "{}-credits.md",
-        song_title.replace(&[' ', '\''][..], "-").to_lowercase()
-    );
-    let file = match File::create(&credits_file) {
-        Ok(file) => file,
-        Err(_error) => panic!("Problem creating the file: {credits_file}. Error: {_error}"),
-    };
-    Ok(file)
 }
 
 /// Scans the given directory for Freesound samples to credit.
@@ -221,7 +206,7 @@ pub fn get_list_of_samples(samples_path: &str) -> Vec<String> {
 /// - `69604__timkahn__subverse_whisper.wav` # new standard with double _
 /// - `2166_suburban_grilla_bowl_struck.flac` # old standard with single _
 ///
-pub fn set_credit_line(line: &str) -> String {
+pub fn set_credit(line: &str) -> String {
     let mut credit_line_vector: Vec<&str> = vec![];
 
     if line.contains("__") {
