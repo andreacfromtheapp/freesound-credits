@@ -61,7 +61,7 @@ pub struct Args {
 /// For a song titled “Field Notes” the resulting markdown file is `field-notes-credits.md`
 ///
 pub fn set_filename(song_title: &str) -> String {
-    let credits_file = format!(
+    let credits_file: String = format!(
         "{}-credits.md",
         song_title.replace(&[' ', '\''][..], "-").to_lowercase()
     );
@@ -151,7 +151,7 @@ Commons](https://creativecommons.org) license:
 /// `Instrument`. Pass the `--path` to the `SamplesData` directory.
 ///
 pub fn get_list_of_samples(samples_path: &str) -> Vec<String> {
-    let path = Path::new(&samples_path);
+    let path: &Path = Path::new(&samples_path);
     let mut samples_raw_vector: Vec<String> = vec![];
 
     for entry in path
@@ -160,7 +160,7 @@ pub fn get_list_of_samples(samples_path: &str) -> Vec<String> {
         .flatten()
     {
         if entry.path().is_file() || entry.path().is_dir() {
-            let mut sample = format!(
+            let mut sample: String = format!(
                 "{:?}",
                 entry
                     .path()
@@ -213,18 +213,20 @@ pub fn set_credit(line: &str) -> String {
         credit_line_vector = line.split('_').collect();
     }
 
-    let credit_id = credit_line_vector
+    let credit_id: String = credit_line_vector
         .first()
         .expect("Error: can't read credit ID")
         .to_string();
-    let credit_artist = credit_line_vector
+
+    let credit_artist: String = credit_line_vector
         .get(1)
         .expect("Error: can't read credit artist")
         .to_string();
-    let credit_parts_to_end = Vec::from_iter(credit_line_vector[2..].iter().cloned());
-    let credit_sound = credit_parts_to_end.join("_");
 
-    let credit_line = format!(
+    let credit_parts_to_end: Vec<&str> = Vec::from_iter(credit_line_vector[2..].iter().cloned());
+    let credit_sound: String = credit_parts_to_end.join("_");
+
+    let credit_line: String = format!(
         "- [{credit_sound}](https://freesound.org/people/{credit_artist}/sounds/{credit_id}/)\n",
     );
     credit_line

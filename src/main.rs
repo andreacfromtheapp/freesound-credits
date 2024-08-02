@@ -7,10 +7,10 @@ use std::io::Write;
 use std::process;
 
 fn main() {
-    let args = Args::parse();
-    let credits_file = set_filename(&args.title);
+    let args: Args = Args::parse();
+    let credits_file: String = set_filename(&args.title);
 
-    let mut output = File::create(&credits_file).unwrap_or_else(|error| {
+    let mut output: File = File::create(&credits_file).unwrap_or_else(|error| {
         eprintln!("Problem creating '{credits_file}' file: {error}");
         process::exit(1);
     });
