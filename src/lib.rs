@@ -28,6 +28,7 @@
 use clap::Parser;
 use std::iter::FromIterator;
 use std::path::Path;
+use std::process;
 
 /// A simple program to generate Freesound credits in a usable markdown file.
 #[derive(Parser, Debug)]
@@ -155,18 +156,21 @@ pub fn get_list_of_samples(samples_path: &str) -> Vec<String> {
 
     for entry in path
         .read_dir()
-        .expect("Error: can't list samples from the provided path")
+        .unwrap_or_else(|error| {
+            eprintln!("Problem listing samples from the provided path: {error}");
+            process::exit(2);
+        })
         .flatten()
     {
         if entry.path().is_file() || entry.path().is_dir() {
             let mut sample: String = format!(
                 "{:?}",
-                entry
-                    .path()
-                    .file_stem()
-                    .expect("Error: cannot read the sample file name")
-            );
-            sample = sample.replace(&['(', ')', '\'', '"'][..], "");
+                entry.path().file_stem().unwrap_or_else(|| {
+                    eprintln!("Problem reading the sample file name.");
+                    process::exit(2);
+                })
+            )
+            .replace(&['(', ')', '\'', '"'][..], "");
 
             // this is specific to Ableton projects
             if let Some(extension) = entry.path().extension() {
@@ -181,7 +185,10 @@ pub fn get_list_of_samples(samples_path: &str) -> Vec<String> {
                 sample = sample
                     .split_whitespace()
                     .last()
-                    .expect("Error: can't split file name into sample string")
+                    .unwrap_or_else(|| {
+                        eprintln!("Problem splitting Instrument into sample string");
+                        process::exit(2);
+                    })
                     .to_string();
                 if sample.chars().next().unwrap().is_numeric() && sample.contains('_') {
                     samples_raw_vector.push(sample);
@@ -214,12 +221,18 @@ pub fn set_credit(line: &str) -> String {
 
     let credit_id: String = credit_line_vector
         .first()
-        .expect("Error: can't read credit ID")
+        .unwrap_or_else(|| {
+            eprintln!("Problem reading credit ID");
+            process::exit(2);
+        })
         .to_string();
 
     let credit_artist: String = credit_line_vector
         .get(1)
-        .expect("Error: can't read credit artist")
+        .unwrap_or_else(|| {
+            eprintln!("Problem reading credit artist");
+            process::exit(2);
+        })
         .to_string();
 
     let credit_parts_to_end: Vec<&str> = Vec::from_iter(credit_line_vector[2..].iter().cloned());
