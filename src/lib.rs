@@ -240,4 +240,14 @@ mod tests {
 
         assert_eq!("field-notes-credits.md", set_filename(song_title));
     }
+
+    #[test]
+    fn credit_line() {
+        let credit = "275012__alienxxx__squadron_leader_form_up";
+
+        assert_eq!(
+            "- [squadron_leader_form_up](https://freesound.org/people/alienxxx/sounds/275012/)\n",
+            set_credit(credit)
+        );
+    }
 }
