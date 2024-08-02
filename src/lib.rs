@@ -231,3 +231,15 @@ pub fn set_credit(line: &str) -> String {
     );
     credit_line
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn lowercase_filename() {
+        let song_title = "Field Notes";
+
+        assert_eq!("field-notes-credits.md", set_filename(song_title));
+    }
+}
