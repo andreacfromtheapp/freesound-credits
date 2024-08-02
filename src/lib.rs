@@ -242,8 +242,18 @@ mod tests {
     }
 
     #[test]
-    fn credit_line() {
+    fn credit_line_new() {
         let credit = "275012__alienxxx__squadron_leader_form_up";
+
+        assert_eq!(
+            "- [squadron_leader_form_up](https://freesound.org/people/alienxxx/sounds/275012/)\n",
+            set_credit(credit)
+        );
+    }
+
+    #[test]
+    fn credit_line_old() {
+        let credit = "275012_alienxxx_squadron_leader_form_up";
 
         assert_eq!(
             "- [squadron_leader_form_up](https://freesound.org/people/alienxxx/sounds/275012/)\n",
