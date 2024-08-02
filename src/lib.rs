@@ -172,7 +172,7 @@ pub fn get_list_of_samples(samples_path: &str) -> Vec<String> {
             )
             .replace(&['(', ')', '\'', '"'][..], "");
 
-            // this is specific to Ableton projects
+            // Ableton projects specific
             if let Some(extension) = entry.path().extension() {
                 if extension != "asd"
                     && sample.chars().next().unwrap().is_numeric()
@@ -180,7 +180,7 @@ pub fn get_list_of_samples(samples_path: &str) -> Vec<String> {
                 {
                     samples_raw_vector.push(sample);
                 }
-            // this is specific to Renoise projects
+                // Renoise projects specific
             } else if sample.contains("Instrument") {
                 sample = sample
                     .split_whitespace()
