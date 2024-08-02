@@ -16,19 +16,30 @@ fn main() {
 
     if args.zola {
         write!(
-            output,
+            output_file,
             "{}",
             set_frontmatter(&args.title, &args.date, &args.artist)
         )
-        .expect("Error: I could not write the Zola frontmatter");
+        .unwrap_or_else(|error| {
+            eprintln!("Problem writing the Zola frontmatter: {error}");
+            process::exit(2);
+        });
     }
 
-    write!(output, "{}", set_header(&args.title))
-        .expect("Error: I could not write the credits header");
-
-    get_list_of_samples(&args.path).iter().for_each(|line| {
-        write!(output, "{}", set_credit(line)).expect("Error: I could not write the sample credit");
+    write!(output_file, "{}", set_header(&args.title)).unwrap_or_else(|error| {
+        eprintln!("Problem writing the credits header: {error}");
+        process::exit(2);
     });
 
-    writeln!(output).expect("Error: I could not write the trailing white line");
+    get_list_of_samples(&args.path).iter().for_each(|line| {
+        write!(output_file, "{}", set_credit(line)).unwrap_or_else(|error| {
+            eprintln!("Problem writing the sample credit: {error}");
+            process::exit(2);
+        });
+    });
+
+    writeln!(output_file).unwrap_or_else(|error| {
+        eprintln!("Problem writing the trailing white line: {error}");
+        process::exit(2);
+    });
 }
