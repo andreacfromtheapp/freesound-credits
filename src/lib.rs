@@ -174,10 +174,7 @@ pub fn get_list_of_samples(samples_path: &str) -> Vec<String> {
 
             // Ableton projects specific
             if let Some(extension) = entry.path().extension() {
-                if extension != "asd"
-                    && sample.chars().next().unwrap().is_numeric()
-                    && sample.contains('_')
-                {
+                if extension != "asd" && my_kind_of_sample(&sample) {
                     samples_raw_vector.push(sample);
                 }
                 // Renoise projects specific
@@ -190,13 +187,19 @@ pub fn get_list_of_samples(samples_path: &str) -> Vec<String> {
                         process::exit(2);
                     })
                     .to_string();
-                if sample.chars().next().unwrap().is_numeric() && sample.contains('_') {
+
+                if my_kind_of_sample(&sample) {
                     samples_raw_vector.push(sample);
                 }
             }
         }
     }
     samples_raw_vector
+}
+
+/// Private helper function to validate Freesound samples we care about.
+fn my_kind_of_sample(sample: &str) -> bool {
+    sample.chars().next().unwrap().is_numeric() && sample.contains('_')
 }
 
 /// Extrapolate the sample to credit based on [Freesound](https://freesound.org) naming standards.
