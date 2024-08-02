@@ -8,9 +8,10 @@ use std::process;
 
 fn main() {
     let args = Args::parse();
+    let output_filename = set_filename(&args.title);
 
-    let mut output = File::create(set_filename(&args.title)).unwrap_or_else(|error| {
-        eprintln!("Problem creating the credits output file: {error}");
+    let mut output_file = File::create(&output_filename).unwrap_or_else(|error| {
+        eprintln!("Problem creating '{output_filename}' file: {error}");
         process::exit(1);
     });
 
