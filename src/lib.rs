@@ -19,7 +19,7 @@
 //! `
 //!  # Example
 //!
-//!  ## Run against an Ableton samples directory (also generating the Zola frontmatter)
+//! Run against an Ableton samples directory (also generating the Zola frontmatter)
 //!
 //!  ```text
 //! freesound_credits -p Samples/Imported/ -t "Field Notes" -a "Aner Andros" -d "2017-10-28" -z
@@ -54,11 +54,11 @@ pub struct Args {
     pub zola: bool,
 }
 
-/// Derives the output filename from the song title and creates the file itself.
+/// Derives the markdown filename from the song title.
 ///
 /// # Example
 ///
-/// For a song titled "Field Notes" the resulting markdown file is `field-notes-credits.md`
+/// For a song titled “Field Notes” the resulting markdown file is `field-notes-credits.md`
 ///
 pub fn set_filename(song_title: &str) -> String {
     let credits_file = format!(
@@ -69,7 +69,6 @@ pub fn set_filename(song_title: &str) -> String {
 }
 
 /// Derives a [Zola](https://www.getzola.org) page
-/// Derives a [Zola](https://www.getzola.org) page
 /// [frontmatter](https://www.getzola.org/documentation/content/page/#front-matter)
 /// header from given song details.
 ///
@@ -77,7 +76,7 @@ pub fn set_filename(song_title: &str) -> String {
 ///
 /// # Example
 ///
-/// For a song titled "Field Notes" by "Aner Andros" with date "2017-10-28"
+/// For a song titled “Field Notes” by “Aner Andros” with date "2017-10-28"
 ///
 /// ```toml
 /// +++
@@ -103,14 +102,14 @@ tags=[\"Freesound\", \"{song_artist}\", \"Credits\"]
     )
 }
 
-/// Opening paragraph notifying that the song uses [Creative
+/// Paragraph notifying the song uses [Creative
 /// Commons](https://creativecommons.org) licensed samples, with links.
 ///
 /// The given song title is included in the paragraph, unchanged.
 ///
 /// # Example
 ///
-/// For a song titled "Field Notes"
+/// For a song titled “Field Notes”
 ///
 /// ```markdown
 /// ## Credits
@@ -118,7 +117,6 @@ tags=[\"Freesound\", \"{song_artist}\", \"Credits\"]
 /// *Field Notes* includes the following samples from
 /// [Freesound](https://freesound.org). Used under a [Creative
 /// Commons](https://creativecommons.org) license:
-///
 /// ````
 ///
 pub fn set_header(song_title: &str) -> String {
@@ -203,8 +201,8 @@ pub fn get_list_of_samples(samples_path: &str) -> Vec<String> {
 ///
 /// # Examples
 ///
-/// - `69604__timkahn__subverse_whisper.wav` # new standard with double _
-/// - `2166_suburban_grilla_bowl_struck.flac` # old standard with single _
+/// - new standard with double underscore: `69604__timkahn__subverse_whisper.wav`
+/// - old standard with single underscore: `2166_suburban_grilla_bowl_struck.flac`
 ///
 pub fn set_credit(line: &str) -> String {
     let mut credit_line_vector: Vec<&str> = vec![];
