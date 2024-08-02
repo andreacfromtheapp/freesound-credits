@@ -1,4 +1,4 @@
-//! `freesound_credits` is a simple program to generate Freesound credits in a usable markdown file
+//! `freesound_credits` is a simple program to generate Freesound credits in a usable markdown file.
 //!
 //!  # Usage
 //!
@@ -29,7 +29,7 @@ use clap::Parser;
 use std::iter::FromIterator;
 use std::path::Path;
 
-/// Simple program to generate Freesound credits in a usable markdown file
+/// A simple program to generate Freesound credits in a usable markdown file.
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
 pub struct Args {
@@ -136,7 +136,6 @@ Commons](https://creativecommons.org) license:
 /// # Notes
 ///
 /// - the user must have permissions on the directory.
-/// - invalid directories will fail silently.
 /// - it only works with Ableton and Renoise projects.
 ///
 /// ## Ableton
