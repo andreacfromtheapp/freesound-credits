@@ -152,7 +152,7 @@ Commons](https://creativecommons.org) license:
 ///
 pub fn get_list_of_samples(samples_path: &str) -> Vec<String> {
     let path: &Path = Path::new(&samples_path);
-    let mut samples_raw_vector: Vec<String> = vec![];
+    let mut all_samples: Vec<String> = vec![];
 
     for entry in path
         .read_dir()
@@ -174,8 +174,8 @@ pub fn get_list_of_samples(samples_path: &str) -> Vec<String> {
 
             // Ableton projects specific
             if let Some(extension) = entry.path().extension() {
-                if extension != "asd" && my_kind_of_sample(&sample) {
-                    samples_raw_vector.push(sample);
+                if extension != "asd" && is_freesound_sample(&sample) {
+                    all_samples.push(sample);
                 }
                 // Renoise projects specific
             } else if sample.contains("Instrument") {
@@ -188,17 +188,17 @@ pub fn get_list_of_samples(samples_path: &str) -> Vec<String> {
                     })
                     .to_string();
 
-                if my_kind_of_sample(&sample) {
-                    samples_raw_vector.push(sample);
+                if is_freesound_sample(&sample) {
+                    all_samples.push(sample);
                 }
             }
         }
     }
-    samples_raw_vector
+    all_samples
 }
 
 /// Private helper function to validate Freesound samples we care about.
-fn my_kind_of_sample(sample: &str) -> bool {
+fn is_freesound_sample(sample: &str) -> bool {
     sample.chars().next().unwrap().is_numeric() && sample.contains('_')
 }
 
@@ -213,16 +213,16 @@ fn my_kind_of_sample(sample: &str) -> bool {
 /// - new standard with double underscore: `69604__timkahn__subverse_whisper.wav`
 /// - old standard with single underscore: `2166_suburban_grilla_bowl_struck.flac`
 ///
-pub fn set_credit(line: &str) -> String {
-    let mut credit_line_vector: Vec<&str> = vec![];
+pub fn set_credit(sample: &str) -> String {
+    let mut sample_line_vec: Vec<&str> = vec![];
 
-    if line.contains("__") {
-        credit_line_vector = line.split("__").collect();
-    } else if line.contains('_') {
-        credit_line_vector = line.split('_').collect();
+    if sample.contains("__") {
+        sample_line_vec = sample.split("__").collect();
+    } else if sample.contains('_') {
+        sample_line_vec = sample.split('_').collect();
     }
 
-    let credit_id: String = credit_line_vector
+    let credit_id: String = sample_line_vec
         .first()
         .unwrap_or_else(|| {
             eprintln!("Problem reading credit ID");
@@ -230,7 +230,7 @@ pub fn set_credit(line: &str) -> String {
         })
         .to_string();
 
-    let credit_artist: String = credit_line_vector
+    let credit_artist: String = sample_line_vec
         .get(1)
         .unwrap_or_else(|| {
             eprintln!("Problem reading credit artist");
@@ -238,7 +238,7 @@ pub fn set_credit(line: &str) -> String {
         })
         .to_string();
 
-    let credit_parts_to_end: Vec<&str> = Vec::from_iter(credit_line_vector[2..].iter().cloned());
+    let credit_parts_to_end: Vec<&str> = Vec::from_iter(sample_line_vec[2..].iter().cloned());
     let credit_sound: String = credit_parts_to_end.join("_");
 
     let credit_line: String = format!(

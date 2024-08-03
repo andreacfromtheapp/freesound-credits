@@ -32,9 +32,9 @@ fn main() {
         process::exit(3);
     });
 
-    get_list_of_samples(&args.path).iter().for_each(|line| {
-        write!(output, "{}", set_credit(line)).unwrap_or_else(|error| {
-            eprintln!("Problem writing credit for {line}: {error}");
+    get_list_of_samples(&args.path).iter().for_each(|sample| {
+        write!(output, "{}", set_credit(sample)).unwrap_or_else(|error| {
+            eprintln!("Problem writing credit for {sample}: {error}");
             process::exit(3);
         });
     });
