@@ -247,6 +247,9 @@ pub fn set_credit(line: &str) -> String {
     credit_line
 }
 
+// TODO: add integration tests for set_frontmatter
+// TODO: add integration tests for set_header
+// TODO: add integration tests for get_list_of_samples
 #[cfg(test)]
 mod tests {
     use super::*;
