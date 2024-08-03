@@ -34,7 +34,7 @@ fn main() {
 
     get_list_of_samples(&args.path).iter().for_each(|line| {
         write!(output, "{}", set_credit(line)).unwrap_or_else(|error| {
-            eprintln!("Problem writing the sample credit: {error}");
+            eprintln!("Problem writing credit for {line}: {error}");
             process::exit(3);
         });
     });
