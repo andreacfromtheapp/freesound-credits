@@ -247,22 +247,55 @@ pub fn set_credit(sample: &str) -> String {
     credit_line
 }
 
-// TODO: add integration tests for set_frontmatter
-// TODO: add integration tests for set_header
-// TODO: add integration tests for get_list_of_samples
+// TODO: add test for get_list_of_samples
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
-    fn lowercase_filename() {
+    fn check_filename() {
         let song_title = "Field Notes";
 
         assert_eq!("field-notes-credits.md", set_filename(song_title));
     }
 
     #[test]
-    fn credit_line_new() {
+    fn check_frontmatter() {
+        let song_title = "Field Notes";
+        let song_artist = "Aner Andros";
+        let song_date = "2017-10-28";
+        let frontmatter = "+++
+title=\"Field Notes Freesound Credits\"
+date=2017-10-28
+
+[taxonomies]
+tags=[\"Freesound\", \"Aner Andros\", \"Credits\"]
++++
+
+";
+
+        assert_eq!(
+            frontmatter,
+            set_frontmatter(song_title, song_date, song_artist)
+        );
+    }
+
+    #[test]
+    fn check_header() {
+        let song_title = "Field Notes";
+        let header = "## Credits
+
+*Field Notes* includes the following samples from
+[Freesound](https://freesound.org). Used under a [Creative
+Commons](https://creativecommons.org) license:
+
+";
+
+        assert_eq!(header, set_header(song_title));
+    }
+
+    #[test]
+    fn check_credit_new() {
         let credit = "275012__alienxxx__squadron_leader_form_up";
 
         assert_eq!(
@@ -272,7 +305,7 @@ mod tests {
     }
 
     #[test]
-    fn credit_line_old() {
+    fn check_credit_old() {
         let credit = "275012_alienxxx_squadron_leader_form_up";
 
         assert_eq!(
