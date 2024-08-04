@@ -2,6 +2,7 @@
 *.md
 *.txt
 !README.md
+!TODO.md
 
 # Editor directories and files
 .vscode/*

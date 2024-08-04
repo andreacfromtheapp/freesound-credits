@@ -241,7 +241,6 @@ pub fn set_credit(sample: &str) -> String {
     credit_line
 }
 
-// TODO: add test for get_list_of_samples
 #[cfg(test)]
 mod tests {
     use super::*;
