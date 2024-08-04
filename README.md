@@ -8,6 +8,17 @@ a given project.
 - It only works with samples adhering to Freesound naming standard.
 - It is a quick "rust for fun" just to satisfy a personal need.
 
+## Install
+
+Until I figure out GitHub Actions to build a release from a tag, do the
+following:
+
+- download a release or clone this repository.
+- unzip and/or `cd` into it
+- run `cargo build --release`
+- copy the resulting binary in a location available in your `$PATH`
+  - e.g: `cp target/release/freesound_credits /usr/local/bin/`
+
 ## Usage
 
 The command line comes with a straight-forward usage function:
