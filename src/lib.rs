@@ -137,23 +137,6 @@ Commons](https://creativecommons.org) license:
 /// # Notes
 ///
 /// - the user must have permissions on the directory.
-/// - it only works with Ableton and Renoise projects.
-///
-/// ## Ableton
-///
-/// When running against Ableton projects, pass the `--path` to the
-/// `Samples/Imported` directory.
-///
-/// ## Renoise
-///
-/// Renoise `xrns` projects need to be extracted with `unzip` first. Once unzipped
-/// you will find a `Song.xml` file and a `SamplesData` directory containing each
-/// `Instrument`. Pass the `--path` to the `SamplesData` directory.
-///
-/// ## Reaper
-///
-/// When running against Reaper projects, pass the `--path` to the
-/// `Audio Files` directory.
 ///
 pub fn get_list_of_samples(samples_path: &str) -> Vec<String> {
     let path: &Path = Path::new(&samples_path);
@@ -177,9 +160,9 @@ pub fn get_list_of_samples(samples_path: &str) -> Vec<String> {
             )
             .replace(&['(', ')', '\'', '"'][..], "");
 
-            // Ableton projects specific
+            // Files specific: checks against DAWs metadata file extensions
             if let Some(extension) = entry.path().extension() {
-                if extension != "asd" && is_freesound_sample(&sample) {
+                if is_not_metadata(extension.to_str().unwrap()) && is_freesound_sample(&sample) {
                     all_samples.push(sample);
                 }
                 // Renoise projects specific
@@ -200,6 +183,12 @@ pub fn get_list_of_samples(samples_path: &str) -> Vec<String> {
         }
     }
     all_samples
+}
+
+fn is_not_metadata(extension: &str) -> bool {
+    let metadata_extensions = ["asd", "reapeaks"];
+
+    !metadata_extensions.contains(&extension)
 }
 
 /// Private helper function to validate Freesound samples we care about.
