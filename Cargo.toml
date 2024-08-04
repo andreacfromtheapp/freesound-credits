@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 description = "A simple command line utility to credit Freesound samples in a usable markdown file"
 license = "MIT OR Apache-2.0"
+authors = ["Andrea C <3269984+gacallea@users.noreply.github.com>"]
 
 [dependencies]
 clap = { version = "4.5.13", features = ["derive"] }
