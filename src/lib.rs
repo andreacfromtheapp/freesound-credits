@@ -150,6 +150,11 @@ Commons](https://creativecommons.org) license:
 /// you will find a `Song.xml` file and a `SamplesData` directory containing each
 /// `Instrument`. Pass the `--path` to the `SamplesData` directory.
 ///
+/// ## Reaper
+///
+/// When running against Reaper projects, pass the `--path` to the
+/// `Audio Files` directory.
+///
 pub fn get_list_of_samples(samples_path: &str) -> Vec<String> {
     let path: &Path = Path::new(&samples_path);
     let mut all_samples: Vec<String> = vec![];

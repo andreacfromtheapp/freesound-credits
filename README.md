@@ -1,14 +1,11 @@
-# Freesound credits
+# freesound_credits
 
-A simple utility to credit [Freesound](https://freesound.org) samples in my
-music projects.
+A command line utility to credit [Freesound](https://freesound.org) samples.
 
-## Notes (don't expect much)
+## Notes
 
-- It only works with Ableton and Renoise projects.
 - It only works with samples adhering to Freesound naming standard.
 - It is a quick "rust for fun" just to satisfy a personal need.
-- The code most certainly stinks and could be improved in the future.
 
 ## Usage
 
@@ -39,3 +36,9 @@ When running against Ableton projects, pass the `--path` to the
 Renoise `xrns` projects need to be extracted with `unzip` first. Once unzipped
 you will find a `Song.xml` file and a `SamplesData` directory containing each
 `Instrument`. Pass the `--path` to the `SamplesData` directory.
+
+### Reaper
+
+When running against Reaper projects, pass the `--path` to the
+`Audio Files` directory.
+
