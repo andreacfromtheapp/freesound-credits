@@ -1,6 +1,7 @@
 # freesound_credits
 
-A command line utility to credit [Freesound](https://freesound.org) samples.
+A command line utility to credit [Freesound](https://freesound.org) samples for
+a given project.
 
 ## Notes
 
@@ -26,6 +27,14 @@ Options:
   -V, --version          Print version
 ```
 
+### Usage example
+
+1. open your terminal.
+2. `cd` to a folder where you want to save the credits file.
+3. run `freesound_credits` against your desired samples folder.
+
+## DAW sample folders
+
 ### Ableton
 
 When running against Ableton projects, pass the `--path` to the
@@ -42,3 +51,8 @@ you will find a `Song.xml` file and a `SamplesData` directory containing each
 When running against Reaper projects, pass the `--path` to the
 `Audio Files` directory.
 
+### Logic Pro X
+
+Depending on how you saved your project ([Package vs
+Folder](https://www.youtube.com/watch?v=33zVydB4MiI))
+, pass the `--path` to the `Audio Files` directory.
