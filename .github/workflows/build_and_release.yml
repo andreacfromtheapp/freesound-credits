@@ -1,5 +1,9 @@
 name: build and release
 
+env:
+  CARGO_TERM_COLOR: always
+  # MACOSX_DEPLOYMENT_TARGET: "10.13"
+
 permissions:
   contents: write
 
@@ -8,13 +12,11 @@ on:
     tags:
       - "v*.*.*"
 
-env:
-  CARGO_TERM_COLOR: always
-
 jobs:
   build:
     runs-on: ${{ matrix.config.os }}
     strategy:
+      fail-fast: false
       matrix:
         config:
           - os: ubuntu-20.04
@@ -33,19 +35,58 @@ jobs:
             rust_target: x86_64-pc-windows-msvc
             ext: ".exe"
             args: ""
+          - os: windows-latest
+            rust_target: aarch64-pc-windows-msvc
+            ext: ".exe"
+            args: "--no-default-features --features native-tls-vendored"
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Build
-        run: cargo build --release --verbose
-      - name: Run tests
-        run: cargo test --verbose
-      - name: Release
+
+      - name: "Setup Rust"
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.config.rust_target }}
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: ${{ matrix.config.rust_target }}
+
+      - name: Build CLI
+        run: cargo build --release --manifest-path ./Cargo.toml ${{ matrix.config.args }}
+
+      - name: Upload CLI
+        uses: actions/upload-artifact@v3
+        with:
+          name: freesound_credits-${{ matrix.config.rust_target }}${{ matrix.config.ext }}
+          path: target/release/freesound_credits${{ matrix.config.ext }}
+          if-no-files-found: error
+
+  upload:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download built CLIs
+        uses: actions/download-artifact@v3
+        with:
+          path: outputs
+
+      - name: Pack archives
+        run: ./.scripts/ci/pack-cli.sh
+
+      - name: Get CLI version
+        run: echo "CLI_VERSION=$(cargo run -- -V | cut -f2 -d' ') >> $GITHUB_ENV
+        # run: echo "CLI_VERSION=$(cat tooling/cli/metadata-v2.json | jq '."cli.js".version' -r)" >> $GITHUB_ENV
+
+      - name: Publish release
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: v${{ env.CLI_VERSION }}
           files: |
-            README.md
-            LICENSE-APACHE
-            LICENSE-MIT
-            target/release/freesound_credits
+            outputs/freesound_credits-*.zip
+            outputs/freesound_credits-*.tgz
