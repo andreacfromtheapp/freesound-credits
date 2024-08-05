@@ -19,20 +19,20 @@ jobs:
         config:
           - os: ubuntu-20.04
             rust_target: x86_64-unknown-linux-gnu
-            ext: ''
-            args: ''
+            ext: ""
+            args: ""
           - os: macos-latest
             rust_target: x86_64-apple-darwin
-            ext: ''
-            args: ''
+            ext: ""
+            args: ""
           - os: macos-latest
             rust_target: aarch64-apple-darwin
-            ext: ''
-            args: ''
+            ext: ""
+            args: ""
           - os: windows-latest
             rust_target: x86_64-pc-windows-msvc
-            ext: '.exe'
-            args: ''
+            ext: ".exe"
+            args: ""
 
     steps:
       - name: Checkout
@@ -48,3 +48,4 @@ jobs:
             README.md
             LICENSE-APACHE
             LICENSE-MIT
+            target/release/freesound_credits
