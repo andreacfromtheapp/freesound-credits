@@ -5,14 +5,10 @@ a given project.
 
 ## Install
 
-Until I figure out GitHub Actions to build cross-platform binary releases, do
-the following:
+This is a command line utility. To install:
 
-- download a release or clone this repository.
-- unzip if necessary.
-- `cd` into it.
-- run `cargo build --release`
-- copy the resulting binary to a location available in your `$PATH`
+- download and unzip the release for your system.
+- copy the binary to a location available in your `$PATH`
   - e.g: `cp target/release/freesound_credits /usr/local/bin/`
 
 ## Usage
