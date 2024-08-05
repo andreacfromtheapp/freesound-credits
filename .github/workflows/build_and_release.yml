@@ -1,4 +1,4 @@
-name: freesound_credit build and release
+name: build and release
 
 on:
   push:
