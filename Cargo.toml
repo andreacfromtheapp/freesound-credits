@@ -2,12 +2,11 @@
 name = "freesound_credits"
 version = "0.1.1"
 edition = "2021"
-description = "A simple command line utility to credit Freesound samples in a usable markdown file"
 license = "MIT OR Apache-2.0"
 authors = ["Andrea C <3269984+gacallea@users.noreply.github.com>"]
-
-[dependencies]
-clap = { version = "4.5.13", features = ["derive"] }
+homepage = "https://gacallea.github.io"
+repository = "https://github.com/gacallea/freesound_credits"
+description = "A simple command line utility to credit Freesound samples in a usable markdown file"
 
 # Sticking this here to remember about it.
 [profile.dev]
@@ -15,3 +14,6 @@ opt-level = 0
 
 [profile.release]
 opt-level = 3
+
+[dependencies]
+clap = { version = "4.5.13", features = ["derive"] }
