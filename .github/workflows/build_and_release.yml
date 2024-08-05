@@ -81,7 +81,6 @@ jobs:
 
       - name: Get CLI version
         run: echo "CLI_VERSION=$(cargo run -- -V | cut -f2 -d' ')" >> $GITHUB_ENV
-        # run: echo "CLI_VERSION=$(cat tooling/cli/metadata-v2.json | jq '."cli.js".version' -r)" >> $GITHUB_ENV
 
       - name: Publish release
         uses: softprops/action-gh-release@v2
