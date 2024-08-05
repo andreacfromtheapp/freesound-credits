@@ -1,6 +1,6 @@
 [package]
 name = "freesound_credits"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "A simple command line utility to credit Freesound samples in a usable markdown file"
 license = "MIT OR Apache-2.0"
