@@ -38,7 +38,7 @@ jobs:
           - os: windows-latest
             rust_target: aarch64-pc-windows-msvc
             ext: ".exe"
-            args: "--no-default-features --features native-tls-vendored"
+            args: ""
 
     steps:
       - name: Checkout
@@ -54,7 +54,7 @@ jobs:
           key: ${{ matrix.config.rust_target }}
 
       - name: Build CLI
-        run: cargo build --release --manifest-path ./Cargo.toml ${{ matrix.config.args }}
+        run: cargo build --release --manifest-path ./Cargo.toml # ${{ matrix.config.args }}
 
       - name: Upload CLI
         uses: actions/upload-artifact@v3
