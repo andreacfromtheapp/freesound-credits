@@ -32,6 +32,14 @@ To install this command line utility:
 - copy the binary to a location available in your `$PATH`
   - e.g: `cp target/release/freesound-credits /usr/local/bin/`
 
+Alternatively, one can use [`cargo
+binstall`](https://github.com/cargo-bins/cargo-binstall) to install freesound-credits
+binary directly from GitHub:
+
+```
+$ cargo binstall ripgrep
+```
+
 ## Usage
 
 The command line comes with a straight-forward usage function:

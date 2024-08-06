@@ -9,7 +9,7 @@ set -euxo pipefail
 for o in outputs/*; do
   pushd "$o"
 
-  chmod +x freesound_credits*
+  chmod +x freesound-credits*
 
   target=$(basename "$o" | cut -d. -f1)
   if grep -qE '(apple|windows)' <<<"$target"; then

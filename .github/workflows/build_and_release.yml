@@ -59,8 +59,8 @@ jobs:
       - name: Upload CLI
         uses: actions/upload-artifact@v3
         with:
-          name: freesound_credits-${{ matrix.config.rust_target }}${{ matrix.config.ext }}
-          path: target/release/freesound_credits${{ matrix.config.ext }}
+          name: freesound-credits-${{ matrix.config.rust_target }}${{ matrix.config.ext }}
+          path: target/release/freesound-credits${{ matrix.config.ext }}
           if-no-files-found: error
 
   upload:
@@ -87,5 +87,5 @@ jobs:
         with:
           tag_name: v${{ env.CLI_VERSION }}
           files: |
-            outputs/freesound_credits-*.zip
-            outputs/freesound_credits-*.tgz
+            outputs/freesound-credits-*.zip
+            outputs/freesound-credits-*.tgz

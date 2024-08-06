@@ -3,17 +3,41 @@ name = "freesound-credits"
 version = "0.2.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"
-authors = ["Andrea C <3269984+gacallea@users.noreply.github.com>"]
-homepage = "https://gacallea.github.io"
-repository = "https://github.com/gacallea/freesound_credits"
-description = "A simple command line utility to credit Freesound samples in a usable markdown file"
 
-# Sticking this here to remember about it.
-[profile.dev]
-opt-level = 0
+authors = ["Andrea C From The App"]
+homepage = "https://gacallea.github.io/apps/freesound-credits"
+repository = "https://github.com/gacallea/freesound-credits"
+description = "A simple command line utility to credit Freesound samples in a usable markdown file"
+readme = "README.md"
+keywords = ["freesound", "creative-commons", "credits"]
+categories = ["command-line-utilities"]
+
+exclude = ["/.github/", "/.scripts/"]
 
 [profile.release]
-opt-level = 3
+lto = true
+strip = true
+
+[package.metadata.binstall]
+pkg-url = "{ repo }/releases/download/v{ version }/freesound-credits-{ target }.{ archive-suffix }"
+bin-dir = "{ bin }{ binary-ext }"
+pkg-fmt = "tgz"
+
+[package.metadata.binstall.overrides.aarch64-pc-windows-msvc]
+pkg-fmt = "zip"
+
+[package.metadata.binstall.overrides.aarch64-apple-darwin]
+pkg-fmt = "zip"
+
+[package.metadata.binstall.overrides.x86_64-pc-windows-msvc]
+pkg-fmt = "zip"
+
+[package.metadata.binstall.overrides.x86_64-apple-darwin]
+pkg-fmt = "zip"
+
+[[bin]]
+name = "freesound-credits"
+path = "src/main.rs"
 
 [dependencies]
 clap = { version = "4.5.13", features = ["derive"] }
