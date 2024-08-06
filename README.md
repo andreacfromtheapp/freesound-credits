@@ -5,6 +5,7 @@ samples for a given project more easily.
 
 [![Cargo
 Audit](https://github.com/gacallea/freesound-credits/actions/workflows/cargo_audit.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/cargo_audit.yml)
+[![Crates.io](https://img.shields.io/crates/v/freesound%2Dcredits.svg)](https://crates.io/crates/freesound-credits)
 [![Build and
 Release](https://github.com/gacallea/freesound-credits/actions/workflows/build_and_release.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/build_and_release.yml)
 
@@ -26,18 +27,11 @@ Not anymore! Thanks to `freesound-credits` utility it takes seconds now!
 
 ## Install
 
-To install this command line utility:
-
-- download and unzip the release for your system.
-- copy the binary to a location available in your `$PATH`
-  - e.g: `cp target/release/freesound-credits /usr/local/bin/`
-
-Alternatively, one can use [`cargo
-binstall`](https://github.com/cargo-bins/cargo-binstall) to install freesound-credits
-binary directly from GitHub:
+Use [`cargo binstall`](https://github.com/cargo-bins/cargo-binstall) to install
+freesound-credits binary directly from GitHub:
 
 ```
-$ cargo binstall ripgrep
+$ cargo binstall freesound-credits
 ```
 
 ## Usage
