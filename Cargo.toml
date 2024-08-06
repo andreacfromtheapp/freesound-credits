@@ -1,6 +1,6 @@
 [package]
-name = "freesound_credits"
-version = "0.1.2"
+name = "freesound-credits"
+version = "0.2.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 authors = ["Andrea C <3269984+gacallea@users.noreply.github.com>"]

@@ -1,11 +1,11 @@
-//! `freesound_credits` is a simple program to generate Freesound credits in a usable markdown file.
+//! `freesound-credits` is a simple program to generate Freesound credits in a usable markdown file.
 //!
 //!  # Usage
 //!
 //! ```text
 //! Simple program to generate Freesound credits in a usable markdown file
 //!
-//! Usage: freesound_credits [OPTIONS] --path <PATH> --title <TITLE> --date <DATE> --artist <ARTIST>
+//! Usage: freesound-credits [OPTIONS] --path <PATH> --title <TITLE> --date <DATE> --artist <ARTIST>
 //!
 //! Options:
 //!   -p, --path <PATH>      Path to the samples directory
@@ -22,7 +22,7 @@
 //! Run against an Ableton samples directory (also generating the Zola frontmatter)
 //!
 //!  ```text
-//! freesound_credits -p Samples/Imported/ -t "Field Notes" -a "Aner Andros" -d "2017-10-28" -z
+//! freesound-credits -p Samples/Imported/ -t "Field Notes" -a "Aner Andros" -d "2017-10-28" -z
 //!  ```
 
 use clap::Parser;
