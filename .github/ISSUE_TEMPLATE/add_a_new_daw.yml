@@ -1,0 +1,70 @@
+name: 💡New DAW Addition
+title: "feat(DAW): add "
+description: Suggest a new DAW
+labels: [enhancement]
+
+body:
+  - type: checkboxes
+    attributes:
+      label: Did you check if the DAW is already supported?
+      description: Make sure you check the [Supported DAWs](https://github.com/gacallea/freesound_credits?tab=readme-ov-file#supported-daws) table before submitting a new DAW
+      options:
+        - label: I have checked if the DAW is already supported
+          required: true
+
+  - type: input
+    attributes:
+      label: "freesound_credits version (freesound_credits -V)"
+      placeholder: "freesound_credits 0.1.2"
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: "Operating system/version"
+      placeholder: "macOS 14.6"
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: "New DAW to add"
+      placeholder: "Ableton Live"
+    validations:
+      required: true
+
+  - type: checkboxes
+    attributes:
+      label: Did you test if freesound_credits works with your desired DAW sample folder?
+      description: Make sure that running freesound_credits yields the desired results.
+      options:
+        - label: I have checked if the DAW works with freesound_credits
+          required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Please provide a screenshot of the Audio Files/Sampler folder
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Does this DAW require an extra step? Like unizp?
+      placeholder: "e.g: unzip project.extension or simply 'no'"
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Extra steps
+      description: Please provide a description of the extra steps if necessary.
+
+  - type: input
+    attributes:
+      label: Does this DAW uses metadata files?"
+      placeholder: "e.g: .extension or simply 'no'"
+    validations:
+      required: true
