@@ -3,6 +3,7 @@
 *.txt
 !README.md
 !TODO.md
+!CONTRIBUTING.md
 
 # Editor directories and files
 .vscode/*
