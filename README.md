@@ -6,8 +6,7 @@ samples for a given project more easily.
 [![Cargo
 Audit](https://github.com/gacallea/freesound-credits/actions/workflows/cargo_audit.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/cargo_audit.yml)
 [![Crates.io](https://img.shields.io/crates/v/freesound%2Dcredits.svg)](https://crates.io/crates/freesound-credits)
-[![Build and
-Release](https://github.com/gacallea/freesound-credits/actions/workflows/build_and_release.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/build_and_release.yml)
+[![Release](https://github.com/gacallea/freesound-credits/actions/workflows/release.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/release.yml)
 
 Dual-licensed under MIT or the Apache 2.0 licenses.
 
