@@ -8,4 +8,3 @@
   - if no template -> defaults to current hard-coded one
 - add this to crates.io
 - add cargo binstall
-
