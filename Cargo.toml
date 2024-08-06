@@ -1,6 +1,6 @@
 [package]
 name = "freesound-credits"
-version = "0.2.1"
+version = "0.2.2"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 
@@ -48,8 +48,8 @@ targets = [
   "aarch64-apple-darwin",
   "aarch64-pc-windows-msvc",
   "x86_64-apple-darwin",
-  "x86_64-pc-windows-msvc",
   "x86_64-unknown-linux-gnu",
+  "x86_64-pc-windows-msvc",
 ]
 # Publish jobs to run in CI
 pr-run-mode = "plan"
