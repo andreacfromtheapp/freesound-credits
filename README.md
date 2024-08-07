@@ -46,19 +46,8 @@ brew install gacallea/tap/freesound-credits
 
 The command line comes with a straight-forward usage function:
 
-```text
-Simple program to generate Freesound credits in a usable markdown file
-
-Usage: freesound-credits [OPTIONS] --path <PATH> --title <TITLE> --date <DATE> --artist <ARTIST>
-
-Options:
-  -p, --path <PATH>      Path to the samples directory
-  -t, --title <TITLE>    Song title (quote multiple words)
-  -d, --date <DATE>      Song release date (quote multiple words)
-  -a, --artist <ARTIST>  Song artist (quote multiple words)
-  -z, --zola             Include Zola frontmatter atop the markdown file
-  -h, --help             Print help
-  -V, --version          Print version
+```bash
+freesound-credits -V
 ```
 
 ### Usage example

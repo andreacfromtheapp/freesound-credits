@@ -53,7 +53,7 @@ targets = [
   "x86_64-pc-windows-msvc",
 ]
 # Publish jobs to run in CI
-pr-run-mode = "plan"
+pr-run-mode = "upload"
 # The archive format to use for windows builds (defaults .zip)
 windows-archive = ".zip"
 # The archive format to use for non-windows builds (defaults .tar.xz)
