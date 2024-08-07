@@ -4,6 +4,8 @@ A command line utility to help you credit [Freesound](https://freesound.org)
 samples for a given project more easily.
 
 [![Cargo
+Assist](https://github.com/gacallea/freesound-credits/actions/workflows/cargo-assist.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/cargo-assist.yml)
+[![Cargo
 Audit](https://github.com/gacallea/freesound-credits/actions/workflows/cargo_audit.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/cargo_audit.yml)
 [![Release](https://github.com/gacallea/freesound-credits/actions/workflows/release.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/release.yml)
 [![Deployment](https://github.com/gacallea/freesound-credits/actions/workflows/release-plz.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/release-plz.yml)
