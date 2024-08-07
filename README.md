@@ -30,8 +30,16 @@ Not anymore! Thanks to `freesound-credits` utility it takes seconds now!
 Use [`cargo binstall`](https://github.com/cargo-bins/cargo-binstall) to install
 freesound-credits binary directly from GitHub:
 
-```
+```shell
 cargo binstall freesound-credits
+```
+
+### Homebrew
+
+On Linux and macOS homebrew is also available:
+
+```shell
+brew install gacallea/tap/freesound-credits
 ```
 
 ## Usage

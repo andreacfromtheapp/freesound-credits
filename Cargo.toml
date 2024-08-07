@@ -42,7 +42,7 @@ cargo-dist-version = "0.19.1"
 # CI backends to support
 ci = "github"
 # The installers to generate for each app
-installers = []
+installers = ["homebrew"]
 # Target platforms to build apps for (Rust target-triple syntax)
 targets = [
   "aarch64-apple-darwin",
@@ -57,3 +57,9 @@ pr-run-mode = "plan"
 windows-archive = ".zip"
 # The archive format to use for non-windows builds (defaults .tar.xz)
 unix-archive = ".zip"
+# A GitHub repo to push Homebrew formulas to
+tap = "gacallea/homebrew-tap"
+# Publish jobs to run in CI
+publish-jobs = ["homebrew"]
+# Customize the Homebrew formula name
+formula = "freesound-credits"
