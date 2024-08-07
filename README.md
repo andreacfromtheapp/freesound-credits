@@ -5,9 +5,9 @@ samples for a given project more easily.
 
 [![Cargo
 Audit](https://github.com/gacallea/freesound-credits/actions/workflows/cargo_audit.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/cargo_audit.yml)
-[![Crates.io](https://img.shields.io/crates/v/freesound%2Dcredits.svg)](https://crates.io/crates/freesound-credits)
 [![Release](https://github.com/gacallea/freesound-credits/actions/workflows/release.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/release.yml)
 [![Deployment](https://github.com/gacallea/freesound-credits/actions/workflows/release-plz.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/release-plz.yml)
+[![Crates.io](https://img.shields.io/crates/v/freesound%2Dcredits.svg)](https://crates.io/crates/freesound-credits)
 
 Dual-licensed under MIT or the Apache 2.0 licenses.
 
@@ -30,27 +30,24 @@ Not anymore! Thanks to `freesound-credits` utility it takes seconds now!
 Use [`cargo binstall`](https://github.com/cargo-bins/cargo-binstall) to install
 freesound-credits binary directly from GitHub:
 
-```
+```shell
 cargo binstall freesound-credits
+```
+
+### Homebrew
+
+On Linux and macOS homebrew is also available:
+
+```shell
+brew install gacallea/tap/freesound-credits
 ```
 
 ## Usage
 
 The command line comes with a straight-forward usage function:
 
-```text
-Simple program to generate Freesound credits in a usable markdown file
-
-Usage: freesound-credits [OPTIONS] --path <PATH> --title <TITLE> --date <DATE> --artist <ARTIST>
-
-Options:
-  -p, --path <PATH>      Path to the samples directory
-  -t, --title <TITLE>    Song title (quote multiple words)
-  -d, --date <DATE>      Song release date (quote multiple words)
-  -a, --artist <ARTIST>  Song artist (quote multiple words)
-  -z, --zola             Include Zola frontmatter atop the markdown file
-  -h, --help             Print help
-  -V, --version          Print version
+```bash
+freesound-credits -V
 ```
 
 ### Usage example
