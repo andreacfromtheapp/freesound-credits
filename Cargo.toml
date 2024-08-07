@@ -12,7 +12,7 @@ readme = "README.md"
 keywords = ["freesound", "creative-commons", "credits"]
 categories = ["command-line-utilities"]
 
-exclude = ["/.github/", "/.scripts/"]
+exclude = ["/.github/"]
 
 [profile.release]
 lto = true
