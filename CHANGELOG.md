@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Empty the changelog
+
+### Fixed
+
+- Trying to switch to keep a changelog
+- Trying to switch to keep a changelog (#12)
+
+### Removed
+
+- Removed cliff altogether
+
 ## [0.2.9] - 2024-08-08
 
 ### Changed
@@ -111,6 +126,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adding contributing
 - Added cc section and link to contribute
 
+[unreleased]: https://github.com///compare/v0.2.9..HEAD
 [0.2.9]: https://github.com///compare/v0.2.8..v0.2.9
 [0.2.8]: https://github.com///compare/v0.2.7..v0.2.8
 [0.2.7]: https://github.com///compare/v0.2.6..v0.2.7
