@@ -23,5 +23,5 @@ allow_dirty = false
 # disallow packaging with uncommitted changes
 publish_allow_dirty = false
 
-# disable running `cargo-semver-checks`
-semver_check = false
+# enable running `cargo-semver-checks`
+semver_check = true

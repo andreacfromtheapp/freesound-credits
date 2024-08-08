@@ -1,0 +1,19 @@
+name: Cargo Deny
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  push:
+    paths:
+      - "**/Cargo.toml"
+      - "**/Cargo.lock"
+  pull_request:
+
+jobs:
+  audit:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Run Cargo Deny
+        uses: EmbarkStudios/cargo-deny-action@v2

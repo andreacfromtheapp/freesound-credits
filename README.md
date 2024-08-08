@@ -6,7 +6,7 @@ samples for a given project more easily.
 [![Cargo
 Assist](https://github.com/gacallea/freesound-credits/actions/workflows/cargo-assist.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/cargo-assist.yml)
 [![Cargo
-Audit](https://github.com/gacallea/freesound-credits/actions/workflows/cargo_audit.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/cargo_audit.yml)
+Deny](https://github.com/gacallea/freesound-credits/actions/workflows/cargo-deny.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/cargo-deny.yml)
 [![Release](https://github.com/gacallea/freesound-credits/actions/workflows/release.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/release.yml)
 [![Deployment](https://github.com/gacallea/freesound-credits/actions/workflows/release-plz.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/release-plz.yml)
 [![Crates.io](https://img.shields.io/crates/v/freesound%2Dcredits.svg)](https://crates.io/crates/freesound-credits)
