@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.10](https://github.com/gacallea/freesound-credits/compare/v0.2.9...v0.2.10) - 2024-08-08
+
+### Fixed
+- removed cliff altogether
+- trying to switch to keep a changelog
+
+### Other
+- empty the changelog
+
 ### Changed
 
 - Empty the changelog
