@@ -1,6 +1,6 @@
 [workspace]
-# path of the git-cliff configuration
-changelog_config = "cliff.toml"
+# path of the changelog
+changelog_path = "./CHANGELOG.md"
 
 # enable changelog updates
 changelog_update = true
