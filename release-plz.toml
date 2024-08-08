@@ -2,11 +2,21 @@
 # update dependencies with `cargo update`
 dependencies_update = true
 
-# disable GitHub releases
+# Disable git releases for all packages by default
 git_release_enable = false
+
+# Disable git tags for all packages by default
+git_tag_enable = false
 
 # labels for the release PR
 pr_labels = ["release"]
 
+# Options for the package I care the most, e.g. `my_main_package`.
+[[package]]
+name = "freesound-credits"
 
+# (Optional) Customize the git tag name to remove the `my_main_package` prefix.
+git_tag_name = "v{{ version }}"
 
+# Enable git tags for this package
+git_tag_enable = true
