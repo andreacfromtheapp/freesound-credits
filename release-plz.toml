@@ -56,7 +56,10 @@ body = """
     {% endif %}\
 {% endif %}\
 
-{% for group, commits in commits | group_by(attribute="group") %}
+{% for group, commits in commits
+| filter(attribute="merge_commit", value=false)
+| unique(attribute="message")
+| group_by(attribute="group") %}
     ### {{ group | striptags | trim | upper_first }}
     {% for commit in commits
     | filter(attribute="scope")
@@ -81,7 +84,8 @@ commit_parsers = [
   { message = "^refactor", group = "<!-- 2 -->🚜 Refactor" },
   { message = "^style", group = "<!-- 5 -->🎨 Styling" },
   { message = "^test", group = "<!-- 6 -->🧪 Testing" },
-  { message = "^chore\\(release\\): prepare for", skip = true },
+  { message = "^chore\\(release\\):", skip = true },
+  { message = "^chore: release", skip = true },
   { message = "^chore\\(deps.*\\)", skip = true },
   { message = "^chore\\(pr\\)", skip = true },
   { message = "^chore\\(pull\\)", skip = true },
@@ -89,4 +93,13 @@ commit_parsers = [
   { message = "^chore|^ci", group = "<!-- 7 -->⚙️ Miscellaneous Tasks" },
   { body = ".*security", group = "<!-- 8 -->🛡️ Security" },
   { message = "^revert", group = "<!-- 9 -->◀️ Revert" },
+]
+
+link_parsers = [
+  # Extract all GitLab issues and PRs and generate URLs linking to them.
+  # The link text will be the matching pattern.
+  { pattern = "#(\\d+)", href = "https://github.com/gacallea/freesound-credits/issues/$1" },
+  # Extract mentions of IETF RFCs and generate URLs linking to them.
+  # It also rewrites the text as "ietf-rfc...".
+  { pattern = "RFC(\\d+)", text = "ietf-rfc$1", href = "https://datatracker.ietf.org/doc/html/rfc$1" },
 ]
