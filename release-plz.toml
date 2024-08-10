@@ -1,23 +1,18 @@
 [workspace]
 # update dependencies with `cargo update`
 dependencies_update = true
-
 # Disable git releases for all packages by default
 git_release_enable = false
-
 # Disable git tags for all packages by default
 git_tag_enable = false
-
 # labels for the release PR
 pr_labels = ["release"]
 
 # Options for the package I care the most, e.g. `my_main_package`.
 [[package]]
 name = "freesound-credits"
-
 # (Optional) Customize the git tag name to remove the `my_main_package` prefix.
 git_tag_name = "v{{ version }}"
-
 # Enable git tags for this package
 git_tag_enable = true
 
@@ -34,23 +29,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 """
 
 body = """
-{%- macro remote_url() -%}
-  https://github.com/{{ remote.owner }}/{{ remote.repo }}
-{%- endmacro -%}
-
 {% macro print_commit(commit) -%}
   - {% if commit.scope %}*({{ commit.scope }})* {% endif %}\
     {% if commit.breaking %}[**breaking**] {% endif %}\
 
     {{ commit.message | upper_first }} - \
-      ([{{ commit.id | truncate(length=7, end="") }}]({{ self::remote_url() }}/commit/{{ commit.id }})) \
-      by {{ commit.author.name }}\
+      ([{{ commit.id | truncate(length=7, end="") }}]({{ remote.link }}/commit/{{ commit.id }}))\
 {% endmacro -%}
 
 {% if version %}\
     {% if previous.version %}\
         ## [{{ version | trim_start_matches(pat="v") }}]\
-          ({{ self::remote_url() }}/compare/{{ previous.version }}..{{ version }})
+            ({{ remote.link }}/compare/v{{ previous.version }}..v{{ version }})
     {% else %}\
         ## [{{ version | trim_start_matches(pat="v") }}]
     {% endif %}\
@@ -76,7 +66,7 @@ body = """
 """
 
 commit_parsers = [
-  { message = "^feat", group = "<!-- 0 -->⛰️  Features" },
+  { message = "^feat", group = "<!-- 0 -->⛰️ Features" },
   { message = "^fix", group = "<!-- 1 -->🐛 Bug Fixes" },
   { message = "^doc", group = "<!-- 3 -->📚 Documentation" },
   { message = "^perf", group = "<!-- 4 -->⚡ Performance" },
@@ -96,9 +86,9 @@ commit_parsers = [
 ]
 
 link_parsers = [
-  # Extract all GitLab issues and PRs and generate URLs linking to them.
+  # Extract all issues and PRs and generate URLs linking to them.
   # The link text will be the matching pattern.
-  { pattern = "#(\\d+)", href = "https://github.com/gacallea/freesound-credits/issues/$1" },
+  { pattern = "#(\\d+)", href = "{{ remote.link }/issues/$1" },
   # Extract mentions of IETF RFCs and generate URLs linking to them.
   # It also rewrites the text as "ietf-rfc...".
   { pattern = "RFC(\\d+)", text = "ietf-rfc$1", href = "https://datatracker.ietf.org/doc/html/rfc$1" },
