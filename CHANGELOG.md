@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.14](https://github.com/gacallea/freesound-credits/compare/v0.2.13..v0.2.14)
+
+### ⛰️ Features
+
+- *(readme)* Added commitlint badge + reoder ([#29](https://github.com/gacallea/freesound-credits/pull/29)) - ([7da5d62](https://github.com/gacallea/freesound-credits/commit/7da5d62f3db17c1229cd183fc7f72d3e5f3139e5))
+
 ## [0.2.13](https://github.com/gacallea/freesound-credits/compare/v0.2.12..v0.2.13)
 
 ### 🐛 Bug Fixes
