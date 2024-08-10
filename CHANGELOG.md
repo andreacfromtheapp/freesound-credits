@@ -9,8 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.12](https://github.com/gacallea/freesound-credits/compare/v0.2.11..v0.2.12)
 
-
-### ⛰️  Features
+### ⛰️ Features
 
 - Adding pre-commit hook for convetional - ([924c906](https://github.com/gacallea/freesound-credits/commit/924c906c4b662503d8e25199c44780608c323557))
 
@@ -26,7 +25,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.11](https://github.com/gacallea/freesound-credits/compare/v0.2.10..v0.2.11)
 
-
 ### 🐛 Bug Fixes
 
 - Single git tag and tag template - ([aa1a051](https://github.com/gacallea/freesound-credits/commit/aa1a051824c405c06fb4677e9786f69a106d301a))
@@ -37,7 +35,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remove configs with default values - ([d5b0e9e](https://github.com/gacallea/freesound-credits/commit/d5b0e9eb7ff69b23b0ce12ceada8010532cf8134))
 
 ## [0.2.10](https://github.com/gacallea/freesound-credits/compare/v0.2.9..v0.2.10)
-
 
 ### 🐛 Bug Fixes
 
@@ -50,13 +47,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.9](https://github.com/gacallea/freesound-credits/compare/v0.2.8..v0.2.9)
 
-
 ### ⚙️ Miscellaneous Tasks
 
 - Fixing git cliff and changelog -- adding clarify for some license ([#10](https://github.com/gacallea/freesound-credits/issues/10)) - ([fdbb853](https://github.com/gacallea/freesound-credits/commit/fdbb853dd1c2a73f10ae5d74e909f8a10a425423))
 
 ## [0.2.8](https://github.com/gacallea/freesound-credits/compare/v0.2.7..v0.2.8)
-
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -64,13 +59,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.7](https://github.com/gacallea/freesound-credits/compare/v0.2.6..v0.2.7)
 
-
 ### ⚙️ Miscellaneous Tasks
 
 - Adding emtpy chagelog file cause cargo-dist needs it. ([#6](https://github.com/gacallea/freesound-credits/issues/6)) - ([cc0e118](https://github.com/gacallea/freesound-credits/commit/cc0e118c1ffcf57af6d01456d6cfced3bbfbe83f))
 
 ## [0.2.6](https://github.com/gacallea/freesound-credits/compare/v0.2.5..v0.2.6)
-
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -81,8 +74,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.5](https://github.com/gacallea/freesound-credits/compare/v0.2.4..v0.2.5)
 
-
-### ⛰️  Features
+### ⛰️ Features
 
 - Added musl - ([f30644d](https://github.com/gacallea/freesound-credits/commit/f30644d070dd8b9472905b8da1c1b4d10283bb7c))
 - Added homebrew - ([d10839f](https://github.com/gacallea/freesound-credits/commit/d10839fe941eff7348926c2ac962b1da4f406410))
@@ -97,14 +89,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.4](https://github.com/gacallea/freesound-credits/compare/v0.2.3..v0.2.4)
 
-
 ### ⚙️ Miscellaneous Tasks
 
 - Bump version to be on track with release-plz and crates - ([667af7f](https://github.com/gacallea/freesound-credits/commit/667af7f8979586f19653e6f69f142a9e0f174b33))
 - Fix badge name for deployment - ([ca31d63](https://github.com/gacallea/freesound-credits/commit/ca31d6337ac6812f16661c0bbd64e87b244d717b))
 
 ## [0.2.3](https://github.com/gacallea/freesound-credits/compare/v0.2.2..v0.2.3)
-
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -114,13 +104,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.2](https://github.com/gacallea/freesound-credits/compare/v0.2.1..v0.2.2)
 
-
 ### ⚙️ Miscellaneous Tasks
 
 - Wow shiny new cargo-dist CI! - ([8c76d66](https://github.com/gacallea/freesound-credits/commit/8c76d6682c05a8bd5200abb6d71d68941b19ec99))
 
 ## [0.2.1](https://github.com/gacallea/freesound-credits/compare/v0.2.0..v0.2.1)
-
 
 ### 🐛 Bug Fixes
 
@@ -128,8 +116,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.0](https://github.com/gacallea/freesound-credits/compare/v0.1.2..v0.2.0)
 
-
-### ⛰️  Features
+### ⛰️ Features
 
 - *(issue)* Add feature request template - ([d10b225](https://github.com/gacallea/freesound-credits/commit/d10b225da2e5d2e287cf546c34e0b1cb7ad7d555))
 - *(issue)* Add bug report template - ([52ce50d](https://github.com/gacallea/freesound-credits/commit/52ce50d795dd765805a7b8683901b2b6f3ab89f7))
@@ -142,4 +129,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### 📚 Documentation
 
 - *(contributing)* Adding contributing - ([f60b2e6](https://github.com/gacallea/freesound-credits/commit/f60b2e64844de98f61eea81a4967a4a06846baba))
-
