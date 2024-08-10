@@ -38,8 +38,7 @@ body = """
 
 {% if version %}\
     {% if previous.version %}\
-        ## [{{ version | trim_start_matches(pat="v") }}]\
-            ({{ remote.link }}/compare/v{{ previous.version }}..v{{ version }})
+        ## [{{ version | trim_start_matches(pat="v") }}]({{ release_link }})
     {% else %}\
         ## [{{ version | trim_start_matches(pat="v") }}]
     {% endif %}\
