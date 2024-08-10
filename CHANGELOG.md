@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.13](https://github.com/gacallea/freesound-credits/compare/v0.2.12..v0.2.13)
+
+### 🐛 Bug Fixes
+
+- *(release-plz)* Improvements all around ([#26](https://github.com/gacallea/freesound-credits/pull/26)) - ([7caf55f](https://github.com/gacallea/freesound-credits/commit/7caf55f3d681194a67cbcce13756cd4ec7c90a55))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(action)* Add commitlint on push main and PRs ([#28](https://github.com/gacallea/freesound-credits/pull/28)) - ([ea6064f](https://github.com/gacallea/freesound-credits/commit/ea6064f4d7e9213a19e8b75ec811f586e3e949a5))
+
 ## [0.2.12](https://github.com/gacallea/freesound-credits/compare/v0.2.11..v0.2.12)
 
 ### ⛰️ Features
