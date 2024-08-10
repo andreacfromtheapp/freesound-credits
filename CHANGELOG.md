@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.2.13](https://github.com/gacallea/freesound-credits/compare/v0.2.12..v0.2.13)
+## [0.2.13](https://github.com/gacallea/freesound-credits/compare/v0.2.12...v0.2.13)
 
 ### 🐛 Bug Fixes
 
@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - *(action)* Add commitlint on push main and PRs ([#28](https://github.com/gacallea/freesound-credits/pull/28)) - ([ea6064f](https://github.com/gacallea/freesound-credits/commit/ea6064f4d7e9213a19e8b75ec811f586e3e949a5))
 
-## [0.2.12](https://github.com/gacallea/freesound-credits/compare/v0.2.11..v0.2.12)
+## [0.2.12](https://github.com/gacallea/freesound-credits/compare/v0.2.11...v0.2.12)
 
 ### ⛰️ Features
 
@@ -33,7 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Update cargo-dist - ([b1cfa5b](https://github.com/gacallea/freesound-credits/commit/b1cfa5b6792293e10c4e117c3449cf4847cebb43))
 
-## [0.2.11](https://github.com/gacallea/freesound-credits/compare/v0.2.10..v0.2.11)
+## [0.2.11](https://github.com/gacallea/freesound-credits/compare/v0.2.10...v0.2.11)
 
 ### 🐛 Bug Fixes
 
@@ -44,7 +44,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Binstall name var - ([5d3977e](https://github.com/gacallea/freesound-credits/commit/5d3977e081cda505f0998356abaee716f5e297d4))
 - Remove configs with default values - ([d5b0e9e](https://github.com/gacallea/freesound-credits/commit/d5b0e9eb7ff69b23b0ce12ceada8010532cf8134))
 
-## [0.2.10](https://github.com/gacallea/freesound-credits/compare/v0.2.9..v0.2.10)
+## [0.2.10](https://github.com/gacallea/freesound-credits/compare/v0.2.9...v0.2.10)
 
 ### 🐛 Bug Fixes
 
@@ -55,25 +55,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Empty the changelog - ([e675890](https://github.com/gacallea/freesound-credits/commit/e6758909169f591c42f22007b3d6d7c2fa0cf7f6))
 
-## [0.2.9](https://github.com/gacallea/freesound-credits/compare/v0.2.8..v0.2.9)
+## [0.2.9](https://github.com/gacallea/freesound-credits/compare/v0.2.8...v0.2.9)
 
 ### ⚙️ Miscellaneous Tasks
 
 - Fixing git cliff and changelog -- adding clarify for some license ([#10](https://github.com/gacallea/freesound-credits/issues/10)) - ([fdbb853](https://github.com/gacallea/freesound-credits/commit/fdbb853dd1c2a73f10ae5d74e909f8a10a425423))
 
-## [0.2.8](https://github.com/gacallea/freesound-credits/compare/v0.2.7..v0.2.8)
+## [0.2.8](https://github.com/gacallea/freesound-credits/compare/v0.2.7...v0.2.8)
 
 ### ⚙️ Miscellaneous Tasks
 
 - Improvements for deny assist pre-commit and plz ([#8](https://github.com/gacallea/freesound-credits/issues/8)) - ([9c9b2a2](https://github.com/gacallea/freesound-credits/commit/9c9b2a212846aef18559dfda00550d9d901c2297))
 
-## [0.2.7](https://github.com/gacallea/freesound-credits/compare/v0.2.6..v0.2.7)
+## [0.2.7](https://github.com/gacallea/freesound-credits/compare/v0.2.6...v0.2.7)
 
 ### ⚙️ Miscellaneous Tasks
 
 - Adding emtpy chagelog file cause cargo-dist needs it. ([#6](https://github.com/gacallea/freesound-credits/issues/6)) - ([cc0e118](https://github.com/gacallea/freesound-credits/commit/cc0e118c1ffcf57af6d01456d6cfced3bbfbe83f))
 
-## [0.2.6](https://github.com/gacallea/freesound-credits/compare/v0.2.5..v0.2.6)
+## [0.2.6](https://github.com/gacallea/freesound-credits/compare/v0.2.5...v0.2.6)
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -82,7 +82,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added cargo-assist - ([f0c0005](https://github.com/gacallea/freesound-credits/commit/f0c0005f42ae8d853c0ba2be72b1cee787ac9e0f))
 - Change dependabot to less aggressive schedule - ([4cdcf61](https://github.com/gacallea/freesound-credits/commit/4cdcf612e6a11f66f5ec29981f92aa7027f387cb))
 
-## [0.2.5](https://github.com/gacallea/freesound-credits/compare/v0.2.4..v0.2.5)
+## [0.2.5](https://github.com/gacallea/freesound-credits/compare/v0.2.4...v0.2.5)
 
 ### ⛰️ Features
 
@@ -97,14 +97,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Chronological order for badges - ([f1a4f68](https://github.com/gacallea/freesound-credits/commit/f1a4f68a2939cb6da3d581640f4739c88f559095))
 
-## [0.2.4](https://github.com/gacallea/freesound-credits/compare/v0.2.3..v0.2.4)
+## [0.2.4](https://github.com/gacallea/freesound-credits/compare/v0.2.3...v0.2.4)
 
 ### ⚙️ Miscellaneous Tasks
 
 - Bump version to be on track with release-plz and crates - ([667af7f](https://github.com/gacallea/freesound-credits/commit/667af7f8979586f19653e6f69f142a9e0f174b33))
 - Fix badge name for deployment - ([ca31d63](https://github.com/gacallea/freesound-credits/commit/ca31d6337ac6812f16661c0bbd64e87b244d717b))
 
-## [0.2.3](https://github.com/gacallea/freesound-credits/compare/v0.2.2..v0.2.3)
+## [0.2.3](https://github.com/gacallea/freesound-credits/compare/v0.2.2...v0.2.3)
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -112,19 +112,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add/fix templates emojis - ([2dbe1d7](https://github.com/gacallea/freesound-credits/commit/2dbe1d746a34399b8d405568ea7391c781ed344c))
 - Delete leftover script dir - ([dedf877](https://github.com/gacallea/freesound-credits/commit/dedf8777f5f8a5209bd8b7ccb5c4b0a59d126304))
 
-## [0.2.2](https://github.com/gacallea/freesound-credits/compare/v0.2.1..v0.2.2)
+## [0.2.2](https://github.com/gacallea/freesound-credits/compare/v0.2.1...v0.2.2)
 
 ### ⚙️ Miscellaneous Tasks
 
 - Wow shiny new cargo-dist CI! - ([8c76d66](https://github.com/gacallea/freesound-credits/commit/8c76d6682c05a8bd5200abb6d71d68941b19ec99))
 
-## [0.2.1](https://github.com/gacallea/freesound-credits/compare/v0.2.0..v0.2.1)
+## [0.2.1](https://github.com/gacallea/freesound-credits/compare/v0.2.0...v0.2.1)
 
 ### 🐛 Bug Fixes
 
 - *(rewadme)* Cargo version bump to fix install mistake - ([c8ef775](https://github.com/gacallea/freesound-credits/commit/c8ef775ea3527920b2df8c9a78eb37421e76c421))
 
-## [0.2.0](https://github.com/gacallea/freesound-credits/compare/v0.1.2..v0.2.0)
+## [0.2.0](https://github.com/gacallea/freesound-credits/compare/v0.1.2...v0.2.0)
 
 ### ⛰️ Features
 
