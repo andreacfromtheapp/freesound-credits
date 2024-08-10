@@ -26,12 +26,12 @@ Until today, giving credits may have been a process that you begrudged. This
 may have been stopping you from giving credits altogether. Not because you
 didn't want to, but because it was cumbersome and tedious.
 
-Not anymore! Thanks to `freesound-credits` utility it takes seconds now!
+Not anymore! Thanks to `freesound-credits` it takes seconds now!
 
 ## Install
 
 Use [`cargo binstall`](https://github.com/cargo-bins/cargo-binstall) to install
-freesound-credits binary directly from GitHub:
+`freesound-credits` directly from GitHub:
 
 ```shell
 cargo binstall freesound-credits
@@ -50,7 +50,7 @@ brew install gacallea/tap/freesound-credits
 The command line comes with a straight-forward usage function:
 
 ```bash
-freesound-credits -V
+freesound-credits -h
 ```
 
 ### Usage example
@@ -81,13 +81,14 @@ kept their original samples names per downloads from the platform. For example:
 
 `freesound-credits` should work for any samples stored in a flat folder.
 `freesound-credits` filters out metadata files associated with audio imports.
-To add more DAWs and associated metadata or extraction, please file an issue.
+To add more DAWs and associated metadata or extraction, please [file an
+issue](https://github.com/gacallea/freesound-credits/issues/new?assignees=&labels=enhancement&projects=&template=add_a_new_daw.yml&title=feat%28DAW%29%3A+add+).
 
 | DAW | Samples Folder | Metadata | Extraction | Notes |
 | :----: | :----: | :----: | :----: | :----: |
 | Ableton | `Samples/Imported` | `.asd` | no | |
+| Reaper  | `Audio Files` | `.reapeaks` | no | |
 | Renoise | `SamplesData` | no | `unzip` | [extraction](#renoise-extraction) |
-| Repaer  | `Audio Files` | `.reapeaks` | no | |
 | Logic Pro X  | `Audio Files` | no | no | [Package vs Folder](https://www.youtube.com/watch?v=33zVydB4MiI) |
 
 ### Adding more DAWs
