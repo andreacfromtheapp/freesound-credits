@@ -45,7 +45,7 @@ body = """
 {% if version %}\
     {% if previous.version %}\
         ## [{{ version | trim_start_matches(pat="v") }}]\
-          ({{ self::remote_url() }}/compare/{{ previous.version }}..{{ version }})
+            ({{ self::remote_url() }}/compare/v{{ previous.version }}..v{{ version }})
     {% else %}\
         ## [{{ version | trim_start_matches(pat="v") }}]
     {% endif %}\
