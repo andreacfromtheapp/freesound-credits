@@ -29,23 +29,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 """
 
 body = """
-{%- macro remote_url() -%}
-  https://github.com/{{ remote.owner }}/{{ remote.repo }}
-{%- endmacro -%}
-
 {% macro print_commit(commit) -%}
   - {% if commit.scope %}*({{ commit.scope }})* {% endif %}\
     {% if commit.breaking %}[**breaking**] {% endif %}\
 
     {{ commit.message | upper_first }} - \
-      ([{{ commit.id | truncate(length=7, end="") }}]({{ self::remote_url() }}/commit/{{ commit.id }}))\
-{% endmacro -%}
+      ([{{ commit.id | truncate(length=7, end="") }}]({{ remote.link }}/commit/{{ commit.id }}))\
 {% endmacro -%}
 
 {% if version %}\
     {% if previous.version %}\
         ## [{{ version | trim_start_matches(pat="v") }}]\
-            ({{ self::remote_url() }}/compare/v{{ previous.version }}..v{{ version }})
+            ({{ remote.link }}/compare/v{{ previous.version }}..v{{ version }})
     {% else %}\
         ## [{{ version | trim_start_matches(pat="v") }}]
     {% endif %}\
@@ -93,7 +88,7 @@ commit_parsers = [
 link_parsers = [
   # Extract all issues and PRs and generate URLs linking to them.
   # The link text will be the matching pattern.
-  { pattern = "#(\\d+)", href = "https://github.com/{{ remote.owner }}/{{ remote.repo }/issues/$1" },
+  { pattern = "#(\\d+)", href = "{{ remote.link }/issues/$1" },
   # Extract mentions of IETF RFCs and generate URLs linking to them.
   # It also rewrites the text as "ietf-rfc...".
   { pattern = "RFC(\\d+)", text = "ietf-rfc$1", href = "https://datatracker.ietf.org/doc/html/rfc$1" },
