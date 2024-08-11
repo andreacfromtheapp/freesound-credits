@@ -1,0 +1,102 @@
+name: CI # Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "**.md"
+  pull_request:
+    paths-ignore:
+      - "**.md"
+
+jobs:
+  # test:
+  #   name: Test Suite
+  #   runs-on: ubuntu-22.04
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v4
+  #     - name: Install cargo-semver-checks
+  #       uses: taiki-e/install-action@v2
+  #       with:
+  #         tool: cargo-semver-checks@0.33
+  #     - name: Start containers
+  #       run: docker compose up -d --wait
+  #       working-directory: ./tests
+  #     - name: Install Rust toolchain
+  #       uses: dtolnay/rust-toolchain@stable
+  #     - uses: Swatinem/rust-cache@v2
+  #     - name: Run tests
+  #       run: cargo test --all-features --workspace
+  #
+  # test-no-docker:
+  #   name: Test Suite (no Docker)
+  #   strategy:
+  #     matrix:
+  #       include:
+  #         - target: aarch64-pc-windows-msvc
+  #           os: windows-2022
+  #         - target: x86_64-unknown-linux-gnu
+  #           os: ubuntu-22.04
+  #         - target: x86_64-apple-darwin
+  #           os: macos-12
+  #         - target: x86_64-pc-windows-msvc
+  #           os: windows-2022
+  #         - target: x86_64-apple-darwin
+  #           os: macos-12
+  #   runs-on: ${{ matrix.os }}
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v4
+  #     - name: Install cargo-semver-checks
+  #       uses: taiki-e/install-action@v2
+  #       with:
+  #         tool: cargo-semver-checks@0.33
+  #     - name: Install Rust toolchain
+  #       uses: dtolnay/rust-toolchain@stable
+  #     - uses: Swatinem/rust-cache@v2
+  #     - name: Run tests
+  #       run: cargo test --no-default-features --features all-static --workspace
+
+  rustfmt:
+    name: Rustfmt
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+      - uses: Swatinem/rust-cache@v2
+      - name: Check formatting
+        run: cargo fmt --all --check
+
+  clippy:
+    name: Clippy
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+      - uses: Swatinem/rust-cache@v2
+      - name: Clippy check
+        run: cargo clippy --all-targets --all-features --workspace
+
+  docs:
+    name: Docs
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: Check documentation
+        env:
+          RUSTDOCFLAGS: -D warnings
+        run: cargo doc --no-deps --document-private-items --all-features --workspace --examples
