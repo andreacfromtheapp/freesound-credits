@@ -110,3 +110,9 @@ mind for any extra information.
 
 Extract with `unzip your_project.xrns` first. Once unzipped, you will find a
 `Song.xml` file and a `SamplesData` directory containing each `Instrument`.
+
+## Contributing
+
+Thanks for your help improving the project! :balloon: Happy to have you! Peruse
+the [contributing guide](./.github/CONTRIBUTING.md) to help you get involved in
+the project.
