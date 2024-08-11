@@ -11,8 +11,10 @@ Deny](https://github.com/gacallea/freesound-credits/actions/workflows/cargo-deny
 [![CD](https://github.com/gacallea/freesound-credits/actions/workflows/release-plz.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/release-plz.yml)
 [![Release](https://github.com/gacallea/freesound-credits/actions/workflows/release.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/release.yml)
 [![Crates.io](https://img.shields.io/crates/v/freesound%2Dcredits.svg)](https://crates.io/crates/freesound-credits)
-
-Dual-licensed under MIT or the Apache 2.0 licenses.
+[![License:
+Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License:
+MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Giving credits
 
