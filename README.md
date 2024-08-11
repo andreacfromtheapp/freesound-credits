@@ -3,7 +3,7 @@
 A command line utility to help you credit [Freesound](https://freesound.org)
 samples for a given project more easily.
 
-[![Conventional Commits](https://github.com/gacallea/freesound-credits/actions/workflows/commitlint.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/commitlint.yml)
+[![Commitlint](https://github.com/gacallea/freesound-credits/actions/workflows/commitlint.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/commitlint.yml)
 [![Cargo
 Deny](https://github.com/gacallea/freesound-credits/actions/workflows/cargo-deny.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/cargo-deny.yml)
 [![CI](https://github.com/gacallea/freesound-credits/actions/workflows/ci.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/ci.yml)
