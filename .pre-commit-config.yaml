@@ -13,13 +13,11 @@ repos:
       - id: check-json
       - id: pretty-format-json
         args: [--autofix, --no-sort-keys]
-      - id: trailing-whitespace
-        args: [--markdown-linebreak-ext=md]
 
-  - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.41.0
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.13.0
     hooks:
-      - id: markdownlint
+      - id: markdownlint-cli2
 
   - repo: https://github.com/opensource-nepal/commitlint
     rev: v1.2.0
