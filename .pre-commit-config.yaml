@@ -2,7 +2,6 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
     hooks:
-      - id: detect-private-key
       - id: check-added-large-files
       - id: check-case-conflict
       - id: check-merge-conflict
@@ -13,37 +12,53 @@ repos:
       - id: check-json
       - id: pretty-format-json
         args: [--autofix, --no-sort-keys]
-      - id: trailing-whitespace
-        args: [--markdown-linebreak-ext=md]
 
-  - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.41.0
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.13.0
     hooks:
-      - id: markdownlint
+      - id: markdownlint-cli2
 
   - repo: https://github.com/opensource-nepal/commitlint
-    rev: v1
+    rev: v1.2.0
     hooks:
       - id: commitlint
 
-  # - repo: https://github.com/AndrejOrsula/pre-commit-cargo
-  #   rev: 0.3.0
-  #   hooks:
-  #     - id: cargo-fmt
-  #     - id: cargo-update
-  #     - id: cargo-clippy
-  #       args: ["--all-targets", "--all-features"]
-  #     - id: cargo-check
-  #       args: ["--all-targets", "--all-features"]
-  #     - id: cargo-test
-  #       args: ["--all-targets", "--all-features"]
-  #     - id: cargo-test-doc
-  #       args: ["--all-features"]
-  #     - id: cargo-doc
-  #       args: ["--no-deps", "--document-private-items"]
-  #
-  # - repo: https://github.com/EmbarkStudios/cargo-deny
-  #   rev: 0.16.1
-  #   hooks:
-  #     - id: cargo-deny
-  #       args: ["--all-features", "check"] # optionally modify the arguments for cargo-deny (default arguments shown here)
+  - repo: https://github.com/AndrejOrsula/pre-commit-cargo
+    rev: 0.3.0
+    hooks:
+      - id: cargo-fmt
+      - id: cargo-update
+      - id: cargo-clippy
+        args: ["--all-targets", "--all-features"]
+      - id: cargo-check
+        args: ["--all-targets", "--all-features"]
+      - id: cargo-test
+        args: ["--all-targets", "--all-features"]
+      - id: cargo-test-doc
+        args: ["--all-features"]
+      - id: cargo-doc
+        args:
+          [
+            "--no-deps",
+            "--document-private-items",
+            "--all-features",
+            "--workspace",
+            "--examples",
+          ]
+
+  - repo: https://github.com/EmbarkStudios/cargo-deny
+    rev: 0.16.1
+    hooks:
+      - id: cargo-deny
+        args: ["--all-features", "check"]
+
+  - repo: local
+    hooks:
+      - id: trufflehog
+        name: TruffleHog
+        description: Detect secrets in your data.
+        entry: bash -c 'trufflehog git file://. --since-commit HEAD --only-verified --fail'
+        # For running trufflehog in docker, use the following entry instead:
+        # entry: bash -c 'docker run --rm -v "$(pwd):/workdir" -i --rm trufflesecurity/trufflehog:latest git file:///workdir --since-commit HEAD --only-verified --fail'
+        language: system
+        stages: ["commit", "push"]
