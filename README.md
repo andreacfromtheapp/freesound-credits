@@ -6,6 +6,7 @@ samples for a given project more easily.
 [![Commitlint](https://github.com/gacallea/freesound-credits/actions/workflows/commitlint.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/commitlint.yml)
 [![Cargo
 Deny](https://github.com/gacallea/freesound-credits/actions/workflows/cargo-deny.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/cargo-deny.yml)
+[![Trufflehog](https://github.com/gacallea/freesound-credits/actions/workflows/trufflehog.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/trufflehog.yml)
 [![CI](https://github.com/gacallea/freesound-credits/actions/workflows/ci.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/ci.yml)
 [![CD](https://github.com/gacallea/freesound-credits/actions/workflows/release-plz.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/release-plz.yml)
 [![Release](https://github.com/gacallea/freesound-credits/actions/workflows/release.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/release.yml)
