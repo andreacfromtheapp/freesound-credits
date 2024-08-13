@@ -71,7 +71,7 @@ markdown file named `field-notes-credits.md` in the current directory.
 freesound-credits -p Samples/Imported/ -t "Field Notes" -a "Aner Andros" -d "2017-10-28"
 ```
 
-## Supported filenames
+## Supported file names
 
 `freesound-credits` matches samples adhering to Freesound naming standard that
 kept their original samples names per downloads from the platform. For example:
