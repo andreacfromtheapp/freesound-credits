@@ -2,7 +2,11 @@ name: Commitlint
 
 on:
   push:
+    branches-ignore:
+      - "release-plz*"
   pull_request:
+    branches-ignore:
+      - "release-plz*"
 
 jobs:
   commitlint:
