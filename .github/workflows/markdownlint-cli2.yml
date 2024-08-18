@@ -14,4 +14,5 @@ jobs:
       - uses: DavidAnson/markdownlint-cli2-action@v16
         with:
           config: ".markdownlint-cli2.yaml"
-          fix: true
+          fix: false
+          continue-on-error: false
