@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.15](https://github.com/gacallea/freesound-credits/compare/v0.2.14...v0.2.15)
+
+### ⛰️ Features
+
+- *(spellcheck)* Add spellcheck precommit ci and config ([#39](https://github.com/gacallea/freesound-credits/pull/39)) - ([727e79e](https://github.com/gacallea/freesound-credits/commit/727e79edea0a0fe902fa9a5dfb63a90f5a621992))
+
+### 🐛 Bug Fixes
+
+- *(spellcheck)* +top number -precomit ([#40](https://github.com/gacallea/freesound-credits/pull/40)) - ([139ffc9](https://github.com/gacallea/freesound-credits/commit/139ffc90b774bb292f7030f0e07e3e472543a8d6))
+- Streamline pipelines ([#42](https://github.com/gacallea/freesound-credits/pull/42)) - ([f8f33e8](https://github.com/gacallea/freesound-credits/commit/f8f33e89092727cc19a844bc81f6d1a31e911570))
+- Rm redundant freesound in frontmatter ([#41](https://github.com/gacallea/freesound-credits/pull/41)) - ([e9c24a9](https://github.com/gacallea/freesound-credits/commit/e9c24a92a653dc41a1aab0ea3f055a101fa16249))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(readme)* Add licenses badges and remove written line ([#37](https://github.com/gacallea/freesound-credits/pull/37)) - ([040b8d0](https://github.com/gacallea/freesound-credits/commit/040b8d0c5eb87ea4ad26b66bc62154fb3b12006e))
+
 ## [0.2.14](https://github.com/gacallea/freesound-credits/compare/v0.2.13...v0.2.14)
 
 ### ⛰️ Features
