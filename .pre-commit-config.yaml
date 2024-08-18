@@ -45,12 +45,7 @@ repos:
             "--workspace",
             "--examples",
           ]
-
-  - repo: https://github.com/EmbarkStudios/cargo-deny
-    rev: 0.16.1
-    hooks:
-      - id: cargo-deny
-        args: ["--all-features", "check"]
+      - id: cargo-deny-check
 
   - repo: local
     hooks:
