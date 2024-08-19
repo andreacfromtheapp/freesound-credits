@@ -2,7 +2,7 @@
 
 Thank you for investing your time in contributing to this project!
 
-**Contributions of all sizes welcome and valued here.**
+**Contributions of all sizes welcome and valued here.** :pray:
 
 In this guide you will get an overview of the contribution workflow from
 opening an issue, creating a PR, reviewing, and merging the PR.
