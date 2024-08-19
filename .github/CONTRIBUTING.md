@@ -8,7 +8,7 @@ In this guide you will get an overview of the contribution workflow from
 opening an issue, creating a PR, reviewing, and merging the PR.
 
 To get an overview of the project's best practices, tooling, and automation,
-read the [rationale](#rationale).
+read the [rationale](#rationale). :information_source:
 
 ## Conduct
 
