@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.14](https://github.com/gacallea/freesound-credits/compare/v0.2.13...v0.2.14)
+
+### ⛰️ Features
+
+- *(readme)* Added commitlint badge + reoder ([#29](https://github.com/gacallea/freesound-credits/pull/29)) - ([7da5d62](https://github.com/gacallea/freesound-credits/commit/7da5d62f3db17c1229cd183fc7f72d3e5f3139e5))
+- *(release-plz)* Use release.link ([#35](https://github.com/gacallea/freesound-credits/pull/35)) - ([491f627](https://github.com/gacallea/freesound-credits/commit/491f62731568cb17814b4bbdbdb9eab50c4a1fc1))
+
+### 🐛 Bug Fixes
+
+- *(readme)* Renamed commitlint to .yml ([#31](https://github.com/gacallea/freesound-credits/pull/31)) - ([d5550ef](https://github.com/gacallea/freesound-credits/commit/d5550efe38d2d943382ca9dafe2ad9fe9ce48f3b))
+- *(release-plz)* Remote.link in links was broken ([#33](https://github.com/gacallea/freesound-credits/pull/33)) - ([ac12bc0](https://github.com/gacallea/freesound-credits/commit/ac12bc0cf2df64df935f8f1fbd6e2a3888f22ca6))
+
+### 📚 Documentation
+
+- *(readme)* Better wording. fix typos ([#34](https://github.com/gacallea/freesound-credits/pull/34)) - ([93cd500](https://github.com/gacallea/freesound-credits/commit/93cd500f8f41a378902d68cac4694162e25f2d73))
+
+### ⚙️ Miscellaneous Tasks
+
+- Improve precommit and workflows ([#36](https://github.com/gacallea/freesound-credits/pull/36)) - ([ff479c8](https://github.com/gacallea/freesound-credits/commit/ff479c81d22155f6a76db4148dabd45884760072))
+
 ## [0.2.13](https://github.com/gacallea/freesound-credits/compare/v0.2.12...v0.2.13)
 
 ### 🐛 Bug Fixes

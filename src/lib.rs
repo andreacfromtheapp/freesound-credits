@@ -19,7 +19,7 @@
 //! `
 //!  # Example
 //!
-//! Run against an Ableton samples directory (also generating the Zola frontmatter)
+//! Run against an Ableton samples directory (also generating the Zola front-matter)
 //!
 //!  ```text
 //! freesound-credits -p Samples/Imported/ -t "Field Notes" -a "Aner Andros" -d "2017-10-28" -z
@@ -50,16 +50,16 @@ pub struct Args {
     #[arg(short, long)]
     pub artist: String,
 
-    /// Optionally include Zola frontmatter atop the markdown file
+    /// Optionally include Zola front-matter atop the markdown file
     #[arg(short, long)]
     pub zola: bool,
 }
 
-/// Derives the markdown filename from the song title.
+/// Derives the markdown file name from the song title.
 ///
 /// # Example
 ///
-/// For a song titled “Field Notes” the resulting markdown file is `field-notes-credits.md`
+/// For a song titled "Field Notes" the resulting markdown file is `field-notes-credits.md`
 ///
 pub fn set_filename(song_title: &str) -> String {
     let credits_file: String = format!(
@@ -70,18 +70,18 @@ pub fn set_filename(song_title: &str) -> String {
 }
 
 /// Derives a [Zola](https://www.getzola.org) page
-/// [frontmatter](https://www.getzola.org/documentation/content/page/#front-matter)
+/// [front-matter](https://www.getzola.org/documentation/content/page/#front-matter)
 /// header from given song details.
 ///
-/// The frontmatter is a header, and it is placed atop the generated markdown file.
+/// The front-matter is a header, and it is placed atop the generated markdown file.
 ///
 /// # Example
 ///
-/// For a song titled “Field Notes” by “Aner Andros” with date "2017-10-28"
+/// For a song titled "Field Notes" by "Aner Andros" with date "2017-10-28"
 ///
 /// ```toml
 /// +++
-/// title="Field Notes Freesound Credits"
+/// title="Field Notes Credits"
 /// date=2017-10-28
 ///
 /// [taxonomies]
@@ -92,7 +92,7 @@ pub fn set_filename(song_title: &str) -> String {
 pub fn set_frontmatter(song_title: &str, song_date: &str, song_artist: &str) -> String {
     format!(
         "+++
-title=\"{song_title} Freesound Credits\"
+title=\"{song_title} Credits\"
 date={song_date}
 
 [taxonomies]
@@ -110,7 +110,7 @@ tags=[\"Freesound\", \"{song_artist}\", \"Credits\"]
 ///
 /// # Example
 ///
-/// For a song titled “Field Notes”
+/// For a song titled "Field Notes"
 ///
 /// ```markdown
 /// ## Credits
@@ -258,7 +258,7 @@ mod tests {
         let song_artist = "Aner Andros";
         let song_date = "2017-10-28";
         let frontmatter = "+++
-title=\"Field Notes Freesound Credits\"
+title=\"Field Notes Credits\"
 date=2017-10-28
 
 [taxonomies]

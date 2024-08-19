@@ -3,16 +3,16 @@
 A command line utility to help you credit [Freesound](https://freesound.org)
 samples for a given project more easily.
 
-[![Commit Lint](https://github.com/gacallea/freesound-credits/actions/workflows/commitlint.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/commitlint.yml)
-[![Cargo
-Assist](https://github.com/gacallea/freesound-credits/actions/workflows/cargo-assist.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/cargo-assist.yml)
-[![Cargo
-Deny](https://github.com/gacallea/freesound-credits/actions/workflows/cargo-deny.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/cargo-deny.yml)
-[![Deployment](https://github.com/gacallea/freesound-credits/actions/workflows/release-plz.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/release-plz.yml)
+[![Commitlint](https://github.com/gacallea/freesound-credits/actions/workflows/commitlint.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/commitlint.yml)
+[![Trufflehog](https://github.com/gacallea/freesound-credits/actions/workflows/trufflehog.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/trufflehog.yml)
+[![CI](https://github.com/gacallea/freesound-credits/actions/workflows/ci.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/ci.yml)
+[![CD](https://github.com/gacallea/freesound-credits/actions/workflows/release-plz.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/release-plz.yml)
 [![Release](https://github.com/gacallea/freesound-credits/actions/workflows/release.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/release.yml)
 [![Crates.io](https://img.shields.io/crates/v/freesound%2Dcredits.svg)](https://crates.io/crates/freesound-credits)
-
-Dual-licensed under MIT or the Apache 2.0 licenses.
+[![License:
+Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License:
+MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Giving credits
 
@@ -69,7 +69,7 @@ markdown file named `field-notes-credits.md` in the current directory.
 freesound-credits -p Samples/Imported/ -t "Field Notes" -a "Aner Andros" -d "2017-10-28"
 ```
 
-## Supported filenames
+## Supported file names
 
 `freesound-credits` matches samples adhering to Freesound naming standard that
 kept their original samples names per downloads from the platform. For example:

@@ -3,16 +3,14 @@ updates:
   # Maintain dependencies for Cargo
   - package-ecosystem: cargo
     directory: "/"
-    # Check for updates every Monday
     schedule:
-      interval: "weekly"
+      interval: daily
     open-pull-requests-limit: 10
     versioning-strategy: "lockfile-only"
 
   # Maintain dependencies for GitHub Actions
-  - package-ecosystem: "github-actions"
+  - package-ecosystem: github-actions
     directory: "/"
-    # Check for updates every Monday
     schedule:
-      interval: "weekly"
+      interval: daily
     open-pull-requests-limit: 10
