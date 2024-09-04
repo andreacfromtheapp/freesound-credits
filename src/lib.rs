@@ -252,6 +252,13 @@ mod tests {
     }
 
     #[test]
+    fn fail_filename() {
+        let song_title = "Field Notes";
+
+        assert_ne!("Field-Notes-credits.md", set_filename(song_title));
+    }
+
+    #[test]
     fn check_frontmatter() {
         let song_title = "Field Notes";
         let song_artist = "Aner Andros";
