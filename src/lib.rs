@@ -232,8 +232,7 @@ pub fn set_credit(sample: &str) -> String {
         })
         .to_string();
 
-    let credit_parts_to_end: Vec<&str> = Vec::from_iter(sample_line_vec[2..].iter().cloned());
-    let credit_sound: String = credit_parts_to_end.join("_");
+    let credit_sound: String = Vec::from_iter(sample_line_vec[2..].iter().cloned()).join("_");
 
     let credit_line: String = format!(
         "- [{credit_sound}](https://freesound.org/people/{credit_artist}/sounds/{credit_id}/)\n",
@@ -250,6 +249,13 @@ mod tests {
         let song_title = "Field Notes";
 
         assert_eq!("field-notes-credits.md", set_filename(song_title));
+    }
+
+    #[test]
+    fn fail_filename() {
+        let song_title = "Field Notes";
+
+        assert_ne!("Field-Notes-credits.md", set_filename(song_title));
     }
 
     #[test]
