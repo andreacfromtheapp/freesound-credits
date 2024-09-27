@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.16](https://github.com/gacallea/freesound-credits/compare/v0.2.15...v0.2.16)
+
+### ⚙️ Miscellaneous Tasks
+
+- Improved credit_sound + add test for non lowercase file name ([#51](https://github.com/gacallea/freesound-credits/pull/51)) - ([afd2446](https://github.com/gacallea/freesound-credits/commit/afd244605cfc3906f7ce9d5a83b093b07a9f28fb))
+- Add rationale codeowner + improv contrib ([#49](https://github.com/gacallea/freesound-credits/pull/49)) - ([acd09e2](https://github.com/gacallea/freesound-credits/commit/acd09e2b97ee07953a9b079fe2106d375722bccd))
+
 ## [0.2.15](https://github.com/gacallea/freesound-credits/compare/v0.2.14...v0.2.15)
 
 ### ⛰️ Features
