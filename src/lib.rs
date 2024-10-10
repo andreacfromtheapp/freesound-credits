@@ -64,7 +64,12 @@ pub struct Args {
 pub fn set_filename(song_title: &str) -> String {
     let credits_file: String = format!(
         "{}-credits.md",
-        song_title.replace(&[' ', '\''][..], "-").to_lowercase()
+        song_title
+            .replace(
+                &['/', '\\', '(', ')', '[', ']', '<', '>', '{', '}', ' ', '\'', '"', '?', '!'][..],
+                "-"
+            )
+            .to_lowercase()
     );
     credits_file
 }
