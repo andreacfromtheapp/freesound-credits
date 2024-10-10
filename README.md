@@ -114,5 +114,5 @@ Extract with `unzip your_project.xrns` first. Once unzipped, you will find a
 ## Contributing
 
 Thanks for your help improving the project! :balloon: Happy to have you! Peruse
-the [contributing guide](./.github/CONTRIBUTING.md) to help you get involved in
+the [contributing guide](./docs/CONTRIBUTING.md) to help you get involved in
 the project.
