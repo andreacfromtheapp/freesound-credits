@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.17](https://github.com/gacallea/freesound-credits/compare/v0.2.16...v0.2.17)
+
+### ⚙️ Miscellaneous Tasks
+
+- Minor fixes ([#58](https://github.com/gacallea/freesound-credits/pull/58)) - ([533c81a](https://github.com/gacallea/freesound-credits/commit/533c81ac7944c145c0bb060d2a9f9f9b5d7ed662))
+
 ## [0.2.16](https://github.com/gacallea/freesound-credits/compare/v0.2.15...v0.2.16)
 
 ### ⚙️ Miscellaneous Tasks
