@@ -9,15 +9,15 @@
 
 # These owners will be the default owners for everything in the repo.
 # They will be requested for review when someone opens a pull request.
-* @gacallea
+* @andreacfromtheapp
 
 ################################################
 
 # To protect a repository fully against unauthorized changes, 
 # define a CODEOWNERS file in the .github or docs directory
 # and define the repository owner as the owner of the whole directory
-/.github/ @gacallea
-/docs/ @gacallea
+/.github/ @andreacfromtheapp
+/docs/ @andreacfromtheapp
 
 ################################################
 
