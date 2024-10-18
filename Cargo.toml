@@ -5,8 +5,8 @@ edition = "2021"
 license = "MIT OR Apache-2.0"
 
 authors = ["Andrea C From The App"]
-homepage = "https://gacallea.github.io/apps/freesound-credits"
-repository = "https://github.com/gacallea/freesound-credits"
+homepage = "https://andreacfromtheapp.github.io/apps/freesound-credits"
+repository = "https://github.com/andreacfromtheapp/freesound-credits"
 description = "A simple command line utility to credit Freesound samples in a usable markdown file"
 readme = "README.md"
 keywords = ["freesound", "creative-commons", "credits"]
@@ -62,7 +62,7 @@ windows-archive = ".zip"
 # The archive format to use for non-windows builds (defaults .tar.xz)
 unix-archive = ".zip"
 # A GitHub repo to push Homebrew formulas to
-tap = "gacallea/homebrew-tap"
+tap = "andreacfromtheapp/homebrew-tap"
 # Publish jobs to run in CI
 publish-jobs = ["homebrew"]
 # Customize the Homebrew formula name
