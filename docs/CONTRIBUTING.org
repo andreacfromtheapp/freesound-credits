@@ -22,6 +22,13 @@ more, make sure to read the [[file:///docs/RATIONALE.md][rationale]].
 This project adheres to the [[file:///docs/CODE_OF_CONDUCT.md][Rust Code of Conduct]]. This describes the /minimal/
 behavior expected from all contributors.
 
+** OrgMode
+:PROPERTIES:
+:CUSTOM_ID: orgmode
+:END:
+To understand why this project adopts OrgMode as much as possible and how to
+add support for it in your editor, please refer to [[/docs/RATIONALE.md][rationale]].
+
 ** New contributor guide
 :PROPERTIES:
 :CUSTOM_ID: new-contributor-guide
