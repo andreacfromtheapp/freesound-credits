@@ -2,6 +2,29 @@
 :PROPERTIES:
 :CUSTOM_ID: rationale
 :END:
+
+** OrgMode
+:PROPERTIES:
+:CUSTOM_ID: orgmode
+:END:
+The followimg text is from
+https://opensource.com/article/19/1/productivity-tool-org-mode
+
+[[https://orgmode.org][OrgMode]] is one of the best tools for keeping on track with what needs to be done
+and when. And, contrary to myth, it doesn't need [[https://www.youtube.com/watch?v=cxoE2FhOIgI][Emacs]], just a text editor. Org
+can be used with a variety of other tools and editors once you understand the
+basics.
+
+Org, at its very heart, is a structured text file. It has headers, subheaders,
+and keywords that allow other tools to parse files into agendas and to-do lists.
+Org files can be edited with any flat-text editor (e.g., Vim, Neovim, or Visual
+Studio Code), and many have plugins that help create and manage Org files:
+
+- https://vscode-org-mode.github.io/vscode-org-mode/
+- https://github.com/jceb/vim-orgmode
+- https://github.com/nvim-orgmode/orgmode
+- https://github.com/nvim-neorg/neorg
+
 ** Conventional commits
 :PROPERTIES:
 :CUSTOM_ID: conventional-commits
