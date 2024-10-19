@@ -5,11 +5,11 @@
 A command line utility to help you credit [[https://freesound.org][Freesound]] samples for a given project
 more easily.
 
-[[https://github.com/andreacfromtheapp/freesound-credits/.github/workflows/commitlint.yml][https://github.com/andreacfromtheapp/freesound-credits/.github/workflows/commitlint.yml/badge.svg]]
-[[https://github.com/andreacfromtheapp/freesound-credits/.github/workflows/ci.yml][https://github.com/andreacfromtheapp/freesound-credits/.github/workflows/ci.yml/badge.svg]]
-[[https://github.com/andreacfromtheapp/freesound-credits/.github/workflows/trufflehog.yml][https://github.com/andreacfromtheapp/freesound-credits/.github/workflows/trufflehog.yml/badge.svg]]
-[[https://github.com/andreacfromtheapp/freesound-credits/.github/workflows/release-plz.yml][https://github.com/andreacfromtheapp/freesound-credits/.github/workflows/release-plz.yml/badge.svg]]
-[[https://github.com/andreacfromtheapp/freesound-credits/.github/workflows/release.yml][https://github.com/andreacfromtheapp/freesound-credits/.github/workflows/release.yml/badge.svg]]
+[[https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/commitlint.yml][https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/commitlint.yml/badge.svg]]
+[[https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/ci.yml][https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/ci.yml/badge.svg]]
+[[https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/trufflehog.yml][https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/trufflehog.yml/badge.svg]]
+[[https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/release-plz.yml][https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/release-plz.yml/badge.svg]]
+[[https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/release.yml][https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/release.yml/badge.svg]]
 [[https://crates.io/crates/freesound-credits][https://img.shields.io/crates/v/freesound%2Dcredits.svg]]
 [[https://opensource.org/licenses/Apache-2.0][https://img.shields.io/badge/License-Apache_2.0-blue.svg]]
 

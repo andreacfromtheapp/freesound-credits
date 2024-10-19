@@ -13,13 +13,13 @@ an issue, creating a PR, reviewing, and merging the PR.
 :CUSTOM_ID: rationale
 :END:
 For an overview of the project's MSRV, best practices, tooling, automation, and
-more, make sure to read the [[file:///docs/RATIONALE.md][rationale]].
+more, make sure to read the [[file:docs/RATIONALE.org][Rationale]].
 
 ** Conduct
 :PROPERTIES:
 :CUSTOM_ID: conduct
 :END:
-This project adheres to the [[file:///docs/CODE_OF_CONDUCT.md][Rust Code of Conduct]]. This describes the /minimal/
+This project adheres to the [[file:docs/CODE_OF_CONDUCT.org][Code of Conduct]]. This describes the /minimal/
 behavior expected from all contributors.
 
 ** OrgMode
@@ -27,7 +27,7 @@ behavior expected from all contributors.
 :CUSTOM_ID: orgmode
 :END:
 To understand why this project adopts OrgMode as much as possible and how to
-add support for it in your editor, please refer to [[/docs/RATIONALE.md][rationale]].
+add support for it in your editor, please refer to [[file:docs/RATIONALE.org][Rationale]].
 
 ** New contributor guide
 :PROPERTIES:
@@ -117,7 +117,7 @@ functional guidelines of the project.
 :CUSTOM_ID: making-changes
 :END:
 To learn more about local tooling requirements and why this project relies on
-them, read more about it [[file:///docs/RATIONALE.md#local-tooling][here]].
+them, read more about it [[file:docs/RATIONALE.md#local-tooling][here]].
 
 *** Installing requirements
 :PROPERTIES:
@@ -348,7 +348,7 @@ See: the notes about [[#commit-squashing][commit squashing]].
 :PROPERTIES:
 :CUSTOM_ID: opening-the-pull-request
 :END:
-From within GitHub, opening a new Pull Request will present you with a [[file:///.github/PULL_REQUEST_TEMPLATE/pull_request_template.md][template]].
+From within GitHub, opening a new Pull Request will present you with a [[file:.github/PULL_REQUEST_TEMPLATE/pull_request_template.md][template]].
 Please try to do your best at filling out the details, but feel free to skip
 parts if ain't sure what to put.
 
@@ -398,7 +398,7 @@ explanation. Stay open to having your mind changed. Stay open to working with
 the contributor to make the Pull Request better.
 
 Dismissive or disrespectful reviews of the contributor or any other reviewers
-disincline with the [[file:///docs/CODE_OF_CONDUCT.md][Code of Conduct]].
+disincline with the [[file:docs/CODE_OF_CONDUCT.md][Code of Conduct]].
 
 When reviewing a Pull Request, the primary goals consist of for the codebase to
 improve and for the person submitting the request to succeed. *Even if a Pull
