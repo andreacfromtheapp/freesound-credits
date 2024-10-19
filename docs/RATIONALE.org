@@ -7,9 +7,7 @@
 :PROPERTIES:
 :CUSTOM_ID: orgmode
 :END:
-The followimg text is from
-https://opensource.com/article/19/1/productivity-tool-org-mode
-
+#+begin_quote
 [[https://orgmode.org][OrgMode]] is one of the best tools for keeping on track with what needs to be done
 and when. And, contrary to myth, it doesn't need [[https://www.youtube.com/watch?v=cxoE2FhOIgI][Emacs]], just a text editor. Org
 can be used with a variety of other tools and editors once you understand the
@@ -17,15 +15,19 @@ basics.
 
 Org, at its very heart, is a structured text file. It has headers, subheaders,
 and keywords that allow other tools to parse files into agendas and to-do lists.
-Org files can be edited with any flat-text editor (e.g., Vim, Neovim, or Visual
-Studio Code), and many have plugins that help create and manage Org files:
+
+-- https://opensource.com/article/19/1/productivity-tool-org-mode
+#+end_quote
+
+Contrary to myth, you don't need [[https://www.youtube.com/watch?v=cxoE2FhOIgI][Emacs]] to adopt [[https://orgmode.org][OrgMode]] - unless you want to.
+Most flat-text editor have plugins that help create and manage Org files:
 
 - https://vscode-org-mode.github.io/vscode-org-mode/
 - https://github.com/jceb/vim-orgmode
 - https://github.com/nvim-orgmode/orgmode
 - https://github.com/nvim-neorg/neorg
 
-** Conventional commits
+** Conventional Commits
 :PROPERTIES:
 :CUSTOM_ID: conventional-commits
 :END:
@@ -39,7 +41,7 @@ and cumbersome category. Thus, this project relies on both [[#local-tooling][loc
 together with CI pipelines, to make sure - as best as they can - that changes
 pushed to this repository don't break contract.
 
-** Semantic versioning
+** Semantic Versioning
 :PROPERTIES:
 :CUSTOM_ID: semantic-versioning
 :END:
@@ -57,42 +59,43 @@ This project automates versioning and adopts [[#fully-automated-releases][fully 
 releases]] with [[https://release-plz.ieni.dev][=release-plz=]].
 #+end_quote
 
-** Commits and pull requests
+** Commits and Pull Requests
 :PROPERTIES:
 :CUSTOM_ID: commits-and-pull-requests
 :END:
 For all information about commits and pull requests, please refer to the
-[[file:///docs/CONTRIBUTING.md#pull-requests][Contributing]] guidelines.
+[[file:/docs/CONTRIBUTING.org#pull-requests][Contributing]] guidelines.
 
-** Intentional code
+** Intentional Code
 :PROPERTIES:
 :CUSTOM_ID: intentional-code
 :END:
-Always strive to write [[https://www.youtube.com/watch?v=8j4fhsLcT4k][intentional Code]]. Avoid obscure and incomprehensible
-variables and function name and give meaning to code.
+Always strive to write [[https://www.youtube.com/watch?v=8j4fhsLcT4k][intentional Code]]. =Intentional Code= is much more than
+avoiding obscure and incomprehensible variables and functions names; however,
+these are a good start give meaning to code.
 
 ** Documentation
 :PROPERTIES:
 :CUSTOM_ID: documentation
 :END:
-Always write documentation comments and spellcheck them to avoid typos and
+Always write [[https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html][documentation comments]] and spellcheck them to avoid typos and
 mistakes.
 
-** Application security
+** Application Security
 :PROPERTIES:
 :CUSTOM_ID: application-security
 :END:
 This project strives, in [[https://www.schneier.com/essays/archives/2000/04/the_process_of_secur.html][a constantly evolving process]], to apply [[https://www.ibm.com/topics/application-security][=AppSec=]] [[https://www.youtube.com/watch?v=hDvz8KivY_U][during
 the entire development life cycle]], as best as it can.
 
-*** Minimum supported rust version
+*** Minimum Supported Rust Version
 :PROPERTIES:
 :CUSTOM_ID: minimum-supported-rust-version
 :END:
 The project strives to stay up to date and on par with Rust releases, to avoid
 legacy and stagnation, as =AppSec= best practices dictate.
 
-** Local tooling
+** Local Tooling
 :PROPERTIES:
 :CUSTOM_ID: local-tooling
 :END:
@@ -103,7 +106,7 @@ and avoid typos in the source tree, this project relies on =cargo-spellcheck=.
 Likewise, this project relies on [[https://github.com/DavidAnson/markdownlint-cli2][=markdownlint-cli2=]] and [[https://github.com/pre-commit/pre-commit-hooks][=pre-commit-hooks=]]. All
 conveniently enforced with [[https://githooks.com][Git Hooks]].
 
-** Fully automated releases
+** Fully Automated Releases
 :PROPERTIES:
 :CUSTOM_ID: fully-automated-releases
 :END:
