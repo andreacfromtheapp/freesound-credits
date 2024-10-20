@@ -135,7 +135,6 @@ guaranteeing contracts before committing any changes.
 - Install [[https://github.com/rust-secure-code/cargo-auditable][=cargo auditable=]]: =cargo install cargo-auditable --locked=
   - Set up a [[https://github.com/rust-secure-code/cargo-auditable?tab=readme-ov-file#can-i-make-cargo-always-build-with-cargo-auditable][shell alias for =cargo auditable=]]
 - Install [[https://embarkstudios.github.io/cargo-deny/][=cargo deny=]]: =cargo install cargo-deny --locked=
-- Install [[https://github.com/drahnr/cargo-spellcheck][=cargo-spellcheck=]]: =cargo install cargo-spellcheck --locked=
 - Install [[https://trufflesecurity.com/trufflehog][=trufflehog=]]: =brew install trufflehog=
   - Otherwise, download a binary from [[https://github.com/trufflesecurity/trufflehog/releases][=trufflehog= release page]].
 - Install [[https://pre-commit.com][=pre-commit=]]: =pip install pre-commit=
@@ -200,29 +199,6 @@ pre-commit run --all-files
 #+end_src
 
 *Should it present any warning or issue: please fix, rinse, and repeat.*
-
-*** Performing spell-check on the codebase
-:PROPERTIES:
-:CUSTOM_ID: performing-spell-check-on-the-codebase
-:END:
-To perform spell-check on the codebase, run:
-
-#+begin_src shell
-cargo spellcheck checkout
-#+end_src
-
-For details of how to use the spellcheck tool, visit [[https://github.com/drahnr/cargo-spellcheck][cargo-spellcheck
-repository]].
-
-Should the command decline a word, you should backtick the declined word if code
-related. If not, the rejected word should go into =spellcheck.dic= file.
-
-#+begin_quote
-[!IMPORTANT]
-When you add a word into the file, you should also update
-the first line which tells the spellcheck tool the total number of words
-included in the file
-#+end_quote
 
 *** Testing
 :PROPERTIES:

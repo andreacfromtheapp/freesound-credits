@@ -8,7 +8,7 @@ authors = ["Andrea C From The App"]
 homepage = "https://andreacfromtheapp.github.io/apps/freesound-credits"
 repository = "https://github.com/andreacfromtheapp/freesound-credits"
 description = "A simple command line utility to credit Freesound samples in a usable markdown file"
-readme = "README.md"
+readme = "README.org"
 keywords = ["freesound", "creative-commons", "credits"]
 categories = ["command-line-utilities"]
 
@@ -36,8 +36,8 @@ pkg-url = "{ repo }/releases/download/v{ version }/{ name }-{ target }.{ archive
 bin-dir = "{ bin }{ binary-ext }"
 pkg-fmt = "zip"
 
-[package.metadata.spellcheck]
-config = "spellcheck.toml"
+# [package.metadata.spellcheck]
+# config = "spellcheck.toml"
 
 [workspace.metadata.dist]
 # The preferred cargo-dist version to use in CI (Cargo.toml SemVer syntax)

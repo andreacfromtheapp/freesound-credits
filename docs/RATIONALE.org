@@ -101,10 +101,9 @@ legacy and stagnation, as =AppSec= best practices dictate.
 :END:
 Besides standardized [[https://www.rust-lang.org/tools][tooling]] and [[https://doc.rust-lang.org/beta/style-guide/index.html][conventions]], default =rustfmt= and =clippy=,
 this project relies on [[https://rustsec.org][RustSec]] to inspect supply chain, and [[https://trufflesecurity.com][=trufflehog=]] to
-avoid sharing secrets in the code base. To fix [[https://doc.rust-lang.org/book/ch14-02-publishing-to-crates-io.html#making-useful-documentation-comments][the crate documentation comments]]
-and avoid typos in the source tree, this project relies on =cargo-spellcheck=.
-Likewise, this project relies on [[https://github.com/DavidAnson/markdownlint-cli2][=markdownlint-cli2=]] and [[https://github.com/pre-commit/pre-commit-hooks][=pre-commit-hooks=]]. All
-conveniently enforced with [[https://githooks.com][Git Hooks]].
+avoid sharing secrets in the code base. Likewise, this project relies on
+[[https://github.com/DavidAnson/markdownlint-cli2][=markdownlint-cli2=]] and [[https://github.com/pre-commit/pre-commit-hooks][=pre-commit-hooks=]]. All conveniently enforced with [[https://githooks.com][Git
+Hooks]].
 
 ** Fully Automated Releases
 :PROPERTIES:
