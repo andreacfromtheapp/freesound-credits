@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.19](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.18...v0.2.19)
+
+### 🐛 Bug Fixes
+
+- Manually updating cargo-dist ([#72](https://github.com/andreacfromtheapp/freesound-credits/pull/72)) - ([c2e1063](https://github.com/andreacfromtheapp/freesound-credits/commit/c2e1063a65267d0dd001b4dab319239853e546be))
+
 ### 🐛 Bug Fixes
 
 - Trying to fix release-plz ([#70](https://github.com/andreacfromtheapp/freesound-credits/issues/70)) - ([e2662d3](https://github.com/andreacfromtheapp/freesound-credits/commit/e2662d3d60e9a4c2d4dc4edbef05e280758b11fa))
