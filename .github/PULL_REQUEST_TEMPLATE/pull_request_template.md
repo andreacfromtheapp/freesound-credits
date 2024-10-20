@@ -17,8 +17,6 @@ Team member before any CI builds will run.
 - [ ] Read the [Code Of Conduct](/CODE_OF_CONDUCT.md) (required)
 - [ ] Include tests for your changes (if necessary)
 - [ ] `pre-commit run --all-files` returns no issues (required)
-- [ ] Spell-check with `cargo spellcheck check` (required)
-- [ ] Update the `spellcheck.dic` (if necessary)
 - [ ] Update any related documentation and include any relevant screenshots
 - [ ] Use [Conventional
 Commits](https://www.conventionalcommits.org/en/v1.0.0/) (required)
