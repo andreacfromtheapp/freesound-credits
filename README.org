@@ -1,0 +1,133 @@
+* freesound-credits
+:PROPERTIES:
+:CUSTOM_ID: freesound-credits
+:END:
+A command line utility to help you credit [[https://freesound.org][Freesound]] samples for a given project
+more easily.
+
+[[https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/commitlint.yml][https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/commitlint.yml/badge.svg]]
+[[https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/ci.yml][https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/ci.yml/badge.svg]]
+[[https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/trufflehog.yml][https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/trufflehog.yml/badge.svg]]
+[[https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/release-plz.yml][https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/release-plz.yml/badge.svg]]
+[[https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/release.yml][https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/release.yml/badge.svg]]
+[[https://crates.io/crates/freesound-credits][https://img.shields.io/crates/v/freesound%2Dcredits.svg]]
+[[https://opensource.org/licenses/Apache-2.0][https://img.shields.io/badge/License-Apache_2.0-blue.svg]]
+
+** Giving credits
+:PROPERTIES:
+:CUSTOM_ID: giving-credits
+:END:
+Giving credits in the [[https://creativecommons.org][Creative Commons]] community is often the sole requirement
+to freely use samples in your own creations. This tool helps you abide to
+[[https://en.wikipedia.org/wiki/Copyleft][Copyleft]] and credit the generous artists who contribute to [[https://freesound.org][Freesound]], and help
+you being more creative.
+
+Until today, giving credits may have been a process that you begrudged. This may
+have been stopping you from giving credits altogether. Not because you didn't
+want to, but because it was cumbersome and tedious.
+
+Not anymore! Thanks to =freesound-credits= it takes seconds now!
+
+** Install
+:PROPERTIES:
+:CUSTOM_ID: install
+:END:
+Use [[https://github.com/cargo-bins/cargo-binstall][=cargo binstall=]] to install =freesound-credits= directly from GitHub:
+
+#+begin_src shell
+cargo binstall freesound-credits
+#+end_src
+
+*** Homebrew
+:PROPERTIES:
+:CUSTOM_ID: homebrew
+:END:
+On Linux and macOS homebrew is also available:
+
+#+begin_src shell
+brew install andreacfromtheapp/tap/freesound-credits
+#+end_src
+
+** Usage
+:PROPERTIES:
+:CUSTOM_ID: usage
+:END:
+The command line comes with a straight-forward usage function:
+
+#+begin_src sh
+freesound-credits -h
+#+end_src
+
+*** Usage example
+:PROPERTIES:
+:CUSTOM_ID: usage-example
+:END:
+1. open your favorite terminal.
+2. =cd= to the folder where you want to save the credits file.
+3. run =freesound-credits= on your desired samples folder.
+4. if necessary, use the absolute path to the samples folder.
+
+**** Ableton Example
+
+Running against an Ableton =Samples/Imported= directory, will generate a
+markdown file named =field-notes-credits.md= in the current directory.
+
+#+begin_src sh
+  freesound-credits -p Samples/Imported/ -t "Field Notes" -a "Aner Andros" -d "2017-10-28"
+#+end_src
+
+** Supported file names
+:PROPERTIES:
+:CUSTOM_ID: supported-file-names
+:END:
+=freesound-credits= matches samples adhering to Freesound naming standard that
+kept their original samples names per downloads from the platform. For example:
+
+- new standard with double underscore: =69604__timkahn__subverse_whisper.wav=
+- old standard with single underscore: =2166_suburban_grilla_bowl_struck.flac=
+
+** Supported DAWs
+:PROPERTIES:
+:CUSTOM_ID: supported-daws
+:END:
+=freesound-credits= should work for any samples stored in a flat folder.
+=freesound-credits= filters out metadata files associated with audio imports. To
+add more DAWs and associated metadata or extraction, please [[https://github.com/gacallea/freesound-credits/issues/new?assignees=&labels=enhancement&projects=&template=add_a_new_daw.yml&title=feat%28DAW%29%3A+add+][file an issue]].
+
+| DAW         | Samples Folder     | Metadata    | Extraction | Notes             |
+|-------------+--------------------+-------------+------------+-------------------|
+| Ableton     | =Samples/Imported= | =.asd=      | no         |                   |
+| Reaper      | =Audio Files=      | =.reapeaks= | no         |                   |
+| Renoise     | =SamplesData=      | no          | =unzip=    | [[#renoise-extraction][extraction]]        |
+| Logic Pro X | =Audio Files=      | no          | no         | [[https://www.youtube.com/watch?v=33zVydB4MiI][Package vs Folder]] |
+
+*** Adding more DAWs
+:PROPERTIES:
+:CUSTOM_ID: adding-more-daws
+:END:
+I did the best I could with what I have. I've tested it with Ableton, Reaper,
+and Renoise projects on macOS. Logic Pro X uses no metadata and a clean Audio
+files folder, thus I decided to add it but it hasn't been tested.
+
+However, any DAW with these characteristics should work out of the box. I would
+appreciate anybody confirming more DAWs or [[https://github.com/gacallea/freesound-credits/issues/new?assignees=&labels=enhancement&projects=&template=add_a_new_daw.yml&title=feat%28DAW%29%3A+add+][adding new ones]]. When you do request
+or add a new DAW, please keep the [[#supported-daws][above table]] and the [[#extra-daws-steps][extra steps]] section in
+mind for any extra information.
+
+** Extra DAWs steps
+:PROPERTIES:
+:CUSTOM_ID: extra-daws-steps
+:END:
+*** Renoise extraction
+:PROPERTIES:
+:CUSTOM_ID: renoise-extraction
+:END:
+Extract with =unzip your_project.xrns= first. Once unzipped, you will find a
+=Song.xml= file and a =SamplesData= directory containing each =Instrument=.
+
+** Contributing
+:PROPERTIES:
+:CUSTOM_ID: contributing
+:END:
+Thanks for your help improving the project! :balloon: Happy to have you! Peruse
+the [[./docs/CONTRIBUTING.md][contributing guide]] to help you get involved in the project.

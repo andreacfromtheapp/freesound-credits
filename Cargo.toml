@@ -8,7 +8,7 @@ authors = ["Andrea C From The App"]
 homepage = "https://andreacfromtheapp.github.io/apps/freesound-credits"
 repository = "https://github.com/andreacfromtheapp/freesound-credits"
 description = "A simple command line utility to credit Freesound samples in a usable markdown file"
-readme = "README.md"
+readme = "README.org"
 keywords = ["freesound", "creative-commons", "credits"]
 categories = ["command-line-utilities"]
 
