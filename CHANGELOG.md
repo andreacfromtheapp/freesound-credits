@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.20](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.19...v0.2.20)
+
+### 🐛 Bug Fixes
+
+- Restoring README.md for crates.io ([#74](https://github.com/andreacfromtheapp/freesound-credits/pull/74)) - ([d1fc402](https://github.com/andreacfromtheapp/freesound-credits/commit/d1fc4029cb45efb19f58b4df7acdca6a3e9ff2f6))
+
 ## [0.2.19](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.18...v0.2.19)
 
 ### 🐛 Bug Fixes
