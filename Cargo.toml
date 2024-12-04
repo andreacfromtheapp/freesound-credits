@@ -2,7 +2,7 @@
 name = "freesound-credits"
 version = "0.2.21"
 edition = "2021"
-license = "MIT OR Apache-2.0"
+license = "Apache-2.0"
 
 authors = ["Andrea C From The App"]
 homepage = "https://andreacfromtheapp.github.io/apps/freesound-credits"
@@ -19,7 +19,7 @@ name = "freesound-credits"
 path = "src/main.rs"
 
 [dependencies]
-clap = { version = "4.5.13", features = ["derive"] }
+clap = { version = "4.5.22", features = ["derive"] }
 
 # Config for 'cargo dist'
 [profile.release]
