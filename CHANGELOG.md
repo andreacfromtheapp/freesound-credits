@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.22](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.21...v0.2.22)
+
+### 🐛 Bug Fixes
+
+- Cargo minver bump ([#82](https://github.com/andreacfromtheapp/freesound-credits/pull/82)) - ([48c8150](https://github.com/andreacfromtheapp/freesound-credits/commit/48c815090b6780545cd04943e9e9251970d05860))
+
 ## [0.2.21](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.20...v0.2.21)
 
 ### ⚙️ Miscellaneous Tasks
