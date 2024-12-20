@@ -14,7 +14,7 @@ repos:
         args: [--autofix, --no-sort-keys]
 
   - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: v0.14.0
+    rev: v0.16.0
     hooks:
       - id: markdownlint-cli2
 
@@ -56,4 +56,4 @@ repos:
         # For running trufflehog in docker, use the following entry instead:
         # entry: bash -c 'docker run --rm -v "$(pwd):/workdir" -i --rm trufflesecurity/trufflehog:latest git file:///workdir --since-commit HEAD --only-verified --fail'
         language: system
-        stages: ["commit", "push"]
+        stages: ["pre-commit", "pre-push"]
