@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.24](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.23...v0.2.24)
+
+### ⚙️ Miscellaneous Tasks
+
+- Minor updates (#87) - ([6449396](https://github.com/andreacfromtheapp/freesound-credits/commit/64493962e7c89c482303eaa96e14df07f09ff425))
+
 ## [0.2.22](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.21...v0.2.22)
 
 ### ⚙️ Miscellaneous Tasks
