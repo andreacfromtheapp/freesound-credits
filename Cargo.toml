@@ -7,19 +7,19 @@ license = "Apache-2.0"
 authors = ["Andrea C From The App"]
 homepage = "https://andreacfromtheapp.github.io/apps/freesound-credits"
 repository = "https://github.com/andreacfromtheapp/freesound-credits"
+documentation = "https://docs.rs/freesound-credits"
 description = "A simple command line utility to credit Freesound samples in a usable markdown file"
 readme = "README.md"
 keywords = ["freesound", "creative-commons", "credits"]
 categories = ["command-line-utilities"]
-
-exclude = ["/.github/"]
+exclude = ["/.github/", "docs"]
 
 [[bin]]
 name = "freesound-credits"
 path = "src/main.rs"
 
 [dependencies]
-clap = { version = "4.5.22", features = ["derive"] }
+clap = { version = "4.5.23", features = ["derive"] }
 
 # Config for 'cargo dist'
 [profile.release]
