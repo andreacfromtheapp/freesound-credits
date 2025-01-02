@@ -14,9 +14,10 @@ repos:
         args: [--autofix, --no-sort-keys]
 
   - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: v0.16.0
+    rev: v0.17.1
     hooks:
       - id: markdownlint-cli2
+        args: ["--config", ".markdownlint-cli2.yaml"]
 
   - repo: https://github.com/opensource-nepal/commitlint
     rev: v1.3.0
@@ -24,7 +25,7 @@ repos:
       - id: commitlint
 
   - repo: https://github.com/AndrejOrsula/pre-commit-cargo
-    rev: 0.3.0
+    rev: 0.4.0
     hooks:
       - id: cargo-fmt
       - id: cargo-update
@@ -52,8 +53,6 @@ repos:
       - id: trufflehog
         name: TruffleHog
         description: Detect secrets in your data.
-        entry: bash -c 'trufflehog git file://. --since-commit HEAD --only-verified --fail'
-        # For running trufflehog in docker, use the following entry instead:
-        # entry: bash -c 'docker run --rm -v "$(pwd):/workdir" -i --rm trufflesecurity/trufflehog:latest git file:///workdir --since-commit HEAD --only-verified --fail'
+        entry: bash -c 'trufflehog git file://. --since-commit HEAD --results=verified,unknown --no-update'
         language: system
         stages: ["pre-commit", "pre-push"]

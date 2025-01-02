@@ -1,0 +1,34 @@
+name: Weekly codeowners cleanup
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 0"
+
+permissions:
+  contents: read
+
+jobs:
+  cleanowners:
+    name: cleanowners
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+
+    steps:
+      - name: Run cleanowners action
+        uses: github/cleanowners@v1
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          ORGANIZATION: fingerstofingers
+          ISSUE_REPORT: true
+
+      - name: Create issue
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Cleanowners Report
+          content-filepath: ./report.md
+          assignees: gacallea
+          token: ${{ secrets.GITHUB_TOKEN }}
+          labels: |
+            report
+            automated issue
