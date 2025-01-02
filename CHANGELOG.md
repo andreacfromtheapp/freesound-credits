@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.25](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.24...v0.2.25)
+
+### ⚙️ Miscellaneous Tasks
+
+- Add workflows and pre-hooks and vale (#90) - ([c806e54](https://github.com/andreacfromtheapp/freesound-credits/commit/c806e54dc42fe4beed4bcc33342463a574c693fc))
+
 ## [0.2.24](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.23...v0.2.24)
 
 ### ⚙️ Miscellaneous Tasks
