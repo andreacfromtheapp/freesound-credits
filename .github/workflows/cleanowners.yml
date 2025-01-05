@@ -18,8 +18,8 @@ jobs:
       - name: Run cleanowners action
         uses: github/cleanowners@v1
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          ORGANIZATION: fingerstofingers
+          GH_TOKEN: ${{ secrets.CleanOwnersToken}}
+          ORGANIZATION: andreacfromtheapp/freesound-credits
           ISSUE_REPORT: true
 
       - name: Create issue
@@ -27,8 +27,8 @@ jobs:
         with:
           title: Cleanowners Report
           content-filepath: ./report.md
-          assignees: gacallea
-          token: ${{ secrets.GITHUB_TOKEN }}
+          assignees: andreacfromtheapp
+          oken: ${{ secrets.GITHUB_TOKEN }}
           labels: |
             report
             automated issue
