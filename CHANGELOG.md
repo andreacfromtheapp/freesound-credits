@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.26](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.25...v0.2.26)
+
+### ⚙️ Miscellaneous Tasks
+
+- Update Cargo.lock dependencies - ([0000000](https://github.com/andreacfromtheapp/freesound-credits/commit/0000000))
+
 ## [0.2.25](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.24...v0.2.25)
 
 ### ⚙️ Miscellaneous Tasks
