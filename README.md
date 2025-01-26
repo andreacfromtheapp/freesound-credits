@@ -3,11 +3,11 @@
 A command line utility to help you credit [Freesound](https://freesound.org)
 samples for a given project more easily.
 
-[![Commitlint](https://github.com/gacallea/freesound-credits/actions/workflows/commitlint.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/commitlint.yml)
-[![Trufflehog](https://github.com/gacallea/freesound-credits/actions/workflows/trufflehog.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/trufflehog.yml)
-[![CI](https://github.com/gacallea/freesound-credits/actions/workflows/ci.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/ci.yml)
-[![CD](https://github.com/gacallea/freesound-credits/actions/workflows/release-plz.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/release-plz.yml)
-[![Release](https://github.com/gacallea/freesound-credits/actions/workflows/release.yml/badge.svg)](https://github.com/gacallea/freesound-credits/actions/workflows/release.yml)
+[![Commitlint](https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/commitlint.yml/badge.svg)](https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/commitlint.yml)
+[![Trufflehog](https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/trufflehog.yml/badge.svg)](https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/trufflehog.yml)
+[![CI](https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/ci.yml/badge.svg)](https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/ci.yml)
+[![CD](https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/release-plz.yml/badge.svg)](https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/release-plz.yml)
+[![Release](https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/release.yml/badge.svg)](https://github.com/andreacfromtheapp/freesound-credits/actions/workflows/release.yml)
 [![Crates.io](https://img.shields.io/crates/v/freesound%2Dcredits.svg)](https://crates.io/crates/freesound-credits)
 [![License:
 Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -42,7 +42,7 @@ cargo binstall freesound-credits
 On Linux and macOS homebrew is also available:
 
 ```shell
-brew install gacallea/tap/freesound-credits
+brew install andreacfromtheapp/tap/freesound-credits
 ```
 
 ## Usage
@@ -82,14 +82,14 @@ kept their original samples names per downloads from the platform. For example:
 `freesound-credits` should work for any samples stored in a flat folder.
 `freesound-credits` filters out metadata files associated with audio imports.
 To add more DAWs and associated metadata or extraction, please [file an
-issue](https://github.com/gacallea/freesound-credits/issues/new?assignees=&labels=enhancement&projects=&template=add_a_new_daw.yml&title=feat%28DAW%29%3A+add+).
+issue](https://github.com/andreacfromtheapp/freesound-credits/issues/new?assignees=&labels=enhancement&projects=&template=add_a_new_daw.yml&title=feat%28DAW%29%3A+add+).
 
-| DAW | Samples Folder | Metadata | Extraction | Notes |
-| :----: | :----: | :----: | :----: | :----: |
-| Ableton | `Samples/Imported` | `.asd` | no | |
-| Reaper  | `Audio Files` | `.reapeaks` | no | |
-| Renoise | `SamplesData` | no | `unzip` | [extraction](#renoise-extraction) |
-| Logic Pro X  | `Audio Files` | no | no | [Package vs Folder](https://www.youtube.com/watch?v=33zVydB4MiI) |
+|     DAW     |   Samples Folder   |  Metadata   | Extraction |                              Notes                               |
+| :---------: | :----------------: | :---------: | :--------: | :--------------------------------------------------------------: |
+|   Ableton   | `Samples/Imported` |   `.asd`    |     no     |                                                                  |
+|   Reaper    |   `Audio Files`    | `.reapeaks` |     no     |                                                                  |
+|   Renoise   |   `SamplesData`    |     no      |  `unzip`   |                [extraction](#renoise-extraction)                 |
+| Logic Pro X |   `Audio Files`    |     no      |     no     | [Package vs Folder](https://www.youtube.com/watch?v=33zVydB4MiI) |
 
 ### Adding more DAWs
 
@@ -99,7 +99,7 @@ files folder, thus I decided to add it but it hasn't been tested.
 
 However, any DAW with these characteristics should work out of the box. I would
 appreciate anybody confirming more DAWs or [adding new
-ones](https://github.com/gacallea/freesound-credits/issues/new?assignees=&labels=enhancement&projects=&template=add_a_new_daw.yml&title=feat%28DAW%29%3A+add+).
+ones](https://github.com/andreacfromtheapp/freesound-credits/issues/new?assignees=&labels=enhancement&projects=&template=add_a_new_daw.yml&title=feat%28DAW%29%3A+add+).
 When you do request or add a new DAW, please keep the [above
 table](#supported-daws) and the [extra steps](#extra-daws-steps) section in
 mind for any extra information.
