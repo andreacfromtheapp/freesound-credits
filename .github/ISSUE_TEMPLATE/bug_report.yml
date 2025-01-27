@@ -6,9 +6,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        **Before** reporting an issue, make sure to search [existing issues](https://github.com/gacallea/freesound-credits/issues).
+        **Before** reporting an issue, make sure to search [existing issues](https://github.com/andreacfromtheapp/freesound-credits/issues).
 
-        Usage questions such as ***"How do I...?"*** belong in [Discussions](https://github.com/gacallea/freesound-credits/discussions) and will be closed.
+        Usage questions such as ***"How do I...?"*** belong in [Discussions](https://github.com/andreacfromtheapp/freesound-credits/discussions) and will be closed.
 
   - type: checkboxes
     attributes:
