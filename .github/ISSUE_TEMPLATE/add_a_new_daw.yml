@@ -7,7 +7,7 @@ body:
   - type: checkboxes
     attributes:
       label: Did you check if the DAW is already supported?
-      description: Make sure you check the [Supported DAWs](https://github.com/gacallea/freesound-credits?tab=readme-ov-file#supported-daws) table before submitting a new DAW
+      description: Make sure you check the [Supported DAWs](https://github.com/andreacfromtheapp/freesound-credits?tab=readme-ov-file#supported-daws) table before submitting a new DAW
       options:
         - label: I have checked if the DAW is already supported
           required: true
