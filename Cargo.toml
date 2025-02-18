@@ -19,7 +19,7 @@ name = "freesound-credits"
 path = "src/main.rs"
 
 [dependencies]
-clap = { version = "4.5.23", features = ["derive"] }
+clap = { version = "4.5.30", features = ["derive"] }
 
 # Config for 'cargo dist'
 [profile.release]
