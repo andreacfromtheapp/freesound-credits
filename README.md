@@ -18,13 +18,13 @@ MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/
 
 Giving credits in the [Creative Commons](https://creativecommons.org) community
 is often the sole requirement to freely use samples in your own creations. This
-tool helps you abide to [Copyleft](https://en.wikipedia.org/wiki/Copyleft)
-and credit the generous artists that contribute sounds on
+tool helps you abide to [Copyleft](https://en.wikipedia.org/wiki/Copyleft) and
+credit the generous artists that contribute sounds on
 [Freesound](https://freesound.org), helping you being more creative.
 
-Until today, giving credits may have been a process that you begrudged. This
-may have been stopping you from giving credits altogether. Not because you
-didn't want to, but because it was cumbersome and tedious.
+Until today, giving credits may have been a process that you begrudged. This may
+have been stopping you from giving credits altogether. Not because you didn't
+want to, but because it was cumbersome and tedious.
 
 Not anymore! Thanks to `freesound-credits` it takes seconds now!
 
@@ -80,9 +80,9 @@ kept their original samples names per downloads from the platform. For example:
 ## Supported DAWs
 
 `freesound-credits` should work for any samples stored in a flat folder.
-`freesound-credits` filters out metadata files associated with audio imports.
-To add more DAWs and associated metadata or extraction, please [file an
-issue](https://github.com/andreacfromtheapp/freesound-credits/issues/new?assignees=&labels=enhancement&projects=&template=add_a_new_daw.yml&title=feat%28DAW%29%3A+add+).
+`freesound-credits` filters out metadata files associated with audio imports. To
+add more DAWs and associated metadata or extraction, please
+[file an issue](https://github.com/andreacfromtheapp/freesound-credits/issues/new?assignees=&labels=enhancement&projects=&template=add_a_new_daw.yml&title=feat%28DAW%29%3A+add+).
 
 |     DAW     |   Samples Folder   |  Metadata   | Extraction |                              Notes                               |
 | :---------: | :----------------: | :---------: | :--------: | :--------------------------------------------------------------: |
@@ -98,11 +98,11 @@ and Renoise projects on macOS. Logic Pro X uses no metadata and a clean Audio
 files folder, thus I decided to add it but it hasn't been tested.
 
 However, any DAW with these characteristics should work out of the box. I would
-appreciate anybody confirming more DAWs or [adding new
-ones](https://github.com/andreacfromtheapp/freesound-credits/issues/new?assignees=&labels=enhancement&projects=&template=add_a_new_daw.yml&title=feat%28DAW%29%3A+add+).
-When you do request or add a new DAW, please keep the [above
-table](#supported-daws) and the [extra steps](#extra-daws-steps) section in
-mind for any extra information.
+appreciate anybody confirming more DAWs or
+[adding new ones](https://github.com/andreacfromtheapp/freesound-credits/issues/new?assignees=&labels=enhancement&projects=&template=add_a_new_daw.yml&title=feat%28DAW%29%3A+add+).
+When you do request or add a new DAW, please keep the
+[above table](#supported-daws) and the [extra steps](#extra-daws-steps) section
+in mind for any extra information.
 
 ## Extra DAWs steps
 
@@ -114,5 +114,5 @@ Extract with `unzip your_project.xrns` first. Once unzipped, you will find a
 ## Contributing
 
 Thanks for your help improving the project! :balloon: Happy to have you! Peruse
-the [contributing guide](./docs/CONTRIBUTING.org) to help you get involved in
-the project.
+the [contributing guide](./docs/CONTRIBUTING.md) to help you get involved in the
+project.

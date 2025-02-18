@@ -13,13 +13,13 @@ Team member before any CI builds will run.
 
 ## Before submitting a pull request (check all applicable)
 
-- [ ] Read the [Contributing Guide](./github/CONTRIBUTING.md) (required)
-- [ ] Read the [Code Of Conduct](/CODE_OF_CONDUCT.md) (required)
+- [ ] Read the [Contributing Guide](/docs/CONTRIBUTING.md) (required)
+- [ ] Read the [Code Of Conduct](/docs/CODE_OF_CONDUCT.md) (required)
 - [ ] Include tests for your changes (if necessary)
 - [ ] `pre-commit run --all-files` returns no issues (required)
 - [ ] Update any related documentation and include any relevant screenshots
-- [ ] Use [Conventional
-Commits](https://www.conventionalcommits.org/en/v1.0.0/) (required)
+- [ ] Use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+      (required)
 
 ## Pull request type (check all applicable)
 
