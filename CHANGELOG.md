@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.28](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.27...v0.2.28)
+
+### ⚙️ Miscellaneous Tasks
+
+- Rustup 2024 edition (#105) - ([22010db](https://github.com/andreacfromtheapp/freesound-credits/commit/22010db13f7fa91cc49a6afda11cf947fcbe8f31))
+
 ## [0.2.27](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.26...v0.2.27)
 
 ### ⚙️ Miscellaneous Tasks
