@@ -8,7 +8,7 @@ an issue, creating a PR, reviewing, and merging the PR.
 
 ## Rationale
 
-For an overview of the project\'s MSRV, best practices, tooling, automation, and
+For an overview of the project's MSRV, best practices, tooling, automation, and
 more, make sure to read the [Rationale](docs/RATIONALE.md).
 
 ## Conduct
@@ -28,15 +28,15 @@ Some resources to help you get started with open source contributions:
 
 For any issue, the three fundamental ways an individual can contribute:
 
-1.  By opening the issue for discussion: For instance, if you believe that you
+1. By opening the issue for discussion: For instance, if you believe that you
     have discovered a bug.
 
-2.  By helping to triage the issue: Providing supporting details (a test case
+2. By helping to triage the issue: Providing supporting details (a test case
     that demonstrates a bug), providing suggestions on how to deal with the
     issue, or ensuring that the issue has appropriate tags.
 
-3.  By helping to resolve the issue: Typically either in the form of
-    demonstrating that the issue reported ain\'t a problem after all, or more
+3. By helping to resolve the issue: Typically either in the form of
+    demonstrating that the issue reported ain't a problem after all, or more
     often, by opening a Pull Request that changes some bit of something in a
     concrete and reviewable manner.
 
@@ -58,7 +58,7 @@ documentation PR that helps others avoid the problems that you encountered.
 
 If you spot a problem,
 [search if an issue already exists](https://docs.github.com/en/github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests#search-by-the-title-body-or-comments).
-If a related issue doesn\'t exist, you can open a new issue using a relevant
+If a related issue doesn't exist, you can open a new issue using a relevant
 [issue form](https://github.com/andreacfromtheapp/freesound-credits/issues/new/choose).
 Please fill out this form, following the template to the best of your ability.
 
@@ -74,12 +74,12 @@ behavior constitute a bug or a feature. This discussion should stay focused,
 helpful, and professional.
 
 Short, clipped responses that give neither added context nor supporting detail
-ain\'t helpful nor professional. To most, such responses seem annoying and
+ain't helpful nor professional. To most, such responses seem annoying and
 unfriendly.
 
 This project encourages contributors to help one another make forward progress
 as much as possible. Empowering one another to solve issues collaboratively.
-Wether you feel either doesn\'t qualify as a problem, or if you happen upon
+Wether you feel either doesn't qualify as a problem, or if you happen upon
 information that you feel incongruous. When commenting on an issue, explain why
 you feel that way. With supporting context. Willing to concede misconstruing. By
 doing so, often leads the correct outcome much faster.
@@ -99,26 +99,23 @@ them, read more about it [here](docs/RATIONALE.md#local-tooling).
 
 ### Installing requirements
 
-> \[!IMPORTANT\] Contributors necessarily need installing and perusing tooling
+> [!IMPORTANT] Contributors necessarily need installing and perusing tooling
 > locally guaranteeing contracts before committing any changes.
 
 - If necessary, [set up Rust](https://www.rust-lang.org/tools/install) with
-  `rustup`{.verbatim}:
-  `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`{.verbatim}
+  `rustup`: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
 - Install
-  [`cargo auditable`{.verbatim}](https://github.com/rust-secure-code/cargo-auditable):
-  `cargo install cargo-auditable --locked`{.verbatim}
+  [`cargo auditable`](https://github.com/rust-secure-code/cargo-auditable):
+  `cargo install cargo-auditable --locked`
   - Set up a
-    [shell alias for `cargo auditable`{.verbatim}](https://github.com/rust-secure-code/cargo-auditable?tab=readme-ov-file#can-i-make-cargo-always-build-with-cargo-auditable)
-- Install
-  [`cargo deny`{.verbatim}](https://embarkstudios.github.io/cargo-deny/):
-  `cargo install cargo-deny --locked`{.verbatim}
-- Install [`trufflehog`{.verbatim}](https://trufflesecurity.com/trufflehog):
-  `brew install trufflehog`{.verbatim}
+    [shell alias for `cargo auditable`](https://github.com/rust-secure-code/cargo-auditable?tab=readme-ov-file#can-i-make-cargo-always-build-with-cargo-auditable)
+- Install [`cargo deny`](https://embarkstudios.github.io/cargo-deny/):
+  `cargo install cargo-deny --locked`
+- Install [`trufflehog`](https://trufflesecurity.com/trufflehog):
+  `brew install trufflehog`
   - Otherwise, download a binary from
-    [`trufflehog`{.verbatim} release page](https://github.com/trufflesecurity/trufflehog/releases).
-- Install [`pre-commit`{.verbatim}](https://pre-commit.com):
-  `pip install pre-commit`{.verbatim}
+    [`trufflehog` release page](https://github.com/trufflesecurity/trufflehog/releases).
+- Install [`pre-commit`](https://pre-commit.com): `pip install pre-commit`
 
 ### Making changes locally
 
@@ -135,12 +132,12 @@ them, read more about it [here](docs/RATIONALE.md#local-tooling).
 
   - [Fork the repository](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository)
     so that you can make your changes without affecting the original project
-    until you\'re ready to merge them.
+    until you're ready to merge them.
 
-- 2 Change into the cloned repository: `cd github`{.verbatim}.
+- 2 Change into the cloned repository: `cd github`.
 
 - 3 Install [Git Hooks](https://githooks.com) with
-  `pre-commit install --install-hooks`{.verbatim}
+  `pre-commit install --install-hooks`
 
 - 4 Create a working branch and start with your changes!
 
@@ -156,7 +153,7 @@ the likelihood of the PR getting merged.
 
 When you completed the changes, create a pull request, also known as a PR.
 
-- Don\'t forget to
+- Don't forget to
   [link PR to issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue),
   should you solve one.
 - Enable the checkbox to
@@ -193,33 +190,32 @@ that the project has no regressions in the future.
 You can achieve this with three ways to write tests: unit tests, integration
 tests, and documentation tests.
 
-1.  Unit tests
+1. Unit tests
 
     [Unit tests](https://doc.rust-lang.org/book/ch11-03-test-organization.html#unit-tests)
     go in the same source code file as the data structures and procedures
-    they\'re testing. To run all tests or a subset of tests, refer
+    they're testing. To run all tests or a subset of tests, refer
     [to The Book](https://doc.rust-lang.org/book/ch11-02-running-tests.html).
 
-    > \[!IMPORTANT\] Write tests that fail for code that one shouldn\'t
-    > implement, to avoid future regressions and unwanted behaviors.
+    > [!IMPORTANT] Write tests that fail for code that one shouldn't implement,
+    > to avoid future regressions and unwanted behaviors.
 
-2.  Integration tests
+2. Integration tests
 
     Typically,
     [integration tests](https://doc.rust-lang.org/book/ch11-03-test-organization.html#integration-tests)
     go in the same crate as the code they test. That said, this project sole
-    possible integration test is to run `freesound-credits`{.verbatim} against a
-    DAW sample folder. Make sure to check this always works when making
-    meaningful changes.
+    possible integration test is to run `freesound-credits` against a DAW sample
+    folder. Make sure to check this always works when making meaningful changes.
 
-3.  Documentation tests
+3. Documentation tests
 
     Ideally, every API has at least one
     [documentation test](https://doc.rust-lang.org/rustdoc/documentation-tests.html)
     that demonstrates how to use the API.
 
-    Documentation tests run with `cargo test --doc`{.verbatim}. This ensures
-    that the example congruously carries out and provides test coverage.
+    Documentation tests run with `cargo test --doc`. This ensures that the
+    example congruously carries out and provides test coverage.
 
     When writing documentation tests strike a balance between brevity for a
     reader to understand and code actually testing the API.
@@ -241,13 +237,13 @@ within individual commits. The project imposes no limit to the number of commits
 any single Pull Request may have. Most contributors find it easier to review
 changes split across several commits.
 
-That said, if you have several \"checkpoints\" commits that don\'t represent a
+That said, if you have several "checkpoints" commits that don't represent a
 single logical change, please squash those together.
 
-> \[!NOTE\] Several commits often get squashed during merges nonetheless See:
-> the notes about [commit squashing](#commit-squashing).
+> [!NOTE] Several commits often get squashed during merges nonetheless See: the
+> notes about [commit squashing](#commit-squashing).
 
-1.  Commit message guidelines
+1. Commit message guidelines
 
     Make sure to use
     [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#why-use-conventional-commits).
@@ -268,7 +264,7 @@ single logical change, please squash those together.
 
       Examples:
 
-      - time: introduce `Timeout`{.verbatim} and deprecate `Deadline`{.verbatim}
+      - time: introduce `Timeout` and deprecate `Deadline`
       - ci: fix the FreeBSD ci configuration
 
     - 2 Keep the second line blank.
@@ -276,14 +272,13 @@ single logical change, please squash those together.
     - 3 Wrap all other lines at 72 columns (except for long URLs).
 
     - 4 If your patch fixes an open issue, you can add a reference to it at the
-      end of the log. Use the `Fixes: #`{.verbatim} prefix and the issue number.
-      For other references use `Refs: #`{.verbatim}. `Refs`{.verbatim} may
-      include issues, separated by a comma.
+      end of the log. Use the `Fixes: #` prefix and the issue number. For other
+      references use `Refs: #`. `Refs` may include issues, separated by a comma.
 
       Examples:
 
-      - `Fixes: #1337`{.verbatim}
-      - `Refs: #1234`{.verbatim}
+      - `Fixes: #1337`
+      - `Refs: #1234`
 
     Example of a complete commit message:
 
@@ -304,13 +299,13 @@ single logical change, please squash those together.
 
 From within GitHub, opening a new Pull Request will present you with a
 [template](.github/PULL_REQUEST_TEMPLATE/pull_request_template.md). Please try
-to do your best at filling out the details, but feel free to skip parts if
-ain\'t sure what to put.
+to do your best at filling out the details, but feel free to skip parts if ain't
+sure what to put.
 
 ### Discuss and update
 
 You will probably get feedback or requests for changes to your Pull Request.
-Commonly, a big part of the submission process. Don\'t discourage! Some
+Commonly, a big part of the submission process. Don't discourage! Some
 contributors may sign off on the Pull Request right away, others may have more
 detailed comments or feedback. This is a necessary part of the process in order
 to appraise whether the changes subsist correct and necessary.
@@ -319,12 +314,12 @@ to appraise whether the changes subsist correct and necessary.
 Keep an eye out for comments from code owners to provide guidance on conflicting
 feedback.
 
-**Once the PR is open, don\'t rebase the commits**. See
+**Once the PR is open, don't rebase the commits**. See
 [Commit Squashing](#commit-squashing) for more details.
 
 ### Commit squashing
 
-**Don\'t squash commits that you add to your Pull Request during the review
+**Don't squash commits that you add to your Pull Request during the review
 process**.
 
 When the commits in your Pull Request land, they may be squashed into one commit
@@ -341,18 +336,18 @@ All contributors who choose to review and give feedback on Pull Requests have a
 responsibility to both the project and the individual making the contribution.
 Reviews and feedback must be helpful, insightful, and geared towards improving
 the contribution as opposed to blocking it. Should you have reasons why you feel
-the PR shouldn\'t land, explain what those are. Don\'t expect to be able to
-block a Pull Request from advancing just because you say \"No\" without giving
-an explanation. Stay open to having your mind changed. Stay open to working with
+the PR shouldn't land, explain what those are. Don't expect to be able to block
+a Pull Request from advancing just because you say "No" without giving an
+explanation. Stay open to having your mind changed. Stay open to working with
 the contributor to make the Pull Request better.
 
 Dismissive or disrespectful reviews of the contributor or any other reviewers
 disincline with the [Code of Conduct](docs/CODE_OF_CONDUCT.md).
 
 When reviewing a Pull Request, the primary goals consist of for the codebase to
-improve and for the person submitting the request to succeed. \*Even if a Pull
-Request doesn\'t land, the submitters should come away from the experience
-feeling like their effort wasn\'t wasted or unappreciated\*. Treat every Pull
+improve and for the person submitting the request to succeed. _Even if a Pull
+Request doesn't land, the submitters should come away from the experience
+feeling like their effort wasn't wasted or unappreciated_. Treat every Pull
 Request from a new contributor as an opportunity to grow the community.
 
 ### Review a bit at a time
@@ -360,22 +355,22 @@ Request from a new contributor as an opportunity to grow the community.
 **Avoid overwhelming new contributors**.
 
 As tempting as micro-optimizing and make everything about relative performance,
-perfect grammar, or exact style matches, may be: don\'t succumb to that
+perfect grammar, or exact style matches, may be: don't succumb to that
 temptation.
 
 Focus first on the most significant aspects of the change:
 
-1.  Does this change make sense for the project?
-2.  Does this change make the project better, even if only incrementally?
-3.  Are there clear bugs or larger scale issues that need attending to?
-4.  Is the commit message readable and correct? If it has a breaking change is
+1. Does this change make sense for the project?
+2. Does this change make the project better, even if only incrementally?
+3. Are there clear bugs or larger scale issues that need attending to?
+4. Is the commit message readable and correct? If it has a breaking change is
     it clear enough?
 
 Note that **incremental** improvement suffices to land a PR. This means that the
-PR doesn\'t need to meet perfection. _Better than the status quo_ qualifies. One
+PR doesn't need to meet perfection. _Better than the status quo_ qualifies. One
 can open follow up Pull Requests to continue iterating.
 
-When changes prove necessary, _request_ them, don\'t _demand_ them, and **don\'t
+When changes prove necessary, _request_ them, don't _demand_ them, and **don't
 assume that the submitter already knows how to add a test or run a benchmark**.
 
 Specific performance optimization techniques, coding styles and conventions
@@ -386,10 +381,10 @@ stalling the Pull Request. While the Team Collaborator landing the Pull Request
 can typically fix most nits, also consider them an opportunity for the
 contributor to learn a bit more about the project.
 
-> \[!NOTE\] Always denote nits when you comment: e.g. =nit: change foo() to
-> bar(). But this is not blocking.=
+> [!NOTE] Always denote nits when you comment: e.g. =nit: change foo() to bar().
+> But this is not blocking.=
 
-If addressed comments ain\'t folded automatically after new commits or if they
+If addressed comments ain't folded automatically after new commits or if they
 proved mistaken, please,
 [hide them](https://help.github.com/articles/managing-disruptive-comments/#hiding-a-comment)
 with the appropriate reason to keep the conversation flow concise and relevant.
@@ -399,7 +394,7 @@ with the appropriate reason to keep the conversation flow concise and relevant.
 Be aware that _how_ you communicate requests and reviews in your feedback can
 have a significant impact on the success of the Pull Request. Yes, landing a
 particular change may improve the project, but the individual might just not
-want to have anything to do with the project ever again. Having good code ain\'t
+want to have anything to do with the project ever again. Having good code ain't
 the sole goal.
 
 ### Abandoned or stalled pull requests
@@ -409,4 +404,4 @@ the contributor to see if they intend to continue the work. Before checking if
 they would mind if you took it over (achingly if it just has nits left). When
 doing so, courteously give the original contributor credit for the work they
 started (either by preserving their name and email address in the commit log, or
-by using an `Author:`{.verbatim} meta-data tag in the commit.
+by using an `Author:` meta-data tag in the commit.

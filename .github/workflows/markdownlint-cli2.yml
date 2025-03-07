@@ -7,7 +7,7 @@ on:
 jobs:
   markdownlint:
     name: markdownlint-cli2
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
