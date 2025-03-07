@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## [0.2.28](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.27...v0.2.28)
+
+### ⚙️ Miscellaneous Tasks
+
+- Md fixes and resolver 3 ([#108](https://github.com/andreacfromtheapp/freesound-credits/pull/108)) - ([eb0fc4c](https://github.com/andreacfromtheapp/freesound-credits/commit/eb0fc4cdb7ffa8a5c02428a754b0bbef12667a1c))
+- Rustup 2024 edition ([#105](https://github.com/andreacfromtheapp/freesound-credits/pull/105)) - ([22010db](https://github.com/andreacfromtheapp/freesound-credits/commit/22010db13f7fa91cc49a6afda11cf947fcbe8f31))
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
