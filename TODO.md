@@ -1,8 +1,8 @@
 # TODO
 
-- add test for `get_list_of_samples`{.verbatim} in `lib.rs`{.verbatim}
+- add test for `get_list_of_samples` in `lib.rs`
 - add support for Zola front-matter template
-  - given a `zolafm-template.toml`{.verbatim}
+  - given a `zolafm-template.toml`
   - read/parse file
-  - use it with `set_frontmatter`{.verbatim}
-  - if no template -\> defaults to current hard-coded one
+  - use it with `set_frontmatter`
+  - if no template -> defaults to current hard-coded one
