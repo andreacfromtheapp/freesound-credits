@@ -16,10 +16,10 @@ jobs:
 
     steps:
       - name: Run cleanowners action
-        uses: github/cleanowners@v1
+        uses: github/cleanowners@v1.2.0
         env:
-          GH_TOKEN: ${{ secrets.CleanOwnersToken}}
-          ORGANIZATION: andreacfromtheapp/freesound-credits
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          ORGANIZATION: andreacfromtheapp
           ISSUE_REPORT: true
 
       - name: Create issue
