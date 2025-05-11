@@ -20,7 +20,7 @@ name = "freesound-credits"
 path = "src/main.rs"
 
 [dependencies]
-clap = { version = "4.5.31", features = ["derive"] }
+clap = { version = "4.5.38", features = ["derive"] }
 
 # Config for 'cargo dist'
 [profile.release]
@@ -36,26 +36,3 @@ lto = "thin"
 pkg-url = "{ repo }/releases/download/v{ version }/{ name }-{ target }.{ archive-suffix }"
 bin-dir = "{ bin }{ binary-ext }"
 pkg-fmt = "zip"
-
-# Config for 'cargo dist'
-[workspace.metadata.dist]
-# The preferred cargo-dist version to use in CI (Cargo.toml SemVer syntax)
-cargo-dist-version = "0.22.1"
-# CI backends to support
-ci = "github"
-# The installers to generate for each app
-installers = ["homebrew"]
-# Target platforms to build apps for (Rust target-triple syntax)
-targets = ["aarch64-apple-darwin", "aarch64-pc-windows-msvc", "x86_64-apple-darwin", "x86_64-unknown-linux-gnu", "x86_64-unknown-linux-musl", "x86_64-pc-windows-msvc"]
-# Which actions to run on pull requests
-pr-run-mode = "skip"
-# The archive format to use for windows builds (defaults .zip)
-windows-archive = ".zip"
-# The archive format to use for non-windows builds (defaults .tar.xz)
-unix-archive = ".zip"
-# A GitHub repo to push Homebrew formulas to
-tap = "andreacfromtheapp/homebrew-tap"
-# Publish jobs to run in CI
-publish-jobs = ["homebrew"]
-# Customize the Homebrew formula name
-formula = "freesound-credits"
