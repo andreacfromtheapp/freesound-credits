@@ -1,6 +1,6 @@
 [package]
 name = "freesound-credits"
-version = "0.2.29"
+version = "0.2.30"
 edition = "2024"
 resolver = "3"
 license = "Apache-2.0"

@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.30](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.29...v0.2.30)
+
+### 🐛 Bug Fixes
+
+- Cargo dist ubuntu latest ([#117](https://github.com/andreacfromtheapp/freesound-credits/pull/117)) - ([01350a1](https://github.com/andreacfromtheapp/freesound-credits/commit/01350a14efbd8577e5dce7ea714e38f930e7333d))
+
 ## [0.2.29](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.28...v0.2.29)
 
 ### ⚙️ Miscellaneous Tasks
