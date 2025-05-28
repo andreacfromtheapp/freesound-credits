@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.31](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.30...v0.2.31)
+
+### 🐛 Bug Fixes
+
+- Del custom runners but top level ([#120](https://github.com/andreacfromtheapp/freesound-credits/pull/120)) - ([a0fe93f](https://github.com/andreacfromtheapp/freesound-credits/commit/a0fe93f526a77861228491113709cb5a54313b1e))
+
 ## [0.2.30](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.29...v0.2.30)
 
 ### 🐛 Bug Fixes
