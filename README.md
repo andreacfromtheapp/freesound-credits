@@ -11,8 +11,6 @@ samples for a given project more easily.
 [![Crates.io](https://img.shields.io/crates/v/freesound%2Dcredits.svg)](https://crates.io/crates/freesound-credits)
 [![License:
 Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![License:
-MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Giving credits
 
@@ -66,7 +64,7 @@ Running against an Ableton `Samples/Imported` directory, will generate a
 markdown file named `field-notes-credits.md` in the current directory.
 
 ```bash
-freesound-credits -p Samples/Imported/ -t "Field Notes" -a "Aner Andros" -d "2017-10-28"
+freesound-credits -p Samples/Imported/ -t "Field Notes" -a "Aner Andros" -d "2025-01-09"
 ```
 
 ## Supported file names
