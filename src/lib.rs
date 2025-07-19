@@ -22,7 +22,7 @@
 //! Run against an Ableton samples directory (also generating the Zola front-matter)
 //!
 //!  ```text
-//! freesound-credits -p Samples/Imported/ -t "Field Notes" -a "Aner Andros" -d "2017-10-28" -z
+//! freesound-credits -p Samples/Imported/ -t "Field Notes" -a "Aner Andros" -d "2025-01-09" -z
 //!  ```
 
 use clap::Parser;
@@ -84,12 +84,12 @@ pub fn set_filename(song_title: &str) -> String {
 ///
 /// # Example
 ///
-/// For a song titled "Field Notes" by "Aner Andros" with date "2017-10-28"
+/// For a song titled "Field Notes" by "Aner Andros" with date "2025-01-09"
 ///
 /// ```toml
 /// +++
 /// title="Field Notes Credits"
-/// date=2017-10-28
+/// date=2025-01-09
 ///
 /// [taxonomies]
 /// tags=["Freesound", "Aner Andros", "Credits"]
@@ -269,10 +269,10 @@ mod tests {
     fn check_frontmatter() {
         let song_title = "Field Notes";
         let song_artist = "Aner Andros";
-        let song_date = "2017-10-28";
+        let song_date = "2025-01-09";
         let frontmatter = "+++
 title=\"Field Notes Credits\"
-date=2017-10-28
+date=2025-01-09
 
 [taxonomies]
 tags=[\"Freesound\", \"Aner Andros\", \"Credits\"]
