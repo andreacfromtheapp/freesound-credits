@@ -1,6 +1,6 @@
 use clap::Parser;
 use freesound_credits::{
-    Args, get_list_of_samples, set_credit, set_filename, set_frontmatter, set_header,
+    get_list_of_samples, set_credit, set_filename, set_frontmatter, set_header, Args,
 };
 use std::fs::File;
 use std::io::Write;
