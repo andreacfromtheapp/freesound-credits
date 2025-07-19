@@ -10,7 +10,8 @@ ci = "github"
 # The installers to generate for each app
 installers = ["homebrew"]
 # Target platforms to build apps for (Rust target-triple syntax)
-targets = ["aarch64-apple-darwin", "x86_64-apple-darwin", "x86_64-unknown-linux-gnu", "x86_64-unknown-linux-musl"]
+targets = ["aarch64-apple-darwin", "x86_64-apple-darwin", "x86_64-unknown-linux-gnu", "x86_64-unknown-linux-musl", "aarch64-pc-windows-msvc", "x86_64-pc-windows-msvc"]
+
 # Which actions to run on pull requests
 pr-run-mode = "skip"
 # The archive format to use for windows builds (defaults .zip)
@@ -24,5 +25,5 @@ publish-jobs = ["homebrew"]
 # Customize the Homebrew formula name
 formula = "freesound-credits"
 
-[dist.github-custom-runners]
-global = "ubuntu-latest"
+# [dist.github-custom-runners]
+# global = "ubuntu-latest"
