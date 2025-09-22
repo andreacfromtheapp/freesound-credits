@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
@@ -14,13 +14,13 @@ repos:
         args: [--autofix, --no-sort-keys]
 
   - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: v0.17.2
+    rev: v0.18.1
     hooks:
       - id: markdownlint-cli2
         args: ["--config", ".markdownlint-cli2.yaml"]
 
   - repo: https://github.com/opensource-nepal/commitlint
-    rev: v1.3.0
+    rev: v1.3.1
     hooks:
       - id: commitlint
 
@@ -50,9 +50,9 @@ repos:
 
   - repo: local
     hooks:
-      - id: trufflehog
-        name: TruffleHog
-        description: Detect secrets in your data.
-        entry: bash -c 'trufflehog git file://. --since-commit HEAD --results=verified,unknown --no-update'
+      - id: kingfisher
+        name: kingfisher scan
+        description: detect secrets in your data.
+        entry: kingfisher scan . --exclude '*target' --no-update-check
         language: system
         stages: ["pre-commit", "pre-push"]
