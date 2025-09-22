@@ -29,16 +29,16 @@ Some resources to help you get started with open source contributions:
 For any issue, the three fundamental ways an individual can contribute:
 
 1. By opening the issue for discussion: For instance, if you believe that you
-    have discovered a bug.
+   have discovered a bug.
 
 2. By helping to triage the issue: Providing supporting details (a test case
-    that demonstrates a bug), providing suggestions on how to deal with the
-    issue, or ensuring that the issue has appropriate tags.
+   that demonstrates a bug), providing suggestions on how to deal with the
+   issue, or ensuring that the issue has appropriate tags.
 
 3. By helping to resolve the issue: Typically either in the form of
-    demonstrating that the issue reported ain't a problem after all, or more
-    often, by opening a Pull Request that changes some bit of something in a
-    concrete and reviewable manner.
+   demonstrating that the issue reported ain't a problem after all, or more
+   often, by opening a Pull Request that changes some bit of something in a
+   concrete and reviewable manner.
 
 **Anybody can partake in any stage of contribution**. This project encourages
 you to partake in the discussion around bugs and partake in reviewing pull
@@ -95,7 +95,7 @@ functional guidelines of the project.
 ## Making changes
 
 To learn more about local tooling requirements and why this project relies on
-them, read more about it [here](docs/RATIONALE.md#local-tooling).
+them, read more about it [in the Rationale](/docs/RATIONALE.md#local-tooling).
 
 ### Installing requirements
 
@@ -122,14 +122,12 @@ them, read more about it [here](docs/RATIONALE.md#local-tooling).
 - 1 Fork the repository.
 
 - Using GitHub Desktop:
-
   - [Getting started with GitHub Desktop](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/getting-started-with-github-desktop)
     will guide you through setting up Desktop.
   - Once you set up Desktop, you can use it to
     [fork the repository](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)!
 
 - Using the command line:
-
   - [Fork the repository](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository)
     so that you can make your changes without affecting the original project
     until you're ready to merge them.
@@ -192,43 +190,43 @@ tests, and documentation tests.
 
 1. Unit tests
 
-    [Unit tests](https://doc.rust-lang.org/book/ch11-03-test-organization.html#unit-tests)
-    go in the same source code file as the data structures and procedures
-    they're testing. To run all tests or a subset of tests, refer
-    [to The Book](https://doc.rust-lang.org/book/ch11-02-running-tests.html).
+   [Unit tests](https://doc.rust-lang.org/book/ch11-03-test-organization.html#unit-tests)
+   go in the same source code file as the data structures and procedures they're
+   testing. To run all tests or a subset of tests, refer
+   [to The Book](https://doc.rust-lang.org/book/ch11-02-running-tests.html).
 
-    > [!IMPORTANT] Write tests that fail for code that one shouldn't implement,
-    > to avoid future regressions and unwanted behaviors.
+   > [!IMPORTANT] Write tests that fail for code that one shouldn't implement,
+   > to avoid future regressions and unwanted behaviors.
 
 2. Integration tests
 
-    Typically,
-    [integration tests](https://doc.rust-lang.org/book/ch11-03-test-organization.html#integration-tests)
-    go in the same crate as the code they test. That said, this project sole
-    possible integration test is to run `freesound-credits` against a DAW sample
-    folder. Make sure to check this always works when making meaningful changes.
+   Typically,
+   [integration tests](https://doc.rust-lang.org/book/ch11-03-test-organization.html#integration-tests)
+   go in the same crate as the code they test. That said, this project sole
+   possible integration test is to run `freesound-credits` against a DAW sample
+   folder. Make sure to check this always works when making meaningful changes.
 
 3. Documentation tests
 
-    Ideally, every API has at least one
-    [documentation test](https://doc.rust-lang.org/rustdoc/documentation-tests.html)
-    that demonstrates how to use the API.
+   Ideally, every API has at least one
+   [documentation test](https://doc.rust-lang.org/rustdoc/documentation-tests.html)
+   that demonstrates how to use the API.
 
-    Documentation tests run with `cargo test --doc`. This ensures that the
-    example congruously carries out and provides test coverage.
+   Documentation tests run with `cargo test --doc`. This ensures that the
+   example congruously carries out and provides test coverage.
 
-    When writing documentation tests strike a balance between brevity for a
-    reader to understand and code actually testing the API.
+   When writing documentation tests strike a balance between brevity for a
+   reader to understand and code actually testing the API.
 
-    Same as with integration tests, when writing a documentation test, full
-    access to the crate is available. Notably useful for getting access to the
-    runtime to run the example.
+   Same as with integration tests, when writing a documentation test, full
+   access to the crate is available. Notably useful for getting access to the
+   runtime to run the example.
 
-    The documentation tests visibility spans from both the crate specific
-    documentation **and** the project facade documentation via the re-export.
-    Write examples from the point of view of a user using the crate. As such,
-    the example should use the API via the facade and not by directly
-    referencing the crate.
+   The documentation tests visibility spans from both the crate specific
+   documentation **and** the project facade documentation via the re-export.
+   Write examples from the point of view of a user using the crate. As such, the
+   example should use the API via the facade and not by directly referencing the
+   crate.
 
 ### Committing updates
 
@@ -245,55 +243,51 @@ single logical change, please squash those together.
 
 1. Commit message guidelines
 
-    Make sure to use
-    [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#why-use-conventional-commits).
+   Make sure to use
+   [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#why-use-conventional-commits).
 
-    A good commit message should describe what changed and why.
+   A good commit message should describe what changed and why.
+   - 1 The first line should:
 
-    - 1 The first line should:
+   - contain a short description of the change (preferably 50 characters or
+     less, and no more than 72 characters)
+     - composed entirely of lowercase except for proper nouns, acronyms, and the
+       words that refer to code, like function/variable names
+     - start with an imperative verb
+     - not have a full stop at the end
+     - prefixed with the name of the changed module; the same as the M-\* label
+       on the PR
 
-    - contain a short description of the change (preferably 50 characters or
-      less, and no more than 72 characters)
+     Examples:
+     - time: introduce `Timeout` and deprecate `Deadline`
+     - ci: fix the FreeBSD ci configuration
 
-      - composed entirely of lowercase except for proper nouns, acronyms, and
-        the words that refer to code, like function/variable names
-      - start with an imperative verb
-      - not have a full stop at the end
-      - prefixed with the name of the changed module; the same as the M-\* label
-        on the PR
+   - 2 Keep the second line blank.
 
-      Examples:
+   - 3 Wrap all other lines at 72 columns (except for long URLs).
 
-      - time: introduce `Timeout` and deprecate `Deadline`
-      - ci: fix the FreeBSD ci configuration
+   - 4 If your patch fixes an open issue, you can add a reference to it at the
+     end of the log. Use the `Fixes: #` prefix and the issue number. For other
+     references use `Refs: #`. `Refs` may include issues, separated by a comma.
 
-    - 2 Keep the second line blank.
+     Examples:
+     - `Fixes: #1337`
+     - `Refs: #1234`
 
-    - 3 Wrap all other lines at 72 columns (except for long URLs).
+   Example of a complete commit message:
 
-    - 4 If your patch fixes an open issue, you can add a reference to it at the
-      end of the log. Use the `Fixes: #` prefix and the issue number. For other
-      references use `Refs: #`. `Refs` may include issues, separated by a comma.
+   ```txt
+   module: explain the commit in one line
 
-      Examples:
+   Body of commit message is a few lines of text, explaining things in more
+   detail, possibly giving some background about the issue being fixed, etc.
 
-      - `Fixes: #1337`
-      - `Refs: #1234`
+   The body of the commit message can be several paragraphs, and please do
+   proper word-wrap and keep columns shorter than about 72 characters or so.
+   That way, =git log= will show things nicely even when it is indented.
 
-    Example of a complete commit message:
-
-    ```txt
-    module: explain the commit in one line
-
-    Body of commit message is a few lines of text, explaining things in more
-    detail, possibly giving some background about the issue being fixed, etc.
-
-    The body of the commit message can be several paragraphs, and please do
-    proper word-wrap and keep columns shorter than about 72 characters or so.
-    That way, =git log= will show things nicely even when it is indented.
-
-    Fixes: #1337 Refs: #453, #154
-    ```
+   Fixes: #1337 Refs: #453, #154
+   ```
 
 ### Opening the pull request
 
@@ -363,8 +357,8 @@ Focus first on the most significant aspects of the change:
 1. Does this change make sense for the project?
 2. Does this change make the project better, even if only incrementally?
 3. Are there clear bugs or larger scale issues that need attending to?
-4. Is the commit message readable and correct? If it has a breaking change is
-    it clear enough?
+4. Is the commit message readable and correct? If it has a breaking change is it
+   clear enough?
 
 Note that **incremental** improvement suffices to land a PR. This means that the
 PR doesn't need to meet perfection. _Better than the status quo_ qualifies. One
