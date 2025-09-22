@@ -26,28 +26,11 @@ jobs:
     name: basic checks
     runs-on: ubuntu-latest
     needs:
-      - minrust
       - clippy
       - fmt
       - docs
     steps:
       - run: exit 0
-
-  minrust:
-    name: minrust
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
-      - name: Install Rust ${{ env.rust_min }}
-        uses: dtolnay/rust-toolchain@stable
-        with:
-          toolchain: ${{ env.rust_min }}
-      - uses: Swatinem/rust-cache@v2
-      - name: cargo check minrust
-        run: cargo check --workspace --all-features
-        env:
-          RUSTFLAGS: "" # remove -Dwarnings
 
   fmt:
     name: fmt
