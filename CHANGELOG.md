@@ -65,6 +65,17 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [0.2.35](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.34...v0.2.35)
+
+### 🐛 Bug Fixes
+
+- Release-plz work? - ([5123c38](https://github.com/andreacfromtheapp/freesound-credits/commit/5123c38f8a2c6edea0a38c523728cbe95a447e38))
+
+### ⚙️ Miscellaneous Tasks
+
+- New pre-commit - ([8e2f7af](https://github.com/andreacfromtheapp/freesound-credits/commit/8e2f7af5129c488bf73080b9fbb0ca6c0d355107))
+
+
 ## [0.2.26](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.25...v0.2.26)
 
 ### ⚙️ Miscellaneous Tasks
