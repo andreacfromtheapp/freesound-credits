@@ -1,4 +1,4 @@
-# freesound-credits
+# Freesound credits
 
 A command line utility to help you credit [Freesound](https://freesound.org)
 samples for a given project more easily.
@@ -51,12 +51,28 @@ The command line comes with a straight-forward usage function:
 freesound-credits -h
 ```
 
+### Default template
+
+By default, `freesound-credits` will use the following template. You can
+customize the template per your needs, **as long as you use the expected
+variables**, then save it and use it with the `-f` command option. If necessary,
+use the absolute path to the template.
+
+```toml
+title="{song_title} Credits"
+date={song_date}
+author="{song_artist}"
+
+[taxonomies]
+tags=["Freesound", "{song_artist}", "Credits", "Custom"]
+```
+
 ### Usage example
 
-1. open your favorite terminal.
+1. Open your favorite terminal.
 2. `cd` to the folder where you want to save the credits file.
-3. run `freesound-credits` on your desired samples folder.
-4. if necessary, use the absolute path to the samples folder.
+3. Run `freesound-credits` on your desired samples folder.
+4. If necessary, use the absolute path to the samples folder.
 
 #### Ableton Example
 
@@ -64,10 +80,10 @@ Running against an Ableton `Samples/Imported` directory, will generate a
 markdown file named `field-notes-credits.md` in the current directory.
 
 ```bash
-freesound-credits -p Samples/Imported/ -t "Field Notes" -a "Aner Andros" -d "2025-01-09"
+freesound-credits -s Samples/Imported/ -t "Field Notes" -a "Aner Andros" -d 2025-01-09 -w -f default-template.toml
 ```
 
-## Supported file names
+## Supported filenames
 
 `freesound-credits` matches samples adhering to Freesound naming standard that
 kept their original samples names per downloads from the platform. For example:

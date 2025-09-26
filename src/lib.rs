@@ -3,129 +3,124 @@
 //!  # Usage
 //!
 //! ```text
-//! Simple program to generate Freesound credits in a usable markdown file
+//! A simple command line utility to credit Freesound samples in a usable markdown file
 //!
-//! Usage: freesound-credits [OPTIONS] --path <PATH> --title <TITLE> --date <DATE> --artist <ARTIST>
+//! Usage: freesound-credits [OPTIONS] --samples-dir <SAMPLES_DIR> --title <TITLE> --date <DATE> --artist <ARTIST>
 //!
 //! Options:
-//!   -p, --path <PATH>      Path to the samples directory
-//!   -t, --title <TITLE>    Song title (quote multiple words)
-//!   -d, --date <DATE>      Song release date (quote multiple words)
-//!   -a, --artist <ARTIST>  Song artist (quote multiple words)
-//!   -z, --zola             Optionally include Zola frontmatter atop the markdown file
-//!   -h, --help             Print help
-//!   -V, --version          Print version
+//!   -s, --samples-dir <DIRECTORY>              Path to the samples directory
+//!   -t, --title <TITLE>                        Song title (quote multiple words)
+//!   -d, --date <DATE>                          Song release date (YYYY-MM-DD)
+//!   -a, --artist <ARTIST>                      Song artist (quote multiple words)
+//!   -f, --frontmatter-template <TEMPLATE>      Frontmatter template file
+//!   -w, --trailing-whiteline                   Append a trailig whiteline
+//!   -h, --help                                 Print help
+//!   -V, --version                              Print version
 //! ```
-//! `
+//!
 //!  # Example
 //!
-//! Run against an Ableton samples directory (also generating the Zola front-matter)
+//! Run against an Ableton imported samples directory
 //!
 //!  ```text
-//! freesound-credits -p Samples/Imported/ -t "Field Notes" -a "Aner Andros" -d "2025-01-09" -z
+//! freesound-credits -p Samples/Imported/ -t "Field Notes" -a "Aner Andros" -d 2025-01-09 -w
 //!  ```
+//!
 
-use clap::Parser;
-use std::iter::FromIterator;
-use std::path::Path;
-use std::process;
+use chrono::NaiveDate;
+use error::AppError;
+use std::path::{Path, PathBuf};
 
-/// A simple program to generate Freesound credits in a usable markdown file.
-#[derive(Parser, Debug)]
-#[command(version, about, long_about = None)]
-pub struct Args {
-    /// Path to the samples directory
-    #[arg(short, long)]
-    pub path: String,
+pub mod cli;
+pub mod error;
 
-    /// Song title (quote multiple words)
-    #[arg(short, long)]
-    pub title: String,
+pub fn run_app(args: &cli::Cli) -> Result<(), AppError> {
+    use std::io::Write;
 
-    /// Song release date (quote multiple words)
-    #[arg(short, long)]
-    pub date: String,
+    // Generate filename from song title (e.g., "Field Notes" -> "field-notes-credits.md")
+    let credits_file = set_filename(&args.title);
 
-    /// Song artist (quote multiple words)
-    #[arg(short, long)]
-    pub artist: String,
+    // Create output file
+    let mut output = std::fs::File::create(&credits_file).map_err(|e| {
+        AppError::file_op(format!("Couldn't create file '{}': {}", credits_file, e))
+    })?;
 
-    /// Optionally include Zola front-matter atop the markdown file
-    #[arg(short, long)]
-    pub zola: bool,
+    // Write Zola frontmatter header
+    write!(
+        output,
+        "{}",
+        set_frontmatter(
+            &args.title,
+            &args.date,
+            &args.artist,
+            &args.frontmatter_template
+        )?
+    )
+    .map_err(|e| AppError::file_op(format!("Couldn't write frontmatter: {}", e)))?;
+
+    // Write credits section header
+    write!(output, "{}", set_header(&args.title))
+        .map_err(|e| AppError::file_op(format!("Couldn't write credits header: {}", e)))?;
+
+    // Process each Freesound sample and write credit line
+    for sample in set_list_of_samples(&args.samples_dir)?.iter() {
+        write!(output, "{}", set_credit(sample)?).map_err(|e| {
+            AppError::file_op(format!(
+                "Couldn't write credit for sample '{}': {}",
+                sample, e
+            ))
+        })?;
+    }
+
+    // Optional trailing newline
+    if args.trailing_whiteline {
+        writeln!(output)
+            .map_err(|e| AppError::file_op(format!("Couldn't write trailing whiteline: {}", e)))?;
+    }
+
+    Ok(())
 }
 
-/// Derives the markdown file name from the song title.
-///
-/// # Example
-///
-/// For a song titled "Field Notes" the resulting markdown file is `field-notes-credits.md`
-///
-pub fn set_filename(song_title: &str) -> String {
-    let credits_file: String = format!(
+/// Converts song title to kebab-case markdown filename
+/// Replaces special chars and spaces with hyphens, converts to lowercase
+fn set_filename(song_title: &str) -> String {
+    format!(
         "{}-credits.md",
         song_title
             .replace(
-                &['/', '\\', '(', ')', '[', ']', '<', '>', '{', '}', ' ', '\'', '"', '?', '!'][..],
+                &[
+                    '/', '\\', '(', ')', '[', ']', '<', '>', '{', '}', ' ', '\'', '"', '?', '!'
+                ][..],
                 "-"
             )
             .to_lowercase()
-    );
-    credits_file
-}
-
-/// Derives a [Zola](https://www.getzola.org) page
-/// [front-matter](https://www.getzola.org/documentation/content/page/#front-matter)
-/// header from given song details.
-///
-/// The front-matter is a header, and it is placed atop the generated markdown file.
-///
-/// # Example
-///
-/// For a song titled "Field Notes" by "Aner Andros" with date "2025-01-09"
-///
-/// ```toml
-/// +++
-/// title="Field Notes Credits"
-/// date=2025-01-09
-///
-/// [taxonomies]
-/// tags=["Freesound", "Aner Andros", "Credits"]
-/// +++
-/// ```
-///
-pub fn set_frontmatter(song_title: &str, song_date: &str, song_artist: &str) -> String {
-    format!(
-        "+++
-title=\"{song_title} Credits\"
-date={song_date}
-
-[taxonomies]
-tags=[\"Freesound\", \"{song_artist}\", \"Credits\"]
-+++
-
-"
     )
 }
 
-/// Paragraph notifying the song uses [Creative
-/// Commons](https://creativecommons.org) licensed samples, with links.
-///
-/// The given song title is included in the paragraph, unchanged.
-///
-/// # Example
-///
-/// For a song titled "Field Notes"
-///
-/// ```markdown
-/// ## Credits
-///
-/// *Field Notes* includes the following samples from
-/// [Freesound](https://freesound.org). Used under a [Creative
-/// Commons](https://creativecommons.org) license:
-/// ````
-///
-pub fn set_header(song_title: &str) -> String {
+/// Generates frontmatter from template file with placeholder replacement
+fn set_frontmatter(
+    song_title: &str,
+    song_date: &NaiveDate,
+    song_artist: &str,
+    template_path: &PathBuf,
+) -> Result<String, AppError> {
+    let template = std::fs::read_to_string(template_path).map_err(|e| {
+        AppError::file_op(format!(
+            "Couldn't read template file '{:?}': {}",
+            template_path, e
+        ))
+    })?;
+
+    let frontmatter = template
+        .replace("{song_title}", song_title)
+        .replace("{song_date}", &song_date.to_string())
+        .replace("{song_artist}", song_artist);
+
+    Ok(format!("+++\n{}\n+++\n\n", frontmatter))
+}
+
+/// Creates markdown credits section with Creative Commons notice
+fn set_header(song_title: &str) -> String {
     format!(
         "## Credits
 
@@ -137,48 +132,51 @@ Commons](https://creativecommons.org) license:
     )
 }
 
-/// Scans the given directory for Freesound samples to credit.
-///
-/// # Notes
-///
-/// - the user must have permissions on the directory.
-///
-pub fn get_list_of_samples(samples_path: &str) -> Vec<String> {
-    let path: &Path = Path::new(&samples_path);
-    let mut all_samples: Vec<String> = vec![];
+/// Scans directory for Freesound samples, filtering out DAW metadata files
+fn set_list_of_samples(samples_path: &PathBuf) -> Result<Vec<String>, AppError> {
+    let path = Path::new(&samples_path);
+    let mut all_samples = vec![];
 
     for entry in path
         .read_dir()
-        .unwrap_or_else(|error| {
-            eprintln!("Problem listing samples from the provided path: {error}");
-            process::exit(2);
-        })
+        .map_err(|e| {
+            AppError::directory_access(format!(
+                "Couldn't list samples from path '{:?}': {}",
+                path, e
+            ))
+        })?
         .flatten()
     {
         if entry.path().is_file() || entry.path().is_dir() {
-            let mut sample: String = format!(
+            // Extract filename without extension, clean up formatting
+            let mut sample = format!(
                 "{:?}",
-                entry.path().file_stem().unwrap_or_else(|| {
-                    eprintln!("Problem reading the sample file name.");
-                    process::exit(2);
-                })
+                entry
+                    .path()
+                    .file_stem()
+                    .ok_or_else(|| AppError::sample_parsing(format!(
+                        "Couldn't read file name from entry: {:?}",
+                        entry
+                    )))?
             )
             .replace(&['(', ')', '\'', '"'][..], "");
 
-            // Files specific: checks against DAWs metadata file extensions
+            // Handle regular files - check extension and validate Freesound format
             if let Some(extension) = entry.path().extension() {
                 if is_not_metadata(extension.to_str().unwrap()) && is_freesound_sample(&sample) {
                     all_samples.push(sample);
                 }
-                // Renoise projects specific
+            // Handle Renoise extracted directories (Instrument folders)
             } else if sample.contains("Instrument") {
                 sample = sample
                     .split_whitespace()
                     .last()
-                    .unwrap_or_else(|| {
-                        eprintln!("Problem splitting Instrument into sample string");
-                        process::exit(2);
-                    })
+                    .ok_or_else(|| {
+                        AppError::sample_parsing(format!(
+                            "Couldn't split Renoise Instrument: {}",
+                            sample
+                        ))
+                    })?
                     .to_string();
 
                 if is_freesound_sample(&sample) {
@@ -187,134 +185,187 @@ pub fn get_list_of_samples(samples_path: &str) -> Vec<String> {
             }
         }
     }
-    all_samples
+
+    Ok(all_samples)
 }
 
+/// Filters out DAW metadata files (.asd, .reapeaks)
 fn is_not_metadata(extension: &str) -> bool {
     let metadata_extensions = ["asd", "reapeaks"];
-
     !metadata_extensions.contains(&extension)
 }
 
-/// Private helper function to validate Freesound samples we care about.
+/// Validates Freesound naming: starts with number and contains underscore
 fn is_freesound_sample(sample: &str) -> bool {
     sample.chars().next().unwrap().is_numeric() && sample.contains('_')
 }
 
-/// Extrapolate the sample to credit based on [Freesound](https://freesound.org) naming standards.
-///
-/// # Notes
-///
-/// This programs only matches for Freesound samples that maintain their original sample names.
-///
-/// # Examples
-///
-/// - new standard with double underscore: `69604__timkahn__subverse_whisper.wav`
-/// - old standard with single underscore: `2166_suburban_grilla_bowl_struck.flac`
-///
-pub fn set_credit(sample: &str) -> String {
-    let mut sample_line_vec: Vec<&str> = vec![];
+/// Parses Freesound filename and generates markdown credit link
+/// Handles both old (single _) and new (double __) naming formats
+fn set_credit(sample: &str) -> Result<String, AppError> {
+    let mut sample_line_vec = vec![];
 
+    // Parse filename: new format uses __, old format uses single _
     if sample.contains("__") {
         sample_line_vec = sample.split("__").collect();
     } else if sample.contains('_') {
         sample_line_vec = sample.split('_').collect();
     }
 
-    let credit_id: String = sample_line_vec
+    // Extract components: ID, artist, sound name
+    let credit_id = sample_line_vec
         .first()
-        .unwrap_or_else(|| {
-            eprintln!("Problem reading credit ID");
-            process::exit(2);
-        })
+        .ok_or_else(|| AppError::invalid_sample("Couldn't read credit ID"))?
         .to_string();
 
-    let credit_artist: String = sample_line_vec
+    let credit_artist = sample_line_vec
         .get(1)
-        .unwrap_or_else(|| {
-            eprintln!("Problem reading credit artist");
-            process::exit(2);
-        })
+        .ok_or_else(|| AppError::invalid_sample("Couldn't read credit artist"))?
         .to_string();
 
-    let credit_sound: String = Vec::from_iter(sample_line_vec[2..].iter().cloned()).join("_");
+    // Join remaining parts as sound name
+    let credit_sound = Vec::from_iter(sample_line_vec[2..].iter().cloned()).join("_");
 
-    let credit_line: String = format!(
+    // Generate markdown link to Freesound
+    let credit_line = format!(
         "- [{credit_sound}](https://freesound.org/people/{credit_artist}/sounds/{credit_id}/)\n",
     );
-    credit_line
+
+    Ok(credit_line)
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    use chrono::NaiveDate;
 
     #[test]
     fn check_filename() {
         let song_title = "Field Notes";
+        let expected_filename = "field-notes-credits.md";
 
-        assert_eq!("field-notes-credits.md", set_filename(song_title));
+        assert_eq!(expected_filename, set_filename(song_title));
     }
 
     #[test]
     fn fail_filename() {
         let song_title = "Field Notes";
+        let wrong_filename = "Field-Notes-credits.md";
 
-        assert_ne!("Field-Notes-credits.md", set_filename(song_title));
+        assert_ne!(wrong_filename, set_filename(song_title));
     }
 
     #[test]
     fn check_frontmatter() {
+        use std::env;
+        use std::fs;
+
+        let temp_dir = env::temp_dir().join("freesound_default_test");
+        fs::create_dir_all(&temp_dir).unwrap();
+
+        let template_path = temp_dir.join("default.toml");
+        fs::write(&template_path, "title=\"{song_title} Credits\"\ndate={song_date}\n\n[taxonomies]\ntags=[\"Freesound\", \"{song_artist}\", \"Credits\"]").unwrap();
+
         let song_title = "Field Notes";
         let song_artist = "Aner Andros";
-        let song_date = "2025-01-09";
-        let frontmatter = "+++
-title=\"Field Notes Credits\"
-date=2025-01-09
+        let song_date = NaiveDate::from_ymd_opt(2015, 1, 9).unwrap();
 
-[taxonomies]
-tags=[\"Freesound\", \"Aner Andros\", \"Credits\"]
-+++
+        let result = set_frontmatter(song_title, &song_date, song_artist, &template_path).unwrap();
 
-";
+        assert!(result.contains("title=\"Field Notes Credits\""));
+        assert!(result.contains("date=2015-01-09"));
+        assert!(result.contains("tags=[\"Freesound\", \"Aner Andros\", \"Credits\"]"));
 
-        assert_eq!(
-            frontmatter,
-            set_frontmatter(song_title, song_date, song_artist)
-        );
+        fs::remove_dir_all(&temp_dir).unwrap();
     }
 
     #[test]
     fn check_header() {
         let song_title = "Field Notes";
-        let header = "## Credits
+        let expected_header = format!(
+            "## Credits
 
-*Field Notes* includes the following samples from
+*{song_title}* includes the following samples from
 [Freesound](https://freesound.org). Used under a [Creative
 Commons](https://creativecommons.org) license:
 
-";
+"
+        );
 
-        assert_eq!(header, set_header(song_title));
+        assert_eq!(expected_header, set_header(song_title));
+    }
+
+    #[test]
+    fn check_frontmatter_template() {
+        use std::env;
+        use std::fs;
+
+        let temp_dir = env::temp_dir().join("freesound_template_test");
+        fs::create_dir_all(&temp_dir).unwrap();
+
+        let template_path = temp_dir.join("template.toml");
+        fs::write(
+            &template_path,
+            "title=\"{song_title} Custom\"\ndate={song_date}\nauthor=\"{song_artist}\"",
+        )
+        .unwrap();
+
+        let song_title = "Test Song";
+        let song_artist = "Test Artist";
+        let song_date = NaiveDate::from_ymd_opt(2023, 5, 15).unwrap();
+
+        let result = set_frontmatter(song_title, &song_date, song_artist, &template_path).unwrap();
+
+        assert!(result.contains("title=\"Test Song Custom\""));
+        assert!(result.contains("date=2023-05-15"));
+        assert!(result.contains("author=\"Test Artist\""));
+        assert!(result.starts_with("+++\n"));
+        assert!(result.contains("\n+++\n\n"));
+
+        fs::remove_dir_all(&temp_dir).unwrap();
     }
 
     #[test]
     fn check_credit_new() {
         let credit = "275012__alienxxx__squadron_leader_form_up";
+        let expected_credit =
+            "- [squadron_leader_form_up](https://freesound.org/people/alienxxx/sounds/275012/)\n";
 
-        assert_eq!(
-            "- [squadron_leader_form_up](https://freesound.org/people/alienxxx/sounds/275012/)\n",
-            set_credit(credit)
-        );
+        assert_eq!(expected_credit, set_credit(credit).unwrap());
     }
 
     #[test]
     fn check_credit_old() {
         let credit = "275012_alienxxx_squadron_leader_form_up";
+        let expected_credit =
+            "- [squadron_leader_form_up](https://freesound.org/people/alienxxx/sounds/275012/)\n";
 
-        assert_eq!(
-            "- [squadron_leader_form_up](https://freesound.org/people/alienxxx/sounds/275012/)\n",
-            set_credit(credit)
-        );
+        assert_eq!(expected_credit, set_credit(credit).unwrap());
+    }
+
+    #[test]
+    fn check_list_of_samples() {
+        use std::env;
+        use std::fs;
+
+        let temp_dir = env::temp_dir().join("freesound_test");
+        fs::create_dir_all(&temp_dir).unwrap();
+
+        // Create mock Freesound samples
+        fs::write(temp_dir.join("69604__timkahn__subverse_whisper.wav"), "").unwrap();
+        fs::write(temp_dir.join("2166_suburban_grilla_bowl_struck.flac"), "").unwrap();
+        // Create metadata file (should be filtered out)
+        fs::write(temp_dir.join("sample.asd"), "").unwrap();
+        // Create non-Freesound file (should be filtered out)
+        fs::write(temp_dir.join("regular_file.wav"), "").unwrap();
+
+        let samples = set_list_of_samples(&temp_dir).unwrap();
+
+        assert_eq!(samples.len(), 2);
+        assert!(samples.contains(&"69604__timkahn__subverse_whisper".to_string()));
+        assert!(samples.contains(&"2166_suburban_grilla_bowl_struck".to_string()));
+
+        // Cleanup
+        fs::remove_dir_all(&temp_dir).unwrap();
     }
 }
