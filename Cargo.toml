@@ -1,11 +1,11 @@
 [package]
 name = "freesound-credits"
 version = "0.2.35"
-edition = "2021"
+edition = "2024"
 license = "Apache-2.0"
 
 authors = ["Andrea C"]
-homepage = "https://andreacfromtheapp.github.io/apps/freesound-credits"
+homepage = "https://funzen.xyz/projects/freesound-credits"
 repository = "https://github.com/andreacfromtheapp/freesound-credits"
 documentation = "https://docs.rs/freesound-credits"
 description = "A simple command line utility to credit Freesound samples in a usable markdown file"
@@ -19,7 +19,10 @@ name = "freesound-credits"
 path = "src/main.rs"
 
 [dependencies]
+anyhow = "1.0.100"
+chrono = { version = "0.4.42", features = ["serde"] }
 clap = { version = "4.5.41", features = ["derive"] }
+thiserror = "1.0"
 
 # Config for 'cargo dist'
 [profile.release]
