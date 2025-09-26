@@ -243,7 +243,7 @@ mod tests {
     use chrono::NaiveDate;
 
     #[test]
-    fn check_filename() {
+    fn test_set_filename() {
         let song_title = "Field Notes";
         let expected_filename = "field-notes-credits.md";
 
@@ -251,7 +251,7 @@ mod tests {
     }
 
     #[test]
-    fn fail_filename() {
+    fn test_set_filename_fail() {
         let song_title = "Field Notes";
         let wrong_filename = "Field-Notes-credits.md";
 
@@ -259,7 +259,7 @@ mod tests {
     }
 
     #[test]
-    fn check_frontmatter() {
+    fn test_set_frontmatter() {
         let song_title = "Field Notes";
         let song_artist = "Aner Andros";
         let song_date = NaiveDate::from_ymd_opt(2015, 1, 9).unwrap();
@@ -272,7 +272,7 @@ mod tests {
     }
 
     #[test]
-    fn check_header() {
+    fn test_set_header() {
         let song_title = "Field Notes";
         let expected_header = format!(
             "## Credits
@@ -288,7 +288,7 @@ Commons](https://creativecommons.org) license:
     }
 
     #[test]
-    fn check_frontmatter_template() {
+    fn mock_frontmatter_template() {
         use std::env;
         use std::fs;
 
@@ -319,7 +319,7 @@ Commons](https://creativecommons.org) license:
     }
 
     #[test]
-    fn check_credit_new() {
+    fn test_set_credit_new() {
         let credit = "275012__alienxxx__squadron_leader_form_up";
         let expected_credit =
             "- [squadron_leader_form_up](https://freesound.org/people/alienxxx/sounds/275012/)\n";
@@ -328,7 +328,7 @@ Commons](https://creativecommons.org) license:
     }
 
     #[test]
-    fn check_credit_old() {
+    fn test_set_credit_old() {
         let credit = "275012_alienxxx_squadron_leader_form_up";
         let expected_credit =
             "- [squadron_leader_form_up](https://freesound.org/people/alienxxx/sounds/275012/)\n";
@@ -337,7 +337,7 @@ Commons](https://creativecommons.org) license:
     }
 
     #[test]
-    fn check_list_of_samples() {
+    fn test_set_list_of_samples_success() {
         use std::env;
         use std::fs;
 
@@ -360,5 +360,75 @@ Commons](https://creativecommons.org) license:
 
         // Cleanup
         fs::remove_dir_all(&temp_dir).unwrap();
+    }
+
+    #[test]
+    fn test_error_cases() {
+        use std::path::PathBuf;
+
+        // Test invalid directory
+        let invalid_dir = PathBuf::from("/nonexistent/directory");
+        assert!(set_list_of_samples(&invalid_dir).is_err());
+
+        // Test invalid sample format (no underscores)
+        assert!(set_credit("noseparators").is_err());
+        assert!(set_credit("").is_err());
+
+        // Test missing template file
+        let missing_template = PathBuf::from("/nonexistent/template.toml");
+        assert!(
+            set_frontmatter(
+                "Test",
+                &chrono::NaiveDate::from_ymd_opt(2023, 1, 1).unwrap(),
+                "Artist",
+                Some(&missing_template)
+            )
+            .is_err()
+        );
+    }
+
+    #[test]
+    fn test_is_not_metadata() {
+        assert!(is_not_metadata("wav"));
+        assert!(is_not_metadata("flac"));
+        assert!(!is_not_metadata("asd"));
+        assert!(!is_not_metadata("reapeaks"));
+    }
+
+    #[test]
+    fn test_is_freesound_sample() {
+        assert!(is_freesound_sample("123_artist_sound"));
+        assert!(is_freesound_sample("69604__timkahn__subverse"));
+        assert!(!is_freesound_sample("regular_file"));
+        assert!(!is_freesound_sample("_starts_with_underscore"));
+    }
+
+    #[test]
+    fn test_file_operation_errors() {
+        use std::env;
+        use std::fs;
+        use std::os::unix::fs::PermissionsExt;
+
+        let temp_dir = env::temp_dir().join("freesound_file_errors");
+        fs::create_dir_all(&temp_dir).unwrap();
+
+        // Test unreadable directory
+        let unreadable_dir = temp_dir.join("unreadable");
+        fs::create_dir(&unreadable_dir).unwrap();
+        fs::set_permissions(&unreadable_dir, fs::Permissions::from_mode(0o000)).unwrap();
+
+        let result = set_list_of_samples(&unreadable_dir);
+        assert!(result.is_err());
+
+        // Restore permissions for cleanup
+        fs::set_permissions(&unreadable_dir, fs::Permissions::from_mode(0o755)).unwrap();
+        fs::remove_dir_all(&temp_dir).unwrap();
+    }
+
+    #[test]
+    fn test_sample_parsing_errors() {
+        // Test samples that will actually fail parsing
+        assert!(set_credit("").is_err()); // Empty string - no underscores, vec will be empty
+        assert!(set_credit("123").is_err()); // No underscores - vec will be empty
     }
 }
