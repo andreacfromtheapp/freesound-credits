@@ -22,16 +22,11 @@ pub struct Cli {
     #[arg(short, long)]
     pub artist: String,
 
-    /// Frontmatter template file
-    #[arg(
-        short,
-        long,
-        value_name("TEMPLATE"),
-        default_value("default-template.toml")
-    )]
-    pub frontmatter_template: PathBuf,
+    /// Optionally provide a frontmatter template file
+    #[arg(short, long, value_name("TEMPLATE"))]
+    pub frontmatter_template: Option<PathBuf>,
 
-    /// Append a trailig whiteline
+    /// Optionally append a trailig whiteline
     #[arg(short('w'), long)]
     pub trailing_whiteline: bool,
 }
