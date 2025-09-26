@@ -5,26 +5,18 @@
 //! ```text
 //! A simple command line utility to credit Freesound samples in a usable markdown file
 //!
-//! Usage: freesound-credits [OPTIONS] --samples-dir <SAMPLES_DIR> --title <TITLE> --date <DATE> --artist <ARTIST>
+//! Usage: freesound-credits [OPTIONS] --samples-dir <DIRECTORY> --title <TITLE> --date <DATE> --artist <ARTIST>
 //!
 //! Options:
-//!   -s, --samples-dir <DIRECTORY>              Path to the samples directory
-//!   -t, --title <TITLE>                        Song title (quote multiple words)
-//!   -d, --date <DATE>                          Song release date (YYYY-MM-DD)
-//!   -a, --artist <ARTIST>                      Song artist (quote multiple words)
-//!   -f, --frontmatter-template <TEMPLATE>      Frontmatter template file
-//!   -w, --trailing-whiteline                   Append a trailig whiteline
-//!   -h, --help                                 Print help
-//!   -V, --version                              Print version
+//!   -s, --samples-dir <DIRECTORY>          Path to the samples directory
+//!   -t, --title <TITLE>                    Song title (quote multiple words)
+//!   -d, --date <DATE>                      Song release date (YYYY-MM-DD)
+//!   -a, --artist <ARTIST>                  Song artist (quote multiple words)
+//!   -f, --frontmatter-template <TEMPLATE>  Optionally provide a frontmatter template file
+//!   -w, --trailing-whiteline               Optionally append a trailig whiteline
+//!   -h, --help                             Print help
+//!   -V, --version                          Print version
 //! ```
-//!
-//!  # Example
-//!
-//! Run against an Ableton imported samples directory
-//!
-//!  ```text
-//! freesound-credits -p Samples/Imported/ -t "Field Notes" -a "Aner Andros" -d 2025-01-09 -w
-//!  ```
 //!
 
 use chrono::NaiveDate;
@@ -53,7 +45,7 @@ pub fn run_app(args: &cli::Cli) -> Result<(), AppError> {
             &args.title,
             &args.date,
             &args.artist,
-            &args.frontmatter_template
+            args.frontmatter_template.as_ref()
         )?
     )
     .map_err(|e| AppError::file_op(format!("Couldn't write frontmatter: {}", e)))?;
@@ -97,26 +89,37 @@ fn set_filename(song_title: &str) -> String {
     )
 }
 
-/// Generates frontmatter from template file with placeholder replacement
+/// Generates frontmatter from template file or uses default
 fn set_frontmatter(
     song_title: &str,
     song_date: &NaiveDate,
     song_artist: &str,
-    template_path: &PathBuf,
+    template_path: Option<&PathBuf>,
 ) -> Result<String, AppError> {
-    let template = std::fs::read_to_string(template_path).map_err(|e| {
-        AppError::file_op(format!(
-            "Couldn't read template file '{:?}': {}",
-            template_path, e
+    if let Some(path) = template_path {
+        let template = std::fs::read_to_string(path).map_err(|e| {
+            AppError::file_op(format!("Couldn't read template file '{:?}': {}", path, e))
+        })?;
+
+        let frontmatter = template
+            .replace("{song_title}", song_title)
+            .replace("{song_date}", &song_date.to_string())
+            .replace("{song_artist}", song_artist);
+
+        Ok(format!("+++\n{}\n+++\n\n", frontmatter))
+    } else {
+        Ok(format!(
+            "+++
+title=\"{song_title} Credits\"
+date={song_date}
+
+[taxonomies]
+tags=[\"Freesound\", \"{song_artist}\", \"Credits\"]
++++
+
+"
         ))
-    })?;
-
-    let frontmatter = template
-        .replace("{song_title}", song_title)
-        .replace("{song_date}", &song_date.to_string())
-        .replace("{song_artist}", song_artist);
-
-    Ok(format!("+++\n{}\n+++\n\n", frontmatter))
+    }
 }
 
 /// Creates markdown credits section with Creative Commons notice
@@ -257,26 +260,15 @@ mod tests {
 
     #[test]
     fn check_frontmatter() {
-        use std::env;
-        use std::fs;
-
-        let temp_dir = env::temp_dir().join("freesound_default_test");
-        fs::create_dir_all(&temp_dir).unwrap();
-
-        let template_path = temp_dir.join("default.toml");
-        fs::write(&template_path, "title=\"{song_title} Credits\"\ndate={song_date}\n\n[taxonomies]\ntags=[\"Freesound\", \"{song_artist}\", \"Credits\"]").unwrap();
-
         let song_title = "Field Notes";
         let song_artist = "Aner Andros";
         let song_date = NaiveDate::from_ymd_opt(2015, 1, 9).unwrap();
 
-        let result = set_frontmatter(song_title, &song_date, song_artist, &template_path).unwrap();
+        let result = set_frontmatter(song_title, &song_date, song_artist, None).unwrap();
 
         assert!(result.contains("title=\"Field Notes Credits\""));
         assert!(result.contains("date=2015-01-09"));
         assert!(result.contains("tags=[\"Freesound\", \"Aner Andros\", \"Credits\"]"));
-
-        fs::remove_dir_all(&temp_dir).unwrap();
     }
 
     #[test]
@@ -314,7 +306,8 @@ Commons](https://creativecommons.org) license:
         let song_artist = "Test Artist";
         let song_date = NaiveDate::from_ymd_opt(2023, 5, 15).unwrap();
 
-        let result = set_frontmatter(song_title, &song_date, song_artist, &template_path).unwrap();
+        let result =
+            set_frontmatter(song_title, &song_date, song_artist, Some(&template_path)).unwrap();
 
         assert!(result.contains("title=\"Test Song Custom\""));
         assert!(result.contains("date=2023-05-15"));

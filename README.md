@@ -53,8 +53,11 @@ freesound-credits -h
 
 ### Default template
 
-By default, `freesound-credits` will use the following template. You can
-customize the template per your needs, **as long as you use the expected
+By default, `freesound-credits` will use the following template. This is
+hardcoded into the `set_frontmatter` function, to facilitate usage without
+needing files lying around users' filesystem.
+
+You can customize the template per your needs, **as long as you use the expected
 variables**, then save it and use it with the `-f` command option. If necessary,
 use the absolute path to the template.
 
@@ -74,13 +77,21 @@ tags=["Freesound", "{song_artist}", "Credits", "Custom"]
 3. Run `freesound-credits` on your desired samples folder.
 4. If necessary, use the absolute path to the samples folder.
 
+```bash
+# Uses default frontmatter
+freesound-credits -s samples/ -t "My Song" -d 2023-05-15 -a "Artist" -w
+
+# Uses custom template
+freesound-credits -s samples/ -t "My Song" -d 2023-05-15 -a "Artist" -w -f template.toml
+```
+
 #### Ableton Example
 
 Running against an Ableton `Samples/Imported` directory, will generate a
 markdown file named `field-notes-credits.md` in the current directory.
 
 ```bash
-freesound-credits -s Samples/Imported/ -t "Field Notes" -a "Aner Andros" -d 2025-01-09 -w -f default-template.toml
+freesound-credits -s Samples/Imported/ -t "My Song" -a "Artist" -d 2023-05-13 -w -f template.toml
 ```
 
 ## Supported filenames
