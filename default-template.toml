@@ -1,6 +1,0 @@
-title="{song_title} Credits"
-date={song_date}
-author="{song_artist}"
-
-[taxonomies]
-tags=["Freesound", "{song_artist}", "Credits", "Custom"]
