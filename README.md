@@ -12,27 +12,56 @@ samples for a given project more easily.
 [![License:
 Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-## Giving credits
+## Rationale
 
 Giving credits in the [Creative Commons](https://creativecommons.org) community
-is often the sole requirement to freely use samples in your own creations. This
-tool helps you abide to [Copyleft](https://en.wikipedia.org/wiki/Copyleft) and
-credit the generous artists that contribute sounds on
-[Freesound](https://freesound.org), helping you being more creative.
+is often the sole requirement to freely use samples in your creations. This tool
+helps you abide to [Copyleft](https://en.wikipedia.org/wiki/Copyleft) and credit
+the generous artists whom contribute to [Freesound](https://freesound.org),
+helping your creativity.
 
-Until today, giving credits may have been a process that you begrudged. This may
-have been stopping you from giving credits altogether. Not because you didn't
-want to, but because it was cumbersome and tedious.
+Giving credits may have been a cumbersome and tedious process you begrudged.
+This may have been stopping you from giving credits altogether. Not anymore!
 
-Not anymore! Thanks to `freesound-credits` it takes seconds now!
+Thanks to `freesound-credits` it takes seconds now! Read on for instructions.
 
 ## Install
+
+> [!NOTE]
+>
+> Currently the latest crates.io and releases tags do not match due to a
+> [cargo dist bug](https://github.com/axodotdev/cargo-dist/issues/190). Once
+> this is solved upstream, I will publish
+> [the refactored](https://github.com/andreacfromtheapp/freesound-credits/tree/refactor-and-v1.0)
+> code and release version 1.0 as I'm pretty happy with the new codebase
+> maturity and feature-wise.
+>
+> For the time being GitHub builds fail while crates.io has the latest tag. This
+> mismatch makes installing with cargo and homebrew fail. However, no
+> functionality is lost. Newer tags only comprised minor changes and Dependabot
+> merges. You can keep using whatever release you already have or download from
+> the release page.
+>
+> Once version 1.0 is released, all things will be back to normal. Apologies.
+
+### Releases
+
+All currently available builds for Linux, macOS, and Windows, are available on
+[the releases page](https://github.com/andreacfromtheapp/freesound-credits/releases)
+
+### Cargo
 
 Use [`cargo binstall`](https://github.com/cargo-bins/cargo-binstall) to install
 `freesound-credits` directly from GitHub:
 
 ```shell
 cargo binstall freesound-credits
+```
+
+To compile `freesound-credits` from source, run:
+
+```shell
+cargo install freesound-credits
 ```
 
 ### Homebrew
@@ -53,13 +82,11 @@ freesound-credits -h
 
 ### Default template
 
-By default, `freesound-credits` will use the following template. This is
-hardcoded into the `set_frontmatter` function, to facilitate usage without
-needing files lying around users' filesystem.
-
-You can customize the template per your needs, **as long as you use the expected
-variables**, then save it and use it with the `-f` command option. If necessary,
-use the absolute path to the template.
+By default, `freesound-credits` will use the following template, to use with
+[Zola's](https://www.getzola.org/) front-matter. This is hardcoded into the
+`set_frontmatter` function, to facilitate usage without needing unnecessary
+files on users' filesystem. Unless a user wants to use and manage a custom
+template.
 
 ```toml
 title="{song_title} Credits"
@@ -67,8 +94,21 @@ date={song_date}
 author="{song_artist}"
 
 [taxonomies]
-tags=["Freesound", "{song_artist}", "Credits", "Custom"]
+tags=["Freesound", "{song_artist}", "Credits""]
 ```
+
+### Custom template
+
+You can customize the template per your needs, then save it and use it with the
+`-f` command option. If necessary, use the absolute path to the template. The
+template **must** be saved as a [TOML](https://toml.io/en/) file.
+
+> [!IMPORTANT]
+>
+> When customizing the template, you must use the expected variables within the
+> template:
+>
+> `{song_title}`, `{song_date}`, and `{song_artist}`
 
 ### Usage example
 
@@ -76,19 +116,21 @@ tags=["Freesound", "{song_artist}", "Credits", "Custom"]
 2. `cd` to the folder where you want to save the credits file.
 3. Run `freesound-credits` on your desired samples folder.
 4. If necessary, use the absolute path to the samples folder.
+5. If necessary, use the absolute path to the custom template.
 
 ```bash
 # Uses default frontmatter
 freesound-credits -s samples/ -t "My Song" -d 2023-05-15 -a "Artist" -w
 
-# Uses custom template
+# Uses a custom template
 freesound-credits -s samples/ -t "My Song" -d 2023-05-15 -a "Artist" -w -f template.toml
 ```
 
 #### Ableton Example
 
 Running against an Ableton `Samples/Imported` directory, will generate a
-markdown file named `field-notes-credits.md` in the current directory.
+markdown file named `field-notes-credits.md` in the directory where the command
+is run.
 
 ```bash
 freesound-credits -s Samples/Imported/ -t "My Song" -a "Artist" -d 2023-05-13 -w -f template.toml
@@ -119,11 +161,13 @@ add more DAWs and associated metadata or extraction, please
 ### Adding more DAWs
 
 I did the best I could with what I have. I've tested it with Ableton, Reaper,
-and Renoise projects on macOS. Logic Pro X uses no metadata and a clean Audio
-files folder, thus I decided to add it but it hasn't been tested.
+and Renoise projects on macOS.
 
-However, any DAW with these characteristics should work out of the box. I would
-appreciate anybody confirming more DAWs or
+Logic Pro X uses no metadata and a clean audio files folder, thus I decided to
+add it but it hasn't been tested. However, any DAW with these characteristics
+should work out of the box.
+
+I would appreciate anybody confirming more DAWs or
 [adding new ones](https://github.com/andreacfromtheapp/freesound-credits/issues/new?assignees=&labels=enhancement&projects=&template=add_a_new_daw.yml&title=feat%28DAW%29%3A+add+).
 When you do request or add a new DAW, please keep the
 [above table](#supported-daws) and the [extra steps](#extra-daws-steps) section

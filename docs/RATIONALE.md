@@ -66,8 +66,8 @@ legacy and stagnation, as `AppSec` best practices dictate.
 Besides standardized [tooling](https://www.rust-lang.org/tools) and
 [conventions](https://doc.rust-lang.org/beta/style-guide/index.html), default
 `rustfmt` and `clippy`, this project relies on [RustSec](https://rustsec.org) to
-inspect supply chain, and [`trufflehog`](https://trufflesecurity.com) to avoid
-sharing secrets in the code base. Likewise, this project relies on
+inspect supply chain, and [`kingfisher`](https://github.com/mongodb/kingfisher)
+to avoid sharing secrets in the codebase. Likewise, this project relies on
 [`markdownlint-cli2`](https://github.com/DavidAnson/markdownlint-cli2) and
 [`pre-commit-hooks`](https://github.com/pre-commit/pre-commit-hooks). All
 conveniently enforced with [Git Hooks](https://githooks.com).
@@ -82,6 +82,6 @@ this purpose, this project relies on
 handle dependency updates,
 [semantic version management](https://release-plz.ieni.dev/docs/semver-check),
 and [crates.io](https://crates.io) releases. Upon successful pipelines,
-`release-plz` invokes [cargo-dist](https://opensource.axo.dev/cargo-dist/) to
+`release-plz` invokes [cargo-dist](https://github.com/axodotdev/cargo-dist) to
 create GitHub releases and packaging for various platforms, along with binary
 artifacts and installers.
