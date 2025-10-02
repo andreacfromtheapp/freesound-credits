@@ -22,8 +22,7 @@ helping your creativity.
 
 Giving credits may have been a cumbersome and tedious process you begrudged.
 This may have been stopping you from giving credits altogether. Not anymore!
-
-Thanks to `freesound-credits` it takes seconds now! Read on for instructions.
+Thanks to `freesound-credits` it takes seconds now!
 
 ## Install
 
@@ -66,10 +65,14 @@ freesound-credits -h
 ### Default template
 
 By default, `freesound-credits` will use the following template, to use with
-[Zola's](https://www.getzola.org/) front-matter. This is hardcoded into the
+[Zola's](https://www.getzola.org/) frontmatter. This is hardcoded into the
 `set_frontmatter` function, to facilitate usage without needing unnecessary
-files on users' filesystem. Unless a user wants to use and manage a custom
-template.
+files on users' filesystem.
+
+> [!NOTE]
+>
+> When defining a custom template, omit the opening and closing TOML frontmatter
+> +++ characters. They are taken care of in the `set_frontmatter` function.
 
 ```toml
 title="{song_title} Credits"
@@ -101,11 +104,15 @@ template **must** be saved as a [TOML](https://toml.io/en/) file.
 4. If necessary, use the absolute path to the samples folder.
 5. If necessary, use the absolute path to the custom template.
 
-```bash
-# Uses default frontmatter
-freesound-credits -s samples/ -t "My Song" -d 2023-05-15 -a "Artist" -w
+#### Uses default frontmatter
 
-# Uses a custom template
+```bash
+freesound-credits -s samples/ -t "My Song" -d 2023-05-15 -a "Artist" -w
+```
+
+#### Uses a custom template
+
+```bash
 freesound-credits -s samples/ -t "My Song" -d 2023-05-15 -a "Artist" -w -f template.toml
 ```
 
@@ -116,7 +123,7 @@ markdown file named `field-notes-credits.md` in the directory where the command
 is run.
 
 ```bash
-freesound-credits -s Samples/Imported/ -t "My Song" -a "Artist" -d 2023-05-13 -w -f template.toml
+freesound-credits -s Samples/Imported/ -t "My Song" -a "Artist" -d 2023-05-13 -w
 ```
 
 ## Supported filenames
