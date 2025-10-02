@@ -36,9 +36,9 @@ For any issue, the three fundamental ways an individual can contribute:
    issue, or ensuring that the issue has appropriate tags.
 
 3. By helping to resolve the issue: Typically either in the form of
-   demonstrating that the issue reported ain't a problem after all, or more
+   demonstrating that the issue reported ain't a problem after all. Or more
    often, by opening a Pull Request that changes some bit of something in a
-   concrete and reviewable manner.
+   concrete and review-able manner.
 
 **Anybody can partake in any stage of contribution**. This project encourages
 you to partake in the discussion around bugs and partake in reviewing pull
@@ -104,17 +104,10 @@ them, read more about it [in the Rationale](/docs/RATIONALE.md#local-tooling).
 
 - If necessary, [set up Rust](https://www.rust-lang.org/tools/install) with
   `rustup`: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
-- Install
-  [`cargo auditable`](https://github.com/rust-secure-code/cargo-auditable):
-  `cargo install cargo-auditable --locked`
-  - Set up a
-    [shell alias for `cargo auditable`](https://github.com/rust-secure-code/cargo-auditable?tab=readme-ov-file#can-i-make-cargo-always-build-with-cargo-auditable)
-- Install [`cargo deny`](https://embarkstudios.github.io/cargo-deny/):
-  `cargo install cargo-deny --locked`
-- Install [`trufflehog`](https://trufflesecurity.com/trufflehog):
-  `brew install trufflehog`
+- Install [`kingfisher`](https://github.com/mongodb/kingfisher):
+  `brew install kingfisher`
   - Otherwise, download a binary from
-    [`trufflehog` release page](https://github.com/trufflesecurity/trufflehog/releases).
+    [`kingfisher` release page](https://github.com/mongodb/kingfisher/releases).
 - Install [`pre-commit`](https://pre-commit.com): `pip install pre-commit`
 
 ### Making changes locally
