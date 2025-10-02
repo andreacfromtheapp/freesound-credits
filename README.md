@@ -27,23 +27,6 @@ Thanks to `freesound-credits` it takes seconds now! Read on for instructions.
 
 ## Install
 
-> [!NOTE]
->
-> Currently the latest crates.io and releases tags do not match due to a
-> [cargo dist bug](https://github.com/axodotdev/cargo-dist/issues/190). Once
-> this is solved upstream, I will publish
-> [the refactored](https://github.com/andreacfromtheapp/freesound-credits/tree/refactor-and-v1.0)
-> code and release version 1.0 as I'm pretty happy with the new codebase
-> maturity and feature-wise.
->
-> For the time being GitHub builds fail while crates.io has the latest tag. This
-> mismatch makes installing with cargo and homebrew fail. However, no
-> functionality is lost. Newer tags only comprised minor changes and Dependabot
-> merges. You can keep using whatever release you already have or download from
-> the release page.
->
-> Once version 1.0 is released, all things will be back to normal. Apologies.
-
 ### Releases
 
 All currently available builds for Linux, macOS, and Windows, are available on
