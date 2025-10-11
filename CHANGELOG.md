@@ -3,63 +3,6 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
-## [Unreleased]
-
-## [0.2.34](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.33...v0.2.34)
-
-### ⚙️ Miscellaneous Tasks
-
-- Update Cargo.lock dependencies - ([0000000](https://github.com/andreacfromtheapp/freesound-credits/commit/0000000))
-
-## [0.2.31](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.30...v0.2.31)
-
-### 🐛 Bug Fixes
-
-- Del custom runners but top level ([#120](https://github.com/andreacfromtheapp/freesound-credits/pull/120)) - ([a0fe93f](https://github.com/andreacfromtheapp/freesound-credits/commit/a0fe93f526a77861228491113709cb5a54313b1e))
-
-## [0.2.30](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.29...v0.2.30)
-
-### 🐛 Bug Fixes
-
-- Cargo dist ubuntu latest ([#117](https://github.com/andreacfromtheapp/freesound-credits/pull/117)) - ([01350a1](https://github.com/andreacfromtheapp/freesound-credits/commit/01350a14efbd8577e5dce7ea714e38f930e7333d))
-
-## [0.2.29](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.28...v0.2.29)
-
-### ⚙️ Miscellaneous Tasks
-
-- Update Cargo.lock dependencies - ([0000000](https://github.com/andreacfromtheapp/freesound-credits/commit/0000000))
-
-## [0.2.28](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.27...v0.2.28)
-
-### ⚙️ Miscellaneous Tasks
-
-- Md fixes and resolver 3 ([#108](https://github.com/andreacfromtheapp/freesound-credits/pull/108)) - ([eb0fc4c](https://github.com/andreacfromtheapp/freesound-credits/commit/eb0fc4cdb7ffa8a5c02428a754b0bbef12667a1c))
-- Rustup 2024 edition ([#105](https://github.com/andreacfromtheapp/freesound-credits/pull/105)) - ([22010db](https://github.com/andreacfromtheapp/freesound-credits/commit/22010db13f7fa91cc49a6afda11cf947fcbe8f31))
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to
-[Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
-## [Unreleased]
-
-## [0.2.27](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.26...v0.2.27)
-
-### ⚙️ Miscellaneous Tasks
-
-- Del spellcheck + md fixes + minor changes (#104) -
-  ([0617c36](https://github.com/andreacfromtheapp/freesound-credits/commit/0617c3689a4ddd4a8e54129359a4ede5d3069c11))
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
@@ -69,12 +12,61 @@ and this project adheres to
 
 ### 🐛 Bug Fixes
 
-- Release-plz work? - ([5123c38](https://github.com/andreacfromtheapp/freesound-credits/commit/5123c38f8a2c6edea0a38c523728cbe95a447e38))
+- Release-plz work? -
+  ([5123c38](https://github.com/andreacfromtheapp/freesound-credits/commit/5123c38f8a2c6edea0a38c523728cbe95a447e38))
 
 ### ⚙️ Miscellaneous Tasks
 
-- New pre-commit - ([8e2f7af](https://github.com/andreacfromtheapp/freesound-credits/commit/8e2f7af5129c488bf73080b9fbb0ca6c0d355107))
+- New pre-commit -
+  ([8e2f7af](https://github.com/andreacfromtheapp/freesound-credits/commit/8e2f7af5129c488bf73080b9fbb0ca6c0d355107))
 
+## [0.2.34](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.33...v0.2.34)
+
+### ⚙️ Miscellaneous Tasks
+
+- Update Cargo.lock dependencies -
+  ([0000000](https://github.com/andreacfromtheapp/freesound-credits/commit/0000000))
+
+## [0.2.31](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.30...v0.2.31)
+
+### 🐛 Bug Fixes
+
+- Del custom runners but top level
+  ([#120](https://github.com/andreacfromtheapp/freesound-credits/pull/120)) -
+  ([a0fe93f](https://github.com/andreacfromtheapp/freesound-credits/commit/a0fe93f526a77861228491113709cb5a54313b1e))
+
+## [0.2.30](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.29...v0.2.30)
+
+### 🐛 Bug Fixes
+
+- Cargo dist ubuntu latest
+  ([#117](https://github.com/andreacfromtheapp/freesound-credits/pull/117)) -
+  ([01350a1](https://github.com/andreacfromtheapp/freesound-credits/commit/01350a14efbd8577e5dce7ea714e38f930e7333d))
+
+## [0.2.29](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.28...v0.2.29)
+
+### ⚙️ Miscellaneous Tasks
+
+- Update Cargo.lock dependencies -
+  ([0000000](https://github.com/andreacfromtheapp/freesound-credits/commit/0000000))
+
+## [0.2.28](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.27...v0.2.28)
+
+### ⚙️ Miscellaneous Tasks
+
+- Md fixes and resolver 3
+  ([#108](https://github.com/andreacfromtheapp/freesound-credits/pull/108)) -
+  ([eb0fc4c](https://github.com/andreacfromtheapp/freesound-credits/commit/eb0fc4cdb7ffa8a5c02428a754b0bbef12667a1c))
+- Rustup 2024 edition
+  ([#105](https://github.com/andreacfromtheapp/freesound-credits/pull/105)) -
+  ([22010db](https://github.com/andreacfromtheapp/freesound-credits/commit/22010db13f7fa91cc49a6afda11cf947fcbe8f31))
+
+## [0.2.27](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.26...v0.2.27)
+
+### ⚙️ Miscellaneous Tasks
+
+- Del spellcheck + md fixes + minor changes (#104) -
+  ([0617c36](https://github.com/andreacfromtheapp/freesound-credits/commit/0617c3689a4ddd4a8e54129359a4ede5d3069c11))
 
 ## [0.2.26](https://github.com/andreacfromtheapp/freesound-credits/compare/v0.2.25...v0.2.26)
 
