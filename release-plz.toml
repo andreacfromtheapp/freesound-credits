@@ -24,8 +24,6 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-
 """
 
 body = """
@@ -38,10 +36,12 @@ body = """
 
 {% if version %}\
     {% if previous.version %}\
-        ## [{{ version | trim_start_matches(pat="v") }}]({{ release_link }})
+        ## [{{ version }}]({{ release_link }})
     {% else %}\
-        ## [{{ version | trim_start_matches(pat="v") }}]
+        ## [{{ version }}]
     {% endif %}\
+{% else %}\
+    ## [Unreleased]
 {% endif %}\
 
 {% for group, commits in commits
@@ -49,6 +49,7 @@ body = """
 | unique(attribute="message")
 | group_by(attribute="group") %}
     ### {{ group | striptags | trim | upper_first }}
+
     {% for commit in commits
     | filter(attribute="scope")
     | sort(attribute="scope") %}
@@ -61,6 +62,8 @@ body = """
         {% endif -%}
     {% endfor -%}
 {% endfor %}\n
+
+
 """
 
 commit_parsers = [
@@ -84,10 +87,6 @@ commit_parsers = [
 ]
 
 link_parsers = [
-  # Extract all issues and PRs and generate URLs linking to them.
-  # The link text will be the matching pattern.
   { pattern = "#(\\d+)", href = "{{ remote.link }}/issues/$1" },
-  # Extract mentions of IETF RFCs and generate URLs linking to them.
-  # It also rewrites the text as "ietf-rfc...".
   { pattern = "RFC(\\d+)", text = "ietf-rfc$1", href = "https://datatracker.ietf.org/doc/html/rfc$1" },
 ]
