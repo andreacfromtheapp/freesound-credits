@@ -169,7 +169,7 @@ checksum = "1ced73b1dacfc750a6db6c0a0c3a3853c8b41997e2e2c563dc90804ae6867959"
 
 [[package]]
 name = "freesound-credits"
-version = "0.2.35"
+version = "1.0.0"
 dependencies = [
  "anyhow",
  "chrono",

@@ -26,7 +26,7 @@ pub struct Cli {
     #[arg(short, long, value_name("TEMPLATE"))]
     pub frontmatter_template: Option<PathBuf>,
 
-    /// Optionally append a trailig whiteline
+    /// Optionally append a trailing whiteline
     #[arg(short('w'), long)]
     pub trailing_whiteline: bool,
 }

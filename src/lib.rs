@@ -13,18 +13,19 @@
 //!   -d, --date <DATE>                      Song release date (YYYY-MM-DD)
 //!   -a, --artist <ARTIST>                  Song artist (quote multiple words)
 //!   -f, --frontmatter-template <TEMPLATE>  Optionally provide a frontmatter template file
-//!   -w, --trailing-whiteline               Optionally append a trailig whiteline
+//!   -w, --trailing-whiteline               Optionally append a trailing whiteline
 //!   -h, --help                             Print help
 //!   -V, --version                          Print version
 //! ```
 //!
 
 use chrono::NaiveDate;
-use error::AppError;
 use std::path::{Path, PathBuf};
 
 pub mod cli;
+
 pub mod error;
+use error::AppError;
 
 pub fn run_app(args: &cli::Cli) -> Result<(), AppError> {
     use std::io::Write;
