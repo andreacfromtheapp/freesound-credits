@@ -9,7 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### ⛰️ Features
 
-- Add git cliff.toml w/ styled and scoped template - ([517cba1](https://github.com/andreacfromtheapp/freesound-credits/commit/517cba1e0467f316faf46f157769d9c2183f16e1))
+- New rlz-plz gh action from official docs - ([b51be24](https://github.com/andreacfromtheapp/freesound-credits/commit/b51be2400574791d95ceb99ea0ee037dd81788a0))
+- Match release-plz <> cliff.toml styled and scoped - ([703660d](https://github.com/andreacfromtheapp/freesound-credits/commit/703660d019a884b101c9b3cf4ec674fe69cfa587))
+- Add git cliff.toml w/ styled and scoped template - ([c16670c](https://github.com/andreacfromtheapp/freesound-credits/commit/c16670cf4f137bba4646d5753b71e483752e15ae))
 - [**breaking**] Bump cargo.toml to 1.0 - ([697d37b](https://github.com/andreacfromtheapp/freesound-credits/commit/697d37b90d0e2bb3a71d7d80080a6f1ddaedac1f))
 - Add more tests to cover more than the happy path - ([8d4d779](https://github.com/andreacfromtheapp/freesound-credits/commit/8d4d7798104234a726bbb7c5adfbd989e62d376d))
 - [**breaking**] Revert to hardcoded template for now - ([cb34e68](https://github.com/andreacfromtheapp/freesound-credits/commit/cb34e68e1c46d8ceed910ae73febaeb9576eac42))
@@ -17,6 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### 🐛 Bug Fixes
 
+- Dist plan updated v1.0.0 - ([6177739](https://github.com/andreacfromtheapp/freesound-credits/commit/6177739b36f2d634c6e33bdce0e7fb3e4f9e4d53))
+- Changelog mess with cliff - ([6557404](https://github.com/andreacfromtheapp/freesound-credits/commit/6557404bbfe03cf911a60bcb3d24f285f745ff20))
 - Changelog mess - ([2268418](https://github.com/andreacfromtheapp/freesound-credits/commit/2268418dcf5d0ad27544d4dfd283d02d73e88888))
 - Cargo dist release.yml gen uses v4 - ([7bbf06c](https://github.com/andreacfromtheapp/freesound-credits/commit/7bbf06cfbbd520d3a2b26d0cf66ae8c472ecfbd9))
 
