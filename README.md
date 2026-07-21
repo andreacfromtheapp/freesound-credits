@@ -1,4 +1,4 @@
-# Freesound credits
+# Freesound Credits
 
 A command line utility to help you credit [Freesound](https://freesound.org)
 samples for a given project more easily.
@@ -62,17 +62,18 @@ The command line comes with a straight-forward usage function:
 freesound-credits -h
 ```
 
-### Default template
+### Default Template
 
 By default, `freesound-credits` will use the following template, to use with
-[Zola's](https://www.getzola.org/) frontmatter. This is hardcoded into the
+[Zola's](https://www.getzola.org/) front matter. This is hardcoded into the
 `set_frontmatter` function, to facilitate usage without needing unnecessary
 files on users' filesystem.
 
 > [!NOTE]
 >
-> When defining a custom template, omit the opening and closing TOML frontmatter
-> +++ characters. They are taken care of in the `set_frontmatter` function.
+> When defining a custom template, omit the opening and closing TOML front
+> matter +++ characters. They are taken care of in the `set_frontmatter`
+> function. Beware of quotes as well, YMMV.
 
 ```toml
 title="{song_title} Credits"
@@ -80,10 +81,10 @@ date={song_date}
 author="{song_artist}"
 
 [taxonomies]
-tags=["Freesound", "{song_artist}", "Credits""]
+tags=["Freesound", "{song_artist}", "Credits"]
 ```
 
-### Custom template
+### Custom Template
 
 You can customize the template per your needs, then save it and use it with the
 `-f` command option. If necessary, use the absolute path to the template. The
@@ -96,7 +97,7 @@ template **must** be saved as a [TOML](https://toml.io/en/) file.
 >
 > `{song_title}`, `{song_date}`, and `{song_artist}`
 
-### Usage example
+### Usage Example
 
 1. Open your favorite terminal.
 2. `cd` to the folder where you want to save the credits file.
@@ -104,16 +105,16 @@ template **must** be saved as a [TOML](https://toml.io/en/) file.
 4. If necessary, use the absolute path to the samples folder.
 5. If necessary, use the absolute path to the custom template.
 
-#### Uses default frontmatter
+#### Default Front Matter
 
 ```bash
-freesound-credits -s samples/ -t "My Song" -d 2023-05-15 -a "Artist" -w
+freesound-credits -s samples/ -t "My Song" -d 2023-05-15 -a "Artist"
 ```
 
-#### Uses a custom template
+#### Custom Template
 
 ```bash
-freesound-credits -s samples/ -t "My Song" -d 2023-05-15 -a "Artist" -w -f template.toml
+freesound-credits -s samples/ -t "My Song" -d 2023-05-15 -a "Artist" -f template.toml
 ```
 
 #### Ableton Example
@@ -123,10 +124,10 @@ markdown file named `field-notes-credits.md` in the directory where the command
 is run.
 
 ```bash
-freesound-credits -s Samples/Imported/ -t "My Song" -a "Artist" -d 2023-05-13 -w
+freesound-credits -s Samples/Imported/ -t "My Song" -a "Artist" -d 2023-05-13
 ```
 
-## Supported filenames
+## Supported Filenames
 
 `freesound-credits` matches samples adhering to Freesound naming standard that
 kept their original samples names per downloads from the platform. For example:
@@ -148,7 +149,7 @@ add more DAWs and associated metadata or extraction, please
 |   Renoise   |   `SamplesData`    |     no      |  `unzip`   |                [extraction](#renoise-extraction)                 |
 | Logic Pro X |   `Audio Files`    |     no      |     no     | [Package vs Folder](https://www.youtube.com/watch?v=33zVydB4MiI) |
 
-### Adding more DAWs
+### Adding More DAWs
 
 I did the best I could with what I have. I've tested it with Ableton, Reaper,
 and Renoise projects on macOS.
@@ -163,15 +164,14 @@ When you do request or add a new DAW, please keep the
 [above table](#supported-daws) and the [extra steps](#extra-daws-steps) section
 in mind for any extra information.
 
-## Extra DAWs steps
+## Extra DAWs Steps
 
-### Renoise extraction
+### Renoise Extraction
 
 Extract with `unzip your_project.xrns` first. Once unzipped, you will find a
 `Song.xml` file and a `SamplesData` directory containing each `Instrument`.
 
 ## Contributing
 
-Thanks for your help improving the project! :balloon: Happy to have you! Peruse
-the [contributing guide](./docs/CONTRIBUTING.md) to help you get involved in the
-project.
+Thanks for your help improving the project. Happy to have you. See the
+[contributing guide](./docs/CONTRIBUTING.md) to get involved in the project.
