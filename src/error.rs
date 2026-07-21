@@ -9,7 +9,7 @@ pub enum AppErrorKind {
     #[error("I/O error: {0}")]
     Io(#[from] std::io::Error),
 
-    #[error("File operation failed: {0}")]
+    #[error("File operation error: {0}")]
     FileOperation(String),
 
     #[error("Sample parsing error: {0}")]
@@ -18,8 +18,11 @@ pub enum AppErrorKind {
     #[error("Directory access error: {0}")]
     DirectoryAccess(String),
 
-    #[error("Invalid sample format: {0}")]
+    #[error("Invalid sample error: {0}")]
     InvalidSample(String),
+
+    #[error("Invalid input error: {0}")]
+    InvalidInput(String),
 }
 
 impl AppError {
@@ -37,6 +40,10 @@ impl AppError {
 
     pub fn invalid_sample(msg: impl Into<String>) -> Self {
         Self(AppErrorKind::InvalidSample(msg.into()).into())
+    }
+
+    pub fn invalid_input(msg: impl Into<String>) -> Self {
+        Self(AppErrorKind::InvalidInput(msg.into()).into())
     }
 }
 
