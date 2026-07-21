@@ -7,8 +7,8 @@ use std::path::PathBuf;
 #[command(version, about, long_about = None)]
 pub struct Cli {
     /// Path to the samples directory
-    #[arg(short, long, value_name("DIRECTORY"))]
-    pub samples_dir: PathBuf,
+    #[arg(short, long, value_name("PATH"))]
+    pub samples: PathBuf,
 
     /// Song title (quote multiple words)
     #[arg(short, long)]
@@ -22,11 +22,7 @@ pub struct Cli {
     #[arg(short, long)]
     pub artist: String,
 
-    /// Optionally provide a frontmatter template file
+    /// Optionally provide a frontmatter template
     #[arg(short, long, value_name("TEMPLATE"))]
-    pub frontmatter_template: Option<PathBuf>,
-
-    /// Optionally append a trailing whiteline
-    #[arg(short('w'), long)]
-    pub trailing_whiteline: bool,
+    pub frontmatter: Option<PathBuf>,
 }
